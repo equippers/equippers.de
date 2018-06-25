@@ -1,0 +1,29 @@
+.smallgroups
+		.s-group-grid
+			makeGrid(1fr)
+
+			@media (min-width: $tablet-breakpoint)
+				grid-template-columns: repeat(2, 1fr)
+
+			@media (min-width: $desktop-breakpoint)
+				grid-template-columns: repeat(3, 1fr)
+
+		.s-group
+			display: block;
+			border: 1px solid #e0e3e5;
+			border-radius: 4px;
+			background-color: #f0f1f2;
+			margin-bottom: 1em;
+			padding: 1em 0.75em;
+
+			.h4
+				font-size: 1.25em;
+				font-weight: 600;
+				padding-bottom: 0;
+
+			.p
+				font-size: 0.7em;
+
+			.btn
+				font-size: 0.875em;
+				padding: 0.5em 1.5em;
