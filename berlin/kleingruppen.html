@@ -119,6 +119,7 @@ smallgroups:
     <h4 class="uppercase">Nächste Kleingruppen-Saison: 17. September bis 9. Dezember.</h4>
     <p>Hast du Fragen zu unseren Kleingruppen, dann wende dich an uns: kleingruppe@equippers.de. Wir kommen gern mit dir in Kontakt. Wenn du in der nächsten Saison eine eigene Kleingruppe anbieten möchtest, sprich uns gern sonntags nach dem Gottesdienst persönlich oder am Info-Punkt an.</p>
     </section>
+<<<<<<< 47597ca2325f650debdf04a8b3c2a0f96342d2f8
 <<<<<<< HEAD
     <section class="smallgroups padding-vertical">
     <div class="content">
@@ -129,6 +130,9 @@ smallgroups:
             <p>{{ group.date }}<br>Ort: {{ group.location }}{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
             <button class="button outline" href="https://google.com" onclick="alert('helloworld'); return false;">
 =======
+=======
+<<<<<<< 8c582490372dfe0ad6226528982bea8280b6f000
+>>>>>>> Adding small groups (test for now)
     <section class="communities padding-vertical">
     <div class="content">
       <div class="flex flex-wrap">
@@ -137,7 +141,20 @@ smallgroups:
             <h4>{{ group.name }}</h4>
             <p>{{ group.date }}<br>Ort: {{ group.location }}{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
             <button class="bg-green hover:bg-green-dark text-white py-2 px-4 rounded" href="https://google.com" onclick="alert('helloworld'); return false;">
+<<<<<<< 47597ca2325f650debdf04a8b3c2a0f96342d2f8
 >>>>>>> d0f51d6b622d573770807177b4504fde99a3282c
+=======
+=======
+    <section class="smallgroups padding-vertical">
+    <div class="content">
+      <div class="s-group-grid">
+        {% for group in page.smallgroups %}
+          <div class="s-group">
+            <h4>{{ group.name }}</h4>
+            <p>{{ group.date }}<br>Ort: {{ group.location }}{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
+            <button class="button outline" href="https://google.com" onclick="alert('helloworld'); return false;">
+>>>>>>> Adding small groups (test for now)
+>>>>>>> Adding small groups (test for now)
               Details & Anmeldung
             </button>
           </div>
