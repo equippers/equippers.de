@@ -1,6 +1,5 @@
 {% for event in include.events %}
-	<div class="dash"></div>
-	<h3 data-date="{{ event.date | date: '%s' }}">
+	<h3 class="top-dash" data-date="{{ event.date | date: '%s' }}">
 		<span class="uppercase">{{ event.date | date: '%e.%m.' }}</span> | {{ event.title }}
 	</h3>
 	{% if event.description %}<p data-date="{{ event.date | date: '%s' }}">

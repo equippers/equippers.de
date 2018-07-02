@@ -149,12 +149,13 @@ for i in (1..7)
 // --
 // Other
 
-.dash
+.top-dash::before
+	content: ''
 	display: block
-	width: 1.5em
-	height: 1px
-	background-color: $dark
-	margin-top: 2em
+	width: 2rem
+	margin-bottom: 0.75rem
+	margin-top: 2.5rem
+	border-top: 1px solid $dark
 
-.dark .dash
-	background-color: $light
+.dark .top-dash::before
+	border-top-color: $light
