@@ -104,11 +104,8 @@ connect:
 		</p>
 
 		<p>
-			<a
-				href="https://www.google.com/maps/dir/?api=1&destination={{ page.location | url_encode }}"
-				target="_blank"
-			>Anfahrt mit Google Maps</a>
-			<br>
+			<a href="https://www.google.com/maps/dir/?api=1&destination={{ page.location | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
+			<br />
 			{% if page.bvg_link != '' %}<a href="{{ page.bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
 		</p>
 	</div>
@@ -132,11 +129,7 @@ connect:
 
 <section class="promos dark">
 	{% for promo in page.promos %}
-		<a
-      href="{{ promo.link }}"
-      class="square {% if promo.overlay != false %}overlay{% endif %}"
-      style="background-image: url('{{ promo.background_image }}')"
-    >
+		<a href="{{ promo.link }}" class="square {% if promo.overlay != false %}overlay{% endif %}" style="background-image: url('{{ promo.background_image }}')">
 			<h2 class="uppercase no-margin">{{ promo.title }}</h2>
 			<p class="no-margin">{{ promo.subtitle }}</p>
 		</a>
@@ -145,7 +138,9 @@ connect:
 
 <section class="communities padding-vertical">
 	<div class="content">
-		<h1 class="editable">Werde Teil</h1>
+		<h1 class="editable">
+			Werde Teil unserer Familie
+		</h1>
 		<div class="grid">
 			{% for community in page.communities %}
 				<a href="{{ community.goes_to }}" class="card">
