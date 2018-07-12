@@ -1,0 +1,71 @@
+#modal-bg
+  z-index: 299;
+  display: none;
+  position: fixed;
+  background-color: rgba(0,0,0, 0.3);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+.modal
+  z-index: 300;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  .modal-content
+    position: relative;
+    width: 95%;
+    max-width: 40rem;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 1px 70px rgba(0, 0, 0, .5);
+    overflow: auto;
+
+    .btn
+      border-radius: 0;
+      width: 50%;
+      margin-right: -4px;
+      // margin-bottom: -2px;
+      padding: .75rem;
+
+    .modal-close
+      position: absolute;
+      line-height: 1;
+      font-size: 1.25rem;
+      right: 1rem;
+      top: 1rem;
+      cursor: pointer;
+      color: #b3b6b7;
+
+      &:hover
+        color: #363738;
+
+    h5
+      font-size: 1.25rem;
+      padding: 1.5rem;
+
+    form
+      padding-top: 1rem;
+
+    p, label, img
+      font-size: 1rem;
+      padding: 0 1.5rem;
+
+    label:last-of-type
+      padding-bottom: 1.5rem;
+
+    legend
+      display: block;
+      font-size: 1.125rem;
+      padding: 0 1.5rem;
+      text-decoration: underline;
+
+    input
+      width: 100%;
+
+    textarea
+      resize: none;
