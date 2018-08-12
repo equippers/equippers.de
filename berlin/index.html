@@ -2,43 +2,17 @@
 title: Equippers Berlin
 hero_image: /uploads/hero-1440.jpg
 service_time_: '11:00 Uhr'
-_locations:
-  - key: maritim
+location: maritim
+locations:
+  maritim:
     name: Maritim Hotel Berlin (Stauffenbergstraße 26)
     bvg_link: >-
       http://fahrinfo.vbb.de/bin/query.exe/dn?SID=@&ZID=A=2@O=10785%20Berlin-Tiergarten,%20Stauffenbergstr.%2026@U=103@L=770018679@B=1@V=3.9,@p=1524056779@@&timesel=arrive&date=20.05.2018&time=10:45&externalCall=yes&start=yes
-  - key: maritim-proarte
+  maritim-proarte:
     name: Maritim proArte Hotel Berlin (Friedrichstraße 151)
     bvg_link: >-
       http://fahrinfo.vbb.de/bin/query.exe/dn?SID=@&ZID=A=2@O=10117%20Berlin-Mitte,%20Friedrichstr.%20151@X=13388570@Y=52518389@U=103@L=770015582@B=1@V=3.9,@p=1524056779@@&timesel=arrive&date=08.07.2018&time=09:45&externalCall=yes&start=yes
-location: Maritim proArte Hotel Berlin (Friedrichstraße 151)
-bvg_link: >-
-  'http://fahrinfo.vbb.de/bin/query.exe/dn?SID=@&ZID=A=2@O=10117%20Berlin-Mitte,%20Friedrichstr.%20151@X=13388570@Y=52518389@U=103@L=770015582@B=1@V=3.9,@p=1524056779@@&timesel=arrive&date=08.07.2018&time=09:45&externalCall=yes&start=yes'
 events:
-  - title: Gottesdienst im Maritim proArte Hotel - Friedrichstraße
-    date: 2018-07-08 11:00:00 +0200
-    description: >-
-      Unser Veranstaltungsort für den 8. Juli ist das <a
-      href="https://goo.gl/maps/AsCKUFmbLyJ2" target="_blank">Maritim proArte
-      Hotel in der Friedrichstraße.</a>
-  - title: Gottesdienst im Maritim Hotel - Stauffenbergstraße
-    date: 2018-07-15 11:00:00 +0200
-    description: >-
-      Unser Veranstaltungsort für den 15. Juli ist das <a
-      href="https://goo.gl/maps/P7DkQBj2Vr72" target="_blank">Maritim Hotel in
-      der Stauffenbergstraße.</a>
-  - title: Gottesdienst im Maritim Hotel - Stauffenbergstraße
-    date: 2018-07-22 11:00:00 +0200
-    description: >-
-      Unser Veranstaltungsort für den 22. Juli ist das <a
-      href="https://goo.gl/maps/P7DkQBj2Vr72" target="_blank">Maritim Hotel in
-      der Stauffenbergstraße.</a>
-  - title: Gottesdienst im Maritim Hotel - Stauffenbergstraße
-    date: 2018-07-29 11:00:00 +0200
-    description: >-
-      Unser Veranstaltungsort für den 29. Juli ist das <a
-      href="https://goo.gl/maps/P7DkQBj2Vr72" target="_blank">Maritim Hotel in
-      der Stauffenbergstraße.</a>
   - title: Gottesdienst im Maritim proArte Hotel - Friedrichstraße
     date: 2018-08-05 11:00:00 +0200
     description: >-
@@ -117,13 +91,13 @@ connect:
 		<h2 class="editable no-margin-after">Gottesdienst diesen Sonntag:</h2>
 		<p>
 			<span class="light-font" style="font-size: 2.5em;">{{ page.service_time_ }}</span><br />
-			{{ page.location }}
+			{{ page.locations[page.location].name }}
 		</p>
 
 		<p>
-			<a href="https://www.google.com/maps/dir/?api=1&destination={{ page.location | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
+			<a href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
 			<br />
-			{% if page.bvg_link != '' %}<a href="{{ page.bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
+			{% if page.bvg_link != '' %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
 		</p>
 	</div>
 </section>
