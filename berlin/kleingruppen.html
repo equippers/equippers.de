@@ -87,8 +87,6 @@ smallgroups:
     img: dunns.jpg
 ---
 
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
-
 {% include hero.html options=page.hero %}
 
 <article>
@@ -106,7 +104,7 @@ smallgroups:
           <div class="s-group">
             <h4>{{ group.name }}</h4>
             <p>{{ group.date }}<br>Ort: {{ group.location }}{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
-            <button class="button outline" href="https://google.com" onclick="alert('helloworld'); return false;">
+            <button class="button outline" href="https://google.com" onclick="toggleModal('group-modal-{{ group.id }}', 'on'); return false;">
               Melde dich an!
             </button>
           </div>
@@ -122,7 +120,7 @@ smallgroups:
     <div class="modal-content">
         <div class="modal-close">X</div>
         <h5>{{ g.name }}</h5>
-        {% if g.img %}<img style="max-width:16rem" src="{{ page.route }}/{{ g.img }}" alt="Profile">{% endif %}
+        {% if g.img %}<img style="max-width:16rem" src="{{ page.route }}/uploads/{{ g.img }}" alt="Profile">{% endif %}
         <p>
             <strong>Beschreibung:</strong> {{ g.description }}<br>
             <strong>Leiter:</strong> {{ g.leader }}<br>
@@ -164,7 +162,7 @@ smallgroups:
             <p class="form-msg">&nbsp;</p>
 
             <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('group-modal-{{ g.id }}', 'off');">
-            <input type="submit" value="Senden">
+            <input class="btn btn-blue" type="submit" value="Senden">
             {% comment %}
             Perhaps try a google captcha
             {% endcomment %}
@@ -173,6 +171,48 @@ smallgroups:
     </div>
 </div>
 {% endfor %}
-
 </article>
+
+<script>
+  function toggleModal(id, status)
+  {
+    try { // just in case the modal background div is missing
+        document.getElementById('modal-bg').style.display = (status == 'on') ? 'block' : 'none';
+    } catch (e) {};
+    document.getElementById(id).style.display = (status == 'on') ? 'block' : 'none';
+    var st = document.body.scrollTop || document.documentElement.scrollTop;
+    var ch = document.documentElement.clientHeight;
+    var mh = document.getElementById(id).clientHeight;
+    t = (mh > ch) ? st + 10 : st + Math.round((ch - mh)/2);
+    document.getElementById(id).style.top = t + 'px';
+  }
+
+  // toggle modals off on modal background or modal close click
+  var modalList = document.querySelectorAll('.modal, .modal-close');
+  for (var i = 0; i < modalList.length; i++) {
+      if (modalList[i].classList[0] == 'modal-close') {
+          modalList[i].onclick = function() { toggleModal(this.parentNode.parentNode.id, 'off'); }
+      } else {
+          modalList[i].onclick = function() { toggleModal(this.id, 'off'); }
+      }
+  }
+
+  // to support IE <= 8
+  function stopPropagation(e) {
+      var evt = e || window.event;
+      if (typeof evt.stopPropagation != "undefined") {
+          evt.stopPropagation();
+      } else {
+          evt.cancelBubble = true;
+      }
+  }
+
+  // dont toggle modals off, if modal content is clicked
+  var modalContentList = document.querySelectorAll('.modal-content');
+  for (var i = 0; i < modalContentList.length; i++) {
+      modalContentList[i].onclick = function (e) {
+          stopPropagation(e);
+      }
+  }
+</script>
 
