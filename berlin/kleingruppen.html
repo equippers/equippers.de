@@ -20,6 +20,7 @@ smallgroups:
     lat: 52.5657462
     lng: 13.3910762
     img: geh.jpeg
+    email: jonathan.stichbury@equippers.de
   -
     id: arrive
     name: Arrive
@@ -33,6 +34,7 @@ smallgroups:
     img: dirk-tine.jpg
     lat: 52.3914817
     lng: 13.0665398
+    email: jonathan.stichbury@equippers.de
   -
     id: welcome
     name: Recharge
@@ -46,6 +48,7 @@ smallgroups:
     full: true
     lat: 52.4483983
     lng: 13.3538632
+    email: jonathan.stichbury@equippers.de
   -
     id: vision
     name: 'Gewohnheiten und Ziele'
@@ -59,6 +62,7 @@ smallgroups:
     img: gerda.jpg
     lat: 52.486418
     lng: 13.322284
+    email: jonathan.stichbury@equippers.de
   -
     id: leiter
     name: 'Leiterschaftspotential entdecken und fördern'
@@ -72,6 +76,7 @@ smallgroups:
     lat: 52.485438
     lng: 13.320278
     img: juergen.jpg
+    email: jonathan.stichbury@equippers.de
   -
     id: prayer
     name: Start
@@ -85,6 +90,7 @@ smallgroups:
     lat: 52.485712
     lng: 13.322317
     img: dunns.jpg
+    email: jonathan.stichbury@equippers.de
 ---
 
 {% include hero.html options=page.hero %}
@@ -120,7 +126,7 @@ smallgroups:
     <div class="modal-content">
         <div class="modal-close">X</div>
         <h5>{{ g.name }}</h5>
-        {% if g.img %}<img style="max-width:16rem" src="{{ page.route }}/uploads/{{ g.img }}" alt="Profile">{% endif %}
+        {% if g.img %}<img style="max-width:16rem" src="{{ page.route }}/uploads/smallgroups/{{ g.img }}" alt="Profile">{% endif %}
         <p>
             <strong>Beschreibung:</strong> {{ g.description }}<br>
             <strong>Leiter:</strong> {{ g.leader }}<br>
@@ -128,7 +134,6 @@ smallgroups:
             <strong>Zeit:</strong> {{ g.date }}<br>
             <strong>Ort:</strong> <a href="#gmap" id="location-{{ g.id }}-2">{{ g.location }}</a><br>
             {% if g.max %}<strong>Maximale Teilnehmerzahl:</strong> {{ g.max }} {% endif %}
-            {# {% if g.description %}Beschreibung: {{ g.description }}{% endif %} #}
         </p>
         {% if g.full %}<p>Keine Plätze mehr!</p>{% endif %}
         <form method="post" id="group-form-{{ g.id }}" action="/berlin/kleingruppen">
@@ -146,25 +151,14 @@ smallgroups:
                 <textarea name="message" rows="5"></textarea>
             </label>
 
-            {% comment %}
-            I guess this should be to just the equippers email addresses
-            {% endcomment %}
-            <input type="hidden" name="_to" value="jonotkd@gmail.com">
-            <input type="hidden" name="_cc" value="nzjonyemail@gmail.com">
-
-            <input type="hidden" name="_subject" value="New Request for small group">
-            {% comment %}
-            <input type="hidden" class="hidden" name="groupId" value="{{ g.id }}">
-            <input type="hidden" class="hidden" name="sendTo" value="{{ g.email|safe_email }}">
-            <input type="hidden" class="hidden" name="sendToName" value="{{ g.leader }}">
-            {% endcomment %}
-
-            <p class="form-msg">&nbsp;</p>
+            <input type="hidden" name="_bcc" value="patricia.stichbury@equippers.de,admin@equippers.de">
+            <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
+            <input type="hidden" name="_subject" value="equippers.de - Kleingruppenanmeldung">
 
             <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('group-modal-{{ g.id }}', 'off');">
             <input class="btn btn-blue" type="submit" value="Senden">
             {% comment %}
-            Perhaps try a google captcha
+            TODO: Perhaps try a google captcha
             {% endcomment %}
             <input type="text" name="_gotcha" style="display: none;">
         </form>
