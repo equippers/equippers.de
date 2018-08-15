@@ -40,7 +40,7 @@ smallgroups:
     name: Recharge
     leader: 'Jonathan & Patricia'
     img: stich.jpg
-    target: 'Gemischt, Kinder willkommen.'
+    target: 'Gemischt, Kinder willkommen'
     description: 'Gemeinsames Abendessen, Austausch zu einen Abschnitt aus der Bibel und Zeit für Gebet.'
     date: 'dienstags, 18-21 Uhr'
     location: Berlin-Steglitz
@@ -151,9 +151,15 @@ smallgroups:
                 <textarea name="message" rows="5"></textarea>
             </label>
 
+            <input type="hidden" name="_bcc" value="jonathan.stichbury@equippers.de">
+            <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
+            <input type="hidden" name="_subject" value="equippers.de - Kleingruppenanmeldung">
+
+            {% comment %}
             <input type="hidden" name="_bcc" value="patricia.stichbury@equippers.de,admin@equippers.de">
             <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
             <input type="hidden" name="_subject" value="equippers.de - Kleingruppenanmeldung">
+            {% endcomment %}
 
             <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('group-modal-{{ g.id }}', 'off');">
             <input class="btn btn-blue" type="submit" value="Senden">
