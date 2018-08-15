@@ -20,7 +20,7 @@ smallgroups:
     lat: 52.5657462
     lng: 13.3910762
     img: sina.png
-    email: jonathan.stichbury@equippers.de
+    email: nzjonyemail@gmail.com
   -
     id: arrive
     name: Arrive
@@ -34,7 +34,7 @@ smallgroups:
     img: dirk-tine.jpg
     lat: 52.3914817
     lng: 13.0665398
-    email: jonathan.stichbury@equippers.de
+    email: nzjonyemail@gmail.com
   -
     id: welcome
     name: Recharge
@@ -48,7 +48,7 @@ smallgroups:
     full: true
     lat: 52.4483983
     lng: 13.3538632
-    email: jonathan.stichbury@equippers.de
+    email: nzjonyemail@gmail.com
   -
     id: vision
     name: 'Gewohnheiten und Ziele'
@@ -62,7 +62,7 @@ smallgroups:
     img: sina.png
     lat: 52.486418
     lng: 13.322284
-    email: jonathan.stichbury@equippers.de
+    email: nzjonyemail@gmail.com
   -
     id: leiter
     name: 'Leiterschaftspotential entdecken und fördern'
@@ -76,7 +76,7 @@ smallgroups:
     lat: 52.485438
     lng: 13.320278
     img: juergen.jpg
-    email: jonathan.stichbury@equippers.de
+    email: nzjonyemail@gmail.com
   -
     id: prayer
     name: Start
@@ -90,7 +90,7 @@ smallgroups:
     lat: 52.485712
     lng: 13.322317
     img: lukas.jpg
-    email: jonathan.stichbury@equippers.de
+    email: nzjonyemail@gmail.com
 ---
 
 {% include hero.html options=page.hero %}
@@ -140,23 +140,24 @@ smallgroups:
             <legend>Kontaktiere den Leiter:</legend>
             <label>
                 Dein Name:
-                <input type="text" name="name">
+                <input type="text" name="Name">
             </label>
             <label>
                 Email-Adresse:
-                <input type="email" name="email">
+                <input type="email" name="Email">
             </label>
             <label style="margin-bottom:0;">
                 Nachricht:
-                <textarea name="message" rows="5"></textarea>
+                <textarea name="Nachricht" rows="5"></textarea>
             </label>
 
-            <input type="hidden" name="_bcc" value="jonathan.stichbury@equippers.de">
+            <input type="hidden" name="Gewählte Gruppe" value="{{g.name}}">
+            <input type="hidden" name="_cc" value="jonathan.stichbury@equippers.de">
             <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
             <input type="hidden" name="_subject" value="equippers.de - Kleingruppenanmeldung">
 
             {% comment %}
-            <input type="hidden" name="_bcc" value="patricia.stichbury@equippers.de,admin@equippers.de">
+            <input type="hidden" name="_cc" value="patricia.stichbury@equippers.de,admin@equippers.de">
             <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
             <input type="hidden" name="_subject" value="equippers.de - Kleingruppenanmeldung">
             {% endcomment %}
