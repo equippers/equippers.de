@@ -1,7 +1,7 @@
 # > bundle install
 # > bundle exec jekyll serve --host=0.0.0.0
 
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'jekyll', '3.8.2'
 
