@@ -6,7 +6,9 @@ hero:
   html: <h1>Kleingruppen</h1>
   image: /uploads/egroups-hero.jpg
   image_position: center 25%
-emails: jonathan.stichbury@equippers.de,nzjonyemail@gmail.com
+email:
+  admins: jonathan.stichbury@equippers.de,nzjonyemail@gmail.com
+  subject: equippers.de - Kleingruppenanmeldung test
 smallgroups:
 disabledgroups:
   -
@@ -162,9 +164,9 @@ disabledgroups:
             </label>
 
             <input type="hidden" name="Gewählte Gruppe" value="{{g.name}}">
-            <input type="hidden" name="_cc" value="{{ page.emails }}">
+            <input type="hidden" name="_cc" value="{{ page.email.admins }}">
             <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
-            <input type="hidden" name="_subject" value="equippers.de - Kleingruppenanmeldung">
+            <input type="hidden" name="_subject" value="{{ page.email.subject }}">
 
             <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('group-modal-{{ g.id }}', 'off');">
             <input class="btn btn-blue" type="submit" value="Senden">
