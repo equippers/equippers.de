@@ -102,14 +102,22 @@ smallgroups:
     <p>Im Moment sind wir mitten in einer Kleingruppen-Saison. Wenn du den Startschuss verpasst hast oder aus irgendwelchen Gründen gerade nicht dabei sein kannst, kein Problem. Mit Beginn der nächsten Saison bietet sich dir eine neue Chance. Also merk dir schon mal vor:</p>
     <h4 class="uppercase">Nächste Kleingruppen-Saison: 17. September bis 9. Dezember.</h4>
     <p>Hast du Fragen zu unseren Kleingruppen, dann wende dich an uns: kleingruppe@equippers.de. Wir kommen gern mit dir in Kontakt. Wenn du in der nächsten Saison eine eigene Kleingruppe anbieten möchtest, sprich uns gern sonntags nach dem Gottesdienst persönlich oder am Info-Punkt an.</p>
-    </section>
-    <section class="smallgroups padding-vertical">
+  </section>
+
+  <section>
+    {% if page.smallgroups|length > 0 %}
+    <p style="text-align:center;margin: 2em 0 0.5em;"><a href="#center-map" id="center-map" onclick="return false;">Karte zentrieren</a></p>
+    <div id="gmap" style="width:100%; height:30em;margin-bottom:1em"></div>
+    {% endif %}
+  </section>
+
+  <section class="smallgroups padding-vertical">
     <div class="content">
       <div class="s-group-grid">
         {% for group in page.smallgroups %}
           <div class="s-group">
             <h4>{{ group.name }}</h4>
-            <p>{{ group.date }}<br>Ort: {{ group.location }}{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
+            <p>{{ group.date }}<br>Ort: <a href="#gmap" id="location-{{ group.id }}-1">{{ g.location }}</a>{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
             <button class="button outline" href="https://google.com" onclick="toggleModal('group-modal-{{ group.id }}', 'on'); return false;">
               Melde dich an!
             </button>
@@ -174,6 +182,79 @@ smallgroups:
 </article>
 
 <script>
+  var markers = [];
+  {% for g in page.smallgroups %}
+  {% if g.lat %}
+  markers.push({
+      name: '{{ g.name }}',
+      leader: '{{ g.leader }}',
+      modalId: 'group-modal-{{ g.id }}',
+      locationId: 'location-{{ g.id }}',
+      pos: { lat: {{ g.lat }},lng: {{ g.lng }} }
+  });
+  {% endif %}
+  {% endfor %}
+
+  console.table(markers);
+
+  function initMap() {
+      var bounds = new google.maps.LatLngBounds();
+
+      var berlin = { lat: 52.52000659999999, lng: 13.404954 };
+      var initState = {
+          zoom: 10,
+          center: berlin,
+          disableDefaultUI: true,
+          zoomControl: true
+      };
+
+      var map = new google.maps.Map(document.getElementById('gmap'), initState);
+
+      markers.forEach(function (m) {
+          var marker = new google.maps.Marker({
+              position: m.pos,
+              map: map
+          });
+
+          var markerPos = new google.maps.LatLng(m.pos.lat, m.pos.lng);
+          bounds.extend(markerPos);
+
+          var infowindow = new google.maps.InfoWindow({
+              content: '<strong>Name:</strong> ' + m.name + '<br><strong>Leiter:</strong> ' + m.leader
+          });
+
+          google.maps.event.addListener(marker, 'click', function () {
+              toggleModal(m.modalId, 'on');
+          });
+          google.maps.event.addListener(marker, 'mouseover', function() {
+              infowindow.open(map, this);
+          });
+          google.maps.event.addListener(marker, 'mouseout', function() {
+              infowindow.close();
+          });
+
+          function showLocation(){
+              toggleModal(m.modalId, 'off');
+              map.setCenter(markerPos);
+              map.setZoom(13);
+          }
+          document.getElementById( m.locationId + "-1" ).addEventListener( 'click', showLocation );
+          document.getElementById( m.locationId + "-2" ).addEventListener( 'click', showLocation );
+      });
+
+      map.fitBounds(bounds);
+
+      function centerMap() {
+          // map.setCenter(initState.center);
+          // map.setZoom(initState.zoom);
+          map.fitBounds(bounds);
+      }
+
+      document.getElementById('center-map').addEventListener('click', function () {
+          centerMap();
+          return false;
+      });
+  }
   function toggleModal(id, status)
   {
     try { // just in case the modal background div is missing
@@ -269,4 +350,7 @@ smallgroups:
     })();
   }
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap"></script>
+
 
