@@ -262,9 +262,11 @@ smallgroups:
         var request = new XMLHttpRequest();
 
         request.addEventListener("load", function () {
-          if (request.status === 302) { // CloudCannon redirects on success
+          if (request.status === 302 || // CloudCannon redirects on success
+              request.status == 200 ) { // Or testing showed that it didn't
             alert("Nachricht gesendet.");
-          } else {
+          }
+          else {
             alert("Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut");
           }
           toggleModal(modalId, 'off');
