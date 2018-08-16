@@ -117,7 +117,7 @@ smallgroups:
         {% for group in page.smallgroups %}
           <div class="s-group">
             <h4>{{ group.name }}</h4>
-            <p>{{ group.date }}<br>Ort: <a href="#gmap" id="location-{{ group.id }}-1">{{ g.location }}</a>{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
+            <p>{{ group.date }}<br>Ort: <a href="#gmap" id="location-{{ group.id }}-1">{{ group.location }}</a>{% if group.full %}<br>Keine Plätze mehr!{% endif %}</p>
             <button class="button outline" href="https://google.com" onclick="toggleModal('group-modal-{{ group.id }}', 'on'); return false;">
               Melde dich an!
             </button>
