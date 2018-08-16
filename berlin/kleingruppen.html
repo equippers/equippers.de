@@ -144,7 +144,7 @@ smallgroups:
             </label>
             <label>
                 Email-Adresse:
-                <input type="email" name="Email">
+                <input type="email" name="email">
             </label>
             <label style="margin-bottom:0;">
                 Nachricht:
@@ -155,7 +155,6 @@ smallgroups:
             <input type="hidden" name="_cc" value="jonathan.stichbury@equippers.de">
             <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
             <input type="hidden" name="_subject" value="equippers.de - Kleingruppenanmeldung">
-
             {% comment %}
             <input type="hidden" name="_cc" value="patricia.stichbury@equippers.de,admin@equippers.de">
             <input type="hidden" name="_to" value="{{ g.email|safe_email }}">
@@ -242,6 +241,7 @@ smallgroups:
 
   for(var i = 0; i < ids.length; i++)
   {
+    // We use a closure to properly capture i.
     (function(){
       // Fetch the form element
       var formEl = document.getElementById(ids[i]);
