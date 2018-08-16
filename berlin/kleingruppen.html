@@ -227,25 +227,15 @@ smallgroups:
     return data.join("&");
   }
 
-  var ids = [
-  {% for g in page.smallgroups %}
-    "group-form-{{ g.id }}",
-  {% endfor %}
-  ];
-
-  var modalids = [
-    {% for g in page.smallgroups %}
-      "group-modal-{{ g.id }}",
-    {% endfor %}
-  ];
+  var ids = [ {% for g in page.smallgroups %} "{{ g.id }}", {% endfor %} ];
 
   for(var i = 0; i < ids.length; i++)
   {
     // We use a closure to properly capture i.
     (function(){
       // Fetch the form element
-      var formEl = document.getElementById(ids[i]);
-      var modalId = modalids[i];
+      var formEl = document.getElementById("group-form-" + ids[i]);
+      var modalId = "group-modal-" + ids[i];
 
       // Override the submit event
       formEl.addEventListener("submit", function (e) {
