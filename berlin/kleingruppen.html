@@ -215,5 +215,66 @@ smallgroups:
           stopPropagation(e);
       }
   }
+
+  // Helper function to get form data in the supported format
+  function getFormDataString(formEl) {
+    var formData = new FormData(formEl),
+        data = [];
+
+    for (var keyValue of formData) {
+      data.push(encodeURIComponent(keyValue[0]) + "=" + encodeURIComponent(keyValue[1]));
+    }
+
+    return data.join("&");
+  }
+
+  var ids = [
+  {% for g in page.smallgroups %}
+    "group-form-{{ g.id }}",
+  {% endfor %}
+  ];
+
+  var modalids = [
+    {% for g in page.smallgroups %}
+      "group-modal-{{ g.id }}",
+    {% endfor %}
+  ];
+
+  for(var i = 0; i < ids.length; i++)
+  {
+    (function(){
+      // Fetch the form element
+      var formEl = document.getElementById(ids[i]);
+      var modalId = modalids[i];
+
+      // Override the submit event
+      formEl.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        /*
+        if (grecaptcha) {
+          var recaptchaResponse = grecaptcha.getResponse();
+          if (!recaptchaResponse) { // reCAPTCHA not clicked yet
+            return false;
+          }
+        }*/
+
+        var request = new XMLHttpRequest();
+
+        request.addEventListener("load", function () {
+          if (request.status === 302) { // CloudCannon redirects on success
+            alert("Nachricht gesendet.");
+          } else {
+            alert("Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut");
+          }
+          toggleModal(modalId, 'off');
+        });
+
+        request.open(formEl.method, formEl.action);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send(getFormDataString(formEl));
+      });
+    })();
+  }
 </script>
 
