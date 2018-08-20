@@ -10,91 +10,42 @@ email:
   admins: jonathan.stichbury@equippers.de,nzjonyemail@gmail.com
   subject: equippers.de - Kleingruppenanmeldung test
 smallgroups:
-disabledgroups:
   -
-    id: marcundregine
-    name: 'Go Wedding!'
-    leader: 'Regine & Marc'
-    target: gemischt
-    description: 'Gemeinschaft, gemeinsames Abendessen, Bibelstudium zu einem Buch der Bibel'
-    date: 'dienstags, 19 Uhr'
-    location: Berlin-Gesundbrunnen
+    id: krabbel
+    name: 'Krabbelkäfer'
+    leader: 'Patricia'
+    target: 'Mütter mit (voranging kleinen) Kindern'
+    description: 'Wir wollen nicht nur unseren Minis ein gegenseitiges Kennenlernen ermöglichen, sondern auch als Mamas Zeit für Austausch, Gespräch und Gebet haben. All das in lockerer, offener Runde, zu der gerne immer eingeladen werden kann.'
+    date: 'mittwochs, 10-12 Uhr'
+    location: 'wechselnd, zentral entsprechend der Teilnehmerinnen'
+    full: false
+    lat: 52.4856848
+    lng: 13.315365
+    img: lundp.jpeg
+    email: patricia.stichbury@equippers.de
+  -
+    id: befluegelt
+    name: '#Fierce'
+    leader: 'Sina und Salome'
+    target: 'junge Frauen zwischen 18- 27 Jahren'
+    description: 'Du möchtest entspannt in dein Wochenende starten? Spaßige Abende, an denen wir gemeinsam kochen, Spieleabende oder andere Aktionen planen? Gemeinsam mit anderen Gottes Gemeinschaft genießen, zusammen beten und quatschen? Dann bist Du bei uns genau richtig! Werde ein Teil unserer Kleingruppe! Wir freuen uns auf Dich.'
+    date: 'zweiwöchig freitags, 19 Uhr'
+    location: 'Kreuzberg, Spandau'
     max: 10
-    full: false
-    lat: 52.5657462
-    lng: 13.3910762
-    img: sina.png
-    email: nzjonyemail@gmail.com
+    img: sina-salome.jpg
+    lat: 52.5346755
+    lng: 13.1979155
   -
-    id: arrive
-    name: Arrive
-    leader: 'Dirk & Tine'
-    target: 'Familien mit Kindern'
-    description: 'Zuhören, Reden, Beten, Lachen, Essen- Thema, Kinder spielen. Wir starten mit einem Abendessen, beten und fokussieren uns auf die Eltern - deren Erfahrungen, Probleme, Wünsche. Wir wünschen uns, dass die Teilnehmer bei uns "ANKOMMEN". Die Kinder sollen sich wohlfühlen und Freundschaften ausbauen.'
-    date: 'jeden 2. Freitag Abend'
-    location: Potsdam
-    max: 8
-    full: false
-    img: dirk-tine.jpg
-    lat: 52.3914817
-    lng: 13.0665398
-    email: nzjonyemail@gmail.com
-  -
-    id: welcome
-    name: Recharge
-    leader: 'Jonathan & Patricia'
+    id: fitvorgott
+    name: 'Fit vor Gott'
+    leader: 'Benji'
+    date: 'mittwochs, 19 Uhr'
+    description: 'Wir wollen körperlich und geistlich fit werden. Sport gibts draußen im Park, Kraft und/oder Ausdauer. Bierchen und lecker Essen gibts hinterher drinnen. Dabei haben wir Zeit über Themen zu reden, z.B. was uns der gute Matthäus so von Jesus mitgegeben hat. Wir sind Teil der jungen-Erwachsenen-Community von Equippers Berlin und somit wirds ab und zu auch mal community-Abende geben zu denen du herzlichst eingeladen bist.'
+    target: 'Männer im Alter von 18-28 Jahren'
+    location: 'Berlin Kreuzberg (sehr nah an Schöneberg)'
+    lat: 52.4987777
+    lng: 13.3908638
     img: benji.jpg
-    target: 'Gemischt, Kinder willkommen'
-    description: 'Gemeinsames Abendessen, Austausch zu einen Abschnitt aus der Bibel und Zeit für Gebet.'
-    date: 'dienstags, 18-21 Uhr'
-    location: Berlin-Steglitz
-    max: 8
-    full: true
-    lat: 52.4483983
-    lng: 13.3538632
-    email: nzjonyemail@gmail.com
-  -
-    id: vision
-    name: 'Gewohnheiten und Ziele'
-    leader: Gerda
-    target: Jedermann
-    description: 'Gewohnheiten und Ziele sind entscheidend für ein erfolgreiches Leben. Gott möchte, dass du erfolgreich bist.'
-    date: 'dienstags, 17 Uhr (1,5 bis 2 Stunden)'
-    location: Gemeinderäume
-    max: 10
-    full: false
-    img: sina.png
-    lat: 52.486418
-    lng: 13.322284
-    email: nzjonyemail@gmail.com
-  -
-    id: leiter
-    name: 'Leiterschaftspotential entdecken und fördern'
-    leader: Jürgen
-    target: alle
-    description: 'John Maxwell Leiterschaftstraining'
-    date: 'dienstags, 17 Uhr'
-    location: Gemeinderäume
-    max: 10
-    full: false
-    lat: 52.485438
-    lng: 13.320278
-    img: juergen.jpg
-    email: nzjonyemail@gmail.com
-  -
-    id: prayer
-    name: Start
-    leader: 'Markus & Dorle'
-    target: 'Für alle, die ihre Beziehung zu Gott vertiefen wollen oder auch einfach nur mehr über ihn erfahren möchten.'
-    description: 'Der Abend richtet sich an die Menschen, die ihr Lebensfundament stärken wollen und ihren Glauben an Jesus vertiefen möchten.'
-    date: 'montags, 20.00 Uhr'
-    location: 'Gemeinde / Seminarraum'
-    max: 15
-    full: false
-    lat: 52.485712
-    lng: 13.322317
-    img: lukas.jpg
-    email: nzjonyemail@gmail.com
 ---
 
 {% include hero.html options=page.hero %}
@@ -337,7 +288,7 @@ disabledgroups:
             alert("Nachricht gesendet.");
           }
           else {
-            alert("Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut");
+            alert("Fehler beim Senden der Nachricht. Bitte versuche es später nochmal.");
           }
           toggleModal(modalId, 'off');
         });
