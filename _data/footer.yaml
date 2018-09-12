@@ -1,6 +1,6 @@
 berlin:
   name: Equippers Berlin e. V.
-  address: Kantstr. 100, 14513 Teltow
+  address: 'Postanschrift: Kantstr. 100, 14513 Teltow'
   email: mail@equippers.de
   phone: '+4933284445177'
   phone_formatted: +49 (0)3328 444 5177
@@ -15,9 +15,6 @@ berlin:
     - title: Twitter
       goes_to: https://twitter.com/equippersberlin
       icon_id: twitter
-    - title: Google+
-      goes_to: https://plus.google.com/+EquippersDe
-      icon_id: google-plus
   bank_account:
     owner: Equippers Berlin e. V.
     iban: DE39100500000190371552
