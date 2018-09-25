@@ -1,0 +1,39 @@
+---
+title: Events von Equippers Berlin
+hero:
+  html: <h1>Events</h1>
+  image: /uploads/hero-1440.jpg
+events:
+  - title: Connect 2018
+    description: 3. November
+    image: /uploads/events/connect-2018.jpg
+    goes_to: https://connect-equippers.eventbrite.de
+  - title: Worship Master Class
+    description: Mit Wayne & Libby Huirua, 23. Oktober
+    image: /uploads/events/worship-master-class-oktober-2018.jpg
+    goes_to: https://worship-masterclass.eventbrite.de
+  - title: Encounter Night
+    description: Mit Dr. Michael Maiden, 6. Dezember, Christuskirche
+    image: /uploads/events/encounter-night-dezember-2019.jpg
+  - title: Flourish 2019
+    description: Februar 2019
+    image: /uploads/events/flourish-2019.jpg
+---
+
+{% include hero.html options=page.hero %}
+
+<section class="events padding-vertical">
+	<div class="content">
+		<div class="grid">
+			{% for event in page.events %}
+				<a {% if event.goes_to %} href="{{ event.goes_to }}"{% endif %} class="card">
+					<div class="img" style="background-image: url('{{ event.image }}')"></div>
+					<div class="title">
+						{{ event.title }}
+						<div class="description">{{ event.description }}</div>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>
