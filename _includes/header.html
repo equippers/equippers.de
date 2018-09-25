@@ -10,7 +10,9 @@
 
 	<nav>
 		{% for link in include.nav %}
-			<a href="{{ link.goes_to }}" {% if link.border %}class="border"{% endif %}>{{ link.title }}</a>
+			<a href="{{ link.goes_to }}" class="{% if link.border %}border{% endif %} {% if link.hidden_on_tablet %}hidden-on-tablet{% endif %}">
+				{{ link.title }}
+			</a>
 		{% endfor %}
 	</nav>
 {% endif %}

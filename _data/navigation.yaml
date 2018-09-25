@@ -1,8 +1,13 @@
 berlin:
+  - title: Home
+    goes_to: /berlin
+    hidden_on_tablet: true
   - title: Über uns
     goes_to: /berlin/about
   - title: Events
     goes_to: /berlin/events
+  - title: Equip
+    goes_to: /berlin/equip
   - title: Kleingruppen
     goes_to: /berlin/kleingruppen
   - title: Podcast
@@ -10,5 +15,6 @@ berlin:
   - title: Connect 2018
     goes_to: https://connect-equippers.eventbrite.de
     border: true
+    hidden_on_tablet: true
 hamburg:
 muenchen:
