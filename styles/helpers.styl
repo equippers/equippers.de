@@ -138,13 +138,47 @@
 		height 100%
 		background-color: rgba(0, 0, 0, 0.3)
 
-for i in (1..7)
+for i in (1..9)
 	.overlay.strength-{i}::after
 		background-color: rgba(0, 0, 0, i/10)
 
 .super-padding
 	padding-top: 10em
 	padding-bottom: @padding-top
+
+// --
+// Colors
+
+.dark-gray
+.dark-grey
+	color: $dark-gray
+
+.gray
+.grey
+	color: $medium-gray
+
+.light-gray
+.light-grey
+	color: $light-gray
+
+.blue
+	color: $blue
+
+.green
+	color: $green
+
+.yellow
+	color: $yellow
+
+.orange
+	color: $orange
+
+.red
+	color: $red
+
+.purple
+	color: $purple
+
 
 // --
 // Other
