@@ -8,6 +8,9 @@
 		background-position: center
 		border-radius: @border-radius @border-radius 0 0
 
+	&.image-only .img
+		border-radius: @border-radius
+
 	.title
 		padding: 1em
 		border: 1px solid #ddd
@@ -22,6 +25,11 @@
 			@extends .light-font
 			text-transform: none
 			font-size: 0.75em
+
+	.subtitle
+		@extends .gray
+		@extends .text-center
+		padding-top: 0.25em
 
 a.card
 	text-decoration: none
