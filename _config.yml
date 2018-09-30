@@ -22,6 +22,7 @@ defaults:
       type: "pages"
     values:
       layout: "berlin"
+      title_suffix: "Gottesdienst in Berlin"
   - scope:
       path: "hamburg"
       type: "pages"

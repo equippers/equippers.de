@@ -11,7 +11,7 @@ title: Kirche anders als du denkst
 	<meta name="google-site-verification" content="aHG57sS_1tMIIWGW-MXQVZY-hipSQg9Poc9-gBKyC3Q">
 	{{ page.head }}
 
-	<title>{% if page.title %}{{ page.title }} — {% endif %}{{ layout.title }}</title>
+	<title>{% if page.title %}{{ page.title }} — {% endif %}{{ layout.title }}{% if page.title_suffix %} - {{ page.title_suffix }}{% endif%}</title>
 
 	{% include critical-css.html %}
 </head>
