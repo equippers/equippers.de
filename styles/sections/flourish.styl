@@ -1,9 +1,24 @@
+h2
+  clear: left
+
+div.clear
+  clear: left
+
+div.speaker
+  margin-bottom:2rem
+  margin-top:2rem
+  overflow:auto
+  p
+    margin: 0
+
 iframe.youtube
-  height:540px;
   margin-bottom:2rem;
+  @media (min-width: $tablet-breakpoint)
+    height:540px;
 
 img.img_left
   float:left;
   clear:both;
-  padding-right:0.5rem;
-  padding-bottom:3rem;
+  margin-right:0.5rem;
+  @media (max-width: $tablet-breakpoint)
+    width:100%
