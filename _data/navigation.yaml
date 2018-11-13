@@ -12,9 +12,9 @@ berlin:
     goes_to: /berlin/kleingruppen
   - title: Podcast
     goes_to: https://overcast.fm/itunes977023058/equippers-berlin
-  # - title: Connect 2018
-  #   goes_to: https://connect-equippers.eventbrite.de
-  #   border: true
-  #   hidden_on_tablet: true
+  - title: flourish 2019
+    goes_to: /berlin/flourish
+    border: true
+    hidden_on_tablet: true
 hamburg:
 muenchen:
