@@ -10,9 +10,9 @@
 {% comment %} filter past events {% endcomment %}
 <script>
 if (Array.from) {
-	for (const event of Array.from(document.querySelectorAll('[data-date]'))) {
-		if ((parseInt(event.dataset.date) * 1000) < Date.now()) {
-			event.style.display = 'none';
+	for (const eventItem of Array.from(document.querySelectorAll('[data-date]'))) {
+		if ((parseInt(eventItem.dataset.date) * 1000) < Date.now()) {
+			eventItem.style.display = 'none';
 		}
 	}
 }
