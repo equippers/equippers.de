@@ -32,6 +32,25 @@ disabled_locations:
     background_image_position:
 ---
 
+{%- comment -%} restore saved location {%- endcomment -%}
+<script>
+	if (window.location.search === '?reset-location') {
+		localStorage.removeItem('location');
+	}
+	var storedLocation = localStorage.getItem('location');
+
+	switch (storedLocation) {
+		{% for location in page.locations %}
+		case '{{ location.storage_key }}':
+			window.location.replace('{{ location.goes_to }}');
+			break;
+		{% endfor %}
+
+		default:
+			break;
+	}
+</script>
+
 <section class="landing-logo">
 	{% include logo.html %}
 </section>
@@ -45,9 +64,26 @@ disabled_locations:
 				background-image: url('{{ location.background_image }}');
 				{% if location.background_image_position %}background-position: {{ location.background_image_position }}{% endif %}
 			"
+			data-storage-key="{{ location.storage_key }}"
 		>
 			<h1 class="uppercase no-margin">{{ location.title }}</h1>
 			{% if location.sub_title %}<p class="no-margin">{{ location.sub_title }}</p>{% endif %}
 		</a>
 	{% endfor %}
+
+	<div class="save-location-checkbox">
+		<label for="save-location">Auswahl merken?</label>
+		<input type="checkbox" id="save-location">
+	</div>
 </section>
+
+{%- comment -%} store location {%- endcomment -%}
+<script>
+	document.querySelectorAll('section.landing a').forEach(function(anchor) {
+		anchor.addEventListener('click', function() {
+			if (document.querySelector('#save-location').checked) {
+				localStorage.setItem('location', anchor.dataset.storageKey);
+			}
+		});
+	});
+</script>
