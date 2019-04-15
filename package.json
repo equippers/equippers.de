@@ -1,0 +1,16 @@
+{
+  "name": "equippers.de",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Equippers website for Germany. Built with Jekyll, hosted on [Cloudcannon](https://cloudcannon.com).",
+  "scripts": {
+    "critical-css": "critical _site/berlin/index.html --base _site > _includes/critical.css"
+  },
+  "repository": "equippers/equippers.de",
+  "author": "Equippers Germany",
+  "license": "Unlicensed",
+  "homepage": "https://equippers.de",
+  "devDependencies": {
+    "critical": "1.3.4"
+  }
+}
