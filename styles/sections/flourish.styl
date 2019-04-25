@@ -1,4 +1,15 @@
 .flourish
+  .img-grid
+    makeGrid(1fr)
+
+    @media (min-width: $tablet-breakpoint)
+      grid-template-columns: repeat(2, 1fr)
+
+    @media (min-width: $desktop-breakpoint)
+      grid-template-columns: repeat(3, 1fr)
+
+  .img
+    display: block;
 
 	ul.languages
 		margin: 0

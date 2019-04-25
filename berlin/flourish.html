@@ -5,6 +5,20 @@ aliases:
   - /berlin/flourish
 hero:
   image: /uploads/sistas-hero.jpg
+images:
+  - flourish1.jpg
+  - flourish6.jpg
+  - flourish7.jpg
+  - flourish2.jpg
+  - flourish5.jpg
+  - flourish8.jpg
+  - flourish10.jpg
+  - flourish11.jpg
+  - flourish12.jpg
+  - flourish13.jpg
+  - flourish14.jpg
+  - flourish15.jpg
+  - flourish9.jpg
 ---
 
 {% include hero.html options=page.hero %}
@@ -14,5 +28,10 @@ hero:
 		<h1 class="no-margin-after">Flourish Frauenkonferenz</h1>
 		<h3>06. & 07. März 2020</h3>
 		<h2>Save the date!</h2>
+		<div class="img-grid">
+			{% for img in page.images %}
+				<img src="{{ page.route }}/uploads/flourish/{{img}}" class="img"/>
+			{% endfor %}
+		</div>
 	</section>
 </article>
