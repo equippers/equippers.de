@@ -14,8 +14,7 @@
 .landing
 	height: 90vh
 
-	makeGrid(1fr, gap: 0)
-	grid-template-rows: repeat(3, 1fr)
+	makeGrid(1fr, rows: repeat(4, 1fr), gap: 0)
 
 	a
 		background-size: cover
@@ -35,3 +34,32 @@
 		&:hover
 			border-width: 0.5rem
 			color: $yellow
+
+	div
+		makeGrid(repeat(3, 1fr), gap: 0)
+		position: relative
+
+		&::before
+			content: 'Startups'
+			text-align: center
+			line-height: 22.5vh
+			font-weight: 900
+			font-size: 3.125rem
+			text-transform: uppercase
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background: $black
+			z-index: 10
+			addTransition('color, opacity')
+			cursor: pointer
+
+		&:hover::before
+			color: $yellow
+
+		&.clicked::before
+			opacity: 0
+			pointer-events: none
+
