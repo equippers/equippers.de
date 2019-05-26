@@ -58,22 +58,24 @@ startups:
 	{% endfor %}
 
 	<div id="startups">
-	{% for location in page.startups %}
-		<a
-			{% if location.goes_to %}href="{{ location.goes_to }}"{% endif %}
-			class="text-center overlay"
-			style="
-				background-image: url('{{ location.background_image }}');
-				{% if location.background_image_position %}background-position: {{ location.background_image_position }}{% endif %}
-			"
-		>
-			<h4 class="uppercase no-margin">{{ location.title }}</h4>
-		</a>
-	{% endfor %}
+		<div class="text-center"><h1 class="uppercase no-margin">Startups</h1></div>
+
+		{% for location in page.startups %}
+			<a
+				{% if location.goes_to %}href="{{ location.goes_to }}"{% endif %}
+				class="text-center overlay"
+				style="
+					background-image: url('{{ location.background_image }}');
+					{% if location.background_image_position %}background-position: {{ location.background_image_position }}{% endif %}
+				"
+			>
+				<h4 class="uppercase no-margin">{{ location.title }}</h4>
+			</a>
+		{% endfor %}
 	</div>
 </section>
 
 <script>
-	const startupsDiv = document.querySelector('#startups');
+	const startupsDiv = document.querySelector('#startups > div');
 	startupsDiv.addEventListener('click', () => startupsDiv.classList.add('clicked'));
 </script>
