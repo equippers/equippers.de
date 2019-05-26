@@ -50,11 +50,14 @@
 			makeGrid(1fr, gap: 0)
 			align-content: center
 			addTransition('color, opacity')
-			opacity: 0.9
+			opacity: 0.92
 			cursor: pointer
 
 			@media (min-width: $tablet-breakpoint)
 				font-size: 1.25em
+
+			&:hover
+				color: $yellow
 
 			&.clicked
 				opacity: 0
