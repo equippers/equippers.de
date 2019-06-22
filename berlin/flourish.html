@@ -24,14 +24,19 @@ images:
 {% include hero.html options=page.hero %}
 
 <article class="flourish">
-	<section class="content">
-		<h1 class="no-margin-after">Flourish Frauenkonferenz</h1>
-		<h3>06. & 07. März 2020</h3>
-		<h2>Save the date!</h2>
-		<div class="img-grid">
-			{% for img in page.images %}
-				<img src="{{ page.route }}/uploads/flourish/{{img}}" class="img"/>
-			{% endfor %}
-		</div>
-	</section>
+  <section class="content">
+    <h1>Flourish - Equippers Berlin Frauenkonferenz</h1>
+    <p>
+      Flourish ist alles, was du von einer Frauenkonferenz erwartest und vieles, was du nicht erwartest. Flourish ist vor allem ein Wochenende, an dem Frauen zusammenkommen, um unglaublich wohltuende Herzenszeit zu haben. Herzenszeit mit Freundinnen und Herzenszeit mit Gott. Herausfordernde Predigten, tiefe Lobpreiszeiten, Kuchenpausen, die die Seele stärken, Klo-Gespräche über die Highlights der letzten Session, Theater, Zeugnisse und so viel mehr. Und am Ende gehst du gestärkt in dem, wer du bist und zu was Gott dich berufen hat.
+    </p>
+    <p>
+      Lass dich von den Berliner Sistas einladen, dieses Event auf keinen Fall zu verpassen!
+      Wir informieren dich hier sowie bei <a href=" https://m.facebook.com/equippersberlin/">Facebook</a> und <a href="https://instagram.com/equippersberlin?igshid=joiaaqkyty0d">Instagram</a>, wenn die Anmeldung freigeschaltet ist.
+    </p>
+    <div class="img-grid">
+      {% for img in page.images %}
+        <img src="{{ page.route }}/uploads/flourish/{{img}}" class="img"/>
+      {% endfor %}
+    </div>
+  </section>
 </article>
