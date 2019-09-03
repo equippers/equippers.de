@@ -17,9 +17,9 @@ berlin:
       icon_id: twitter
   bank_account:
     owner: Equippers Berlin e. V.
-    iban: DE39100500000190371552
-    bic: BELADEBE
-    bank_name: Berliner Sparkasse
+    iban: DE18500921000001744607
+    bic: GENODE51BH2
+    bank_name: SKB Bad Homburg
 hamburg:
   name: Equippers Start-Up Hamburg
   address: Offenbachweg 27, 22145 Hamburg
