@@ -8,8 +8,8 @@ berlin:
     goes_to: /berlin/events
   - title: Equip
     goes_to: /berlin/equip
-  - title: Kleingruppen
-    goes_to: /berlin/kleingruppen
+  - title: eGroups
+    goes_to: /berlin/egroups
   - title: Podcast
     goes_to: https://overcast.fm/itunes977023058/equippers-berlin
 hamburg:
