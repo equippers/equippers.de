@@ -345,7 +345,7 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
           <div class="s-group">
             <h4>{{ group.name }}</h4>
             <p>{{ group.date_text }}<br />Ort: <a href="#gmap" id="location-{{ group.id }}-1">{{ group.location }}</a>{% if group.full %}<br />Keine Plätze mehr!{% endif %}<br/>Für {{ group.short_target }}</p>
-            <button class="button outline" href="https://google.com" onclick="toggleModal('group-modal-{{ group.id }}', 'on'); return false;">
+            <button class="button outline" href="https://google.com" onclick="toggleModal('{{ group.id }}', 'on'); return false;">
               Melde dich an!
             </button>
           </div>
@@ -393,7 +393,7 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
             <input type="hidden" name="_subject" value="{{ page.email.subject }}" />
 
             <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('group-modal-{{ g.id }}', 'off');" />
-            <input class="btn btn-blue" type="submit" value="Senden" />
+            <input id="group-modal-send-{{ g.id }}" class="btn btn-blue" type="submit" value="Senden" />
             {% comment %}
             TODO: Perhaps try a google captcha
             Hint by Simon: Cloudcannon offers captchas (search in the docs)
@@ -412,7 +412,7 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
   markers.push({
       name: '{{ g.name }}',
       leader: '{{ g.leader }}',
-      modalId: 'group-modal-{{ g.id }}',
+      modalId: '{{ g.id }}',
       locationId: 'location-{{ g.id }}',
       pos: { lat: {{ g.lat }},lng: {{ g.lng }} }
   });
@@ -484,12 +484,17 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
     try { // just in case the modal background div is missing
         document.getElementById('modal-bg').style.display = (status == 'on') ? 'block' : 'none';
     } catch (e) {};
-    document.getElementById(id).style.display = (status == 'on') ? 'block' : 'none';
+    var groupModal = document.getElementById('group-modal-'+id);
+    groupModal.style.display = (status == 'on') ? 'block' : 'none';
     var st = document.body.scrollTop || document.documentElement.scrollTop;
     var ch = document.documentElement.clientHeight;
-    var mh = document.getElementById(id).clientHeight;
+    var mh = groupModal.clientHeight;
     t = (mh > ch) ? st + 10 : st + Math.round((ch - mh)/2);
-    document.getElementById(id).style.top = t + 'px';
+    groupModal.style.top = t + 'px';
+
+    // enable the button
+    var sendBtn = document.getElementById('group-modal-send-' + id);
+    sendBtn.disabled = false;
   }
 
   // toggle modals off on modal background or modal close click
@@ -540,10 +545,15 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
     (function(){
       // Fetch the form element
       var formEl = document.getElementById("group-form-" + ids[i]);
-      var modalId = "group-modal-" + ids[i];
+      var id = ids[i];
+      var modalId = "group-modal-" + id;
+      var sendBtnId = "group-modal-send-" + id;
 
       // Override the submit event
       formEl.addEventListener("submit", function (e) {
+        // Disable the send button to prevent multiple emails
+        var sendBtn = document.getElementById(sendBtnId);
+        sendBtn.disabled = true;
         e.preventDefault();
 
         /*
@@ -564,7 +574,7 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
           else {
             alert("Fehler beim Senden der Nachricht. Bitte versuche es später nochmal.");
           }
-          toggleModal(modalId, 'off');
+          toggleModal(id, 'off');
         });
 
         request.open(formEl.method, formEl.action);
