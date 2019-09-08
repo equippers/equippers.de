@@ -12,6 +12,52 @@ email:
   subject: equippers.de - Neue eGroup-Anmeldung
 egroups:
   -
+    id: equip
+    name: EQUIP
+    leader: 'Jürgen Eisen'
+    target: 'Bist du neu bei Equippers? Dann ist das genau die richtige Gruppe für dich. Lerne an 8 Abenden die Vision, Werte und Kultur von Equippers Berlin kennen.'
+    short_target: 'alle, die neu sind bei Equippers'
+    description: '<br/>Was wir glauben<br/>
+Wer wir sind<br/>
+Unsere Werte<br/>
+Unsere Vision<br/>
+Warum du so wichtig bist'
+    date_text: 'Mittwoch abends<br/>Vom 2. Oktober bis 18. Dezember'
+    location: 'Equippers Berlin Büro'
+    lat: 52.4423098
+    lng: 13.3160366
+    img: juergen.jpg
+    email: juergen.eisen@equippers.de
+  -
+    id: mddunn
+    name: 'Tiefer in die Weite'
+    leader: 'Dorle und Markus bei Maja und Hans'
+    target: 'Alle Menschen, die Interesse haben tiefer hinein zu kommen in die Weite die Gott für ihr Leben verheißen hat'
+    short_target: 'alle'
+    description: 'Wir wollen gemeinsam essen, beten, lachen,quatschen, uns in den alltäglichen Herausforderungen unterstützen und herausfinden was der nächste Schritt in das Zentrum unserer Berufung ist.'
+    date_text: 'montags ab 19.30 Uhr bis 22 Uhr'
+    location: 'Berlin - Mitte'
+    full: false
+    lat: 52.5112417
+    lng: 13.4049804
+    img: dunns.jpg
+    email: 'mddunn@freenet.de'
+  -
+    id: gebet
+    name: 'Gebet'
+    leader: 'Jonathan & Patricia'
+    target: 'Männer & Frauen jeden Alters'
+    short_target: 'alle'
+    description: '1 Timotheus 2: 2 & 4: "Am wichtigsten ist, dass die Gemeinde beständig im Gebet bleibt. Betet für alle Menschen; bringt eure Bitten, Wünsche, eure Anliegen und euren Dank für sie vor Gott." & "Denn er will, dass alle Menschen gerettet werden und seine Wahrheit erkennen." Wir wollen vor Gott kommen und bitten, dass sein "Wille geschehe hier auf der Erde, so wie er im Himmel geschieht". Unsere Gebete und Fürbitten haben Kraft und können die Welt um uns verändern. Wir freuen uns mit dir die Kraft Gottes auf die Erde zu bringen!'
+    date_text: 'dienstags 20-22 Uhr'
+    location: 'Berlin - Steglitz'
+    full: false
+    lat: 52.4489064
+    lng: 13.3538206
+    img: jono.jpeg
+    email: jonathan.stichbury@equippers.de
+_deleted:
+  -
     id: benjas
     name: 'Sucht der Stadt Bestes!'
     leader: 'Benjamin und Jasmin'
@@ -39,20 +85,6 @@ egroups:
     lng: 13.2957013
     img: lundp.jpeg
     email: 'patricia.stichbury@equippers.de'
-  -
-    id: gebet
-    name: 'Gebet'
-    leader: 'Jonathan'
-    target: 'Männer & Frauen jeden Alters'
-    short_target: 'alle'
-    description: '1 Timotheus: "2 Am wichtigsten ist, dass die Gemeinde beständig im Gebet bleibt. Betet für alle Menschen; bringt eure Bitten, Wünsche, eure Anliegen und euren Dank für sie vor Gott." & "4 Denn er will, dass alle Menschen gerettet werden und seine Wahrheit erkennen." Wir wollen vor Gott kommen und bitten dass sein "Wille geschehe hier auf der Erde, so wie er im Himmel geschieht". Unsere Gebete und Fürbitten haben Kraft und können die Welt um uns verändern. Ich freue mich mit dir die Kraft Gottes auf die Erde zu bringen!'
-    date_text: 'zweiwöchig donnerstags, 20-21.30 Uhr'
-    location: 'Steglitz'
-    full: false
-    lat: 52.4489064
-    lng: 13.3538206
-    img: jono.jpeg
-    email: jonathan.stichbury@equippers.de
   -
     id: frauensport
     name: 'Sportive'
@@ -136,7 +168,6 @@ _template:
     lng:
     img:
     email: ''
-_deleted:
   -
     id: new
     name: 'Equip-Kurs'
@@ -164,20 +195,6 @@ _deleted:
     lat: 52.5346755
     lng: 13.1979155
     email: 'sinaschwenk123@gmail.com'
-  -
-    id: mddunn
-    name: 'Prayer and Fellowship Jesus im Alltag (er)leben!'
-    leader: 'Dorle und Markus'
-    target: 'Alle, die Interesse daran haben, mehr aus ihrem Alltag zu machen!'
-    short_target: 'alle'
-    description: 'Wir beginnen mit einem kleinen Abendbrot. Motto: „Jeder bringt etwas mit!“ Neben der Gemeinschaft und dem Austausch zum Thema „wie geht es uns“ wollen wir gemeinsam lernen, wie wir mit Jesus unseren Alltag besser gestalten können. Gebet für einander sollen die Abende abrunden.'
-    date_text: 'montags ab 19.30 Uhr'
-    location: 'Mitte'
-    full: false
-    lat: 52.5191787
-    lng: 13.405172
-    img: dunns.jpg
-    email: 'mddunn@freenet.de'
   -
     id: squashit
     name: 'Squash it'
@@ -284,11 +301,10 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
   <section class="editable content">
     <h1>Gemeinsam ganze Sache mit Gott machen.</h1>
     <p>eGroups sind ein Teil des Lebens bei Equippers. Hier verbindest du dich mit neuen Freunden, hast Gemeinschaft und erlebst Ermutigung in deinem Glauben an Jesus Christus. Zusammen geht das leichter - wir laden dich ein dabei zu sein!</p>
-    {% comment %}<p>Es ist toll, dass du dich für die Teilnahme an einer eGroup interessierst.</p>
-    <h4 class="uppercase">Die nächste Saison beginnt am 11. Februar und endet am 16. Juni.</h4>
-    <p>Wir möchten dich herzlich einladen, durch die unten stehenden Gruppen zu stöbern und dich direkt über den entsprechenden Link anzumelden. Gern kannst du auch nach dem Gottesdienst am Welcome Desk auf uns zukommen und dich registrieren. Nach der Anmeldung schickt dir dein eGroup-Leiter eine E-Mail mit einer Bestätigung und der genauen Adresse.</p>
+    <h4 class="uppercase">Unsere nächste Saison beginnt am 23. September.</h4>
+    <p>Stöbere doch einfach durch die unten gelisteten Gruppen und melde dich direkt über das jeweilige Kontaktformular an. Gern kannst du auch nach dem Gottesdienst am Welcome Desk auf uns zukommen und dich registrieren. Nach der Anmeldung schickt dir dein eGroup-Leiter eine E-Mail mit einer Bestätigung und der genauen Adresse.</p>
+    {% comment %}<p>Im Moment sind wir mitten in einer eGroups-Saison. Zu den unten stehenden Gruppen kannst du aber gern jederzeit dazukommen. Kontaktiere einfach den jeweiligen Leiter, um alle weiteren Infos zu bekommen. Wir freuen uns auf dich!</p>
     {% endcomment %}
-    <p>Im Moment sind wir mitten in einer eGroups-Saison. Zu den unten stehenden Gruppen kannst du aber gern jederzeit dazukommen. Kontaktiere einfach den jeweiligen Leiter, um alle weiteren Infos zu bekommen. Wir freuen uns auf dich!</p>
     <p>Wir freuen uns auf dich.</p>
   </section>
 
@@ -537,5 +553,3 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 </script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap"></script>
-
-
