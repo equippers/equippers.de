@@ -497,14 +497,16 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
     sendBtn.disabled = false;
   }
 
+  var ids = [ {% for g in page.egroups %} "{{ g.id }}", {% endfor %} ];
+
   // toggle modals off on modal background or modal close click
   var modalList = document.querySelectorAll('.modal, .modal-close');
   for (var i = 0; i < modalList.length; i++) {
-      if (modalList[i].classList[0] == 'modal-close') {
-          modalList[i].onclick = function() { toggleModal(this.parentNode.parentNode.id, 'off'); }
-      } else {
-          modalList[i].onclick = function() { toggleModal(this.id, 'off'); }
+    modalList[i].onclick = function(i) {
+      return function() {
+        toggleModal(ids[Math.round(i/2 - 0.5)], 'off');
       }
+    }(i);
   }
 
   // to support IE <= 8
@@ -536,8 +538,6 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 
     return data.join("&");
   }
-
-  var ids = [ {% for g in page.egroups %} "{{ g.id }}", {% endfor %} ];
 
   for(var i = 0; i < ids.length; i++)
   {
