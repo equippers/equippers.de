@@ -392,7 +392,7 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
             <input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
             <input type="hidden" name="_subject" value="{{ page.email.subject }}" />
 
-            <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('group-modal-{{ g.id }}', 'off');" />
+            <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('{{ g.id }}', 'off');" />
             <input id="group-modal-send-{{ g.id }}" class="btn btn-blue" type="submit" value="Senden" />
             {% comment %}
             TODO: Perhaps try a google captcha
