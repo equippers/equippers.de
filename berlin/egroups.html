@@ -357,9 +357,9 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 <div id="modal-bg"></div>
 
 {% for g in page.egroups %}
-<div class="modal" id="group-modal-{{ g.id }}">
+<div class="modal" id="group-modal-{{ g.id }}" onclick="toggleModal('{{ g.id }}', 'off');">
     <div class="modal-content">
-        <div class="modal-close">X</div>
+        <div class="modal-close" onclick="toggleModal('{{ g.id }}', 'off');">X</div>
         <h5>{{ g.name }}</h5>
         {% if g.img %}<img src="{{ page.route }}/uploads/egroups/{{ g.img }}" alt="Profile" />{% endif %}
         {% if g.img2 %}<img src="{{ page.route }}/uploads/egroups/{{ g.img2 }}" alt="Profile2" />{% endif %}
@@ -497,18 +497,6 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
     sendBtn.disabled = false;
   }
 
-  var ids = [ {% for g in page.egroups %} "{{ g.id }}", {% endfor %} ];
-
-  // toggle modals off on modal background or modal close click
-  var modalList = document.querySelectorAll('.modal, .modal-close');
-  for (var i = 0; i < modalList.length; i++) {
-    modalList[i].onclick = function(i) {
-      return function() {
-        toggleModal(ids[Math.round(i/2 - 0.5)], 'off');
-      }
-    }(i);
-  }
-
   // to support IE <= 8
   function stopPropagation(e) {
       var evt = e || window.event;
@@ -539,13 +527,14 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
     return data.join("&");
   }
 
+  var ids = [ {% for g in page.egroups %} "{{ g.id }}", {% endfor %} ];
   for(var i = 0; i < ids.length; i++)
   {
     // We use a closure to properly capture i.
     (function(){
       // Fetch the form element
-      var formEl = document.getElementById("group-form-" + ids[i]);
       var id = ids[i];
+      var formEl = document.getElementById("group-form-" + id);
       var modalId = "group-modal-" + id;
       var sendBtnId = "group-modal-send-" + id;
 
