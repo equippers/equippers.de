@@ -16,8 +16,8 @@ bundle install
 These editor plugins are recommended:
 
 * [Editorconfig](https://editorconfig.org/#download)
-* [Stylus Language Support](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
-* [Jekyll Syntax Support](https://marketplace.visualstudio.com/items?itemName=ginfuru.ginfuru-vscode-jekyll-syntax)
+* [language-stylus](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
+* [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid)
 
 To start a local development server, run
 
