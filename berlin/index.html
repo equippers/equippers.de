@@ -3,9 +3,13 @@ title: Equippers Berlin
 hero:
   html: <h1>Kirche anders als du denkst</h1>
   image: /uploads/hero-berlin-home.jpg
-service_time_: '15:30 Uhr'
-location: kreuzkirche
+service_time_: '11:00 Uhr'
+location: tsb
 locations:
+  tsb:
+    name: TSB Berlin - Konferenzzentrum Charlottenburg<br>Helmholtzstr. 9, 10587 Berlin
+    bvg_link: >-
+      https://www.vbb.de/fahrinfo?Z=10587+Berlin-Charlottenburg,+Helmholtzstr.+9&REQ0JourneyStopsZID=A=2@O=10587+Berlin-Charlottenburg,+Helmholtzstr.+9@X=13324881@Y=52521580@U=103@L=770004323@B=1@V=3.9,@p=1553251442@&timeMode=arrival&time=10:45&date=01.12.2019
   efg-kreuzberg:
     name: EFG Kreuzberg - Bergmannstraße
     bvg_link: >-
@@ -109,62 +113,62 @@ promos:
 {% include hero.html options=page.hero %}
 
 <section class="padding-vertical">
-	<div class="content text-center">
-		<h2 class="editable no-margin-after">Gottesdienst diesen Sonntag:</h2>
-		<p>
-			<span class="light-font" style="font-size: 2.5em;">{{ page.service_time_ }}</span><br />
-			{{ page.locations[page.location].name }}<br />
-			<i class="light-font" style="font-size: 0.675em;">(keine Postanschrift)</i>
-		</p>
+  <div class="content text-center">
+    <h2 class="editable no-margin-after">Gottesdienst diesen Sonntag:</h2>
+    <p>
+      <span class="light-font" style="font-size: 2.5em;">{{ page.service_time_ }}</span><br />
+      {{ page.locations[page.location].name }}<br />
+      <i class="light-font" style="font-size: 0.675em;">(keine Postanschrift)</i>
+    </p>
 
-		<p><i class="editable">Der Check-In für <strong>Equippers Kids</strong> öffnet 15 Minuten vor dem Gottesdienst.</i></p>
+    <p><i class="editable">Der Check-In für <strong>Equippers Kids</strong> öffnet 15 Minuten vor dem Gottesdienst.</i></p>
 
-		<p>
-			<a href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
-			<br />
-			{% if page.bvg_link != '' %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
-		</p>
-	</div>
-	<div style="display:block;width:3em;margin:0 auto;border-bottom:1px solid #353231" class="padding-vertical"></div>
-	<div class="content text-center">
-		<p class="editable text-max-width">Bei Equippers sind wir eine Menge guter Freunde, die sich anspornen, ganze Sache mit Gott zu machen. Unsere Mission ist es, Menschen durch den Glauben an Jesus Christus für das Leben auszurüsten.</p>
+    <p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
+      <br />
+      {% if page.bvg_link != '' %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
+    </p>
+  </div>
+  <div style="display:block;width:3em;margin:0 auto;border-bottom:1px solid #353231" class="padding-vertical"></div>
+  <div class="content text-center">
+    <p class="editable text-max-width">Bei Equippers sind wir eine Menge guter Freunde, die sich anspornen, ganze Sache mit Gott zu machen. Unsere Mission ist es, Menschen durch den Glauben an Jesus Christus für das Leben auszurüsten.</p>
 
-		<p>
-			<a class="button outline" href="/berlin/about">Mehr über uns</a>
-		</p>
-	</div>
+    <p>
+      <a class="button outline" href="/berlin/about">Mehr über uns</a>
+    </p>
+  </div>
 </section>
 
 <section class="communities padding-vertical">
-	<div class="content">
-		<h1 class="editable">
-			Werde Teil der Familie
-		</h1>
-		<div class="grid">
-			{% for community in page.communities %}
-				<a href="{{ community.goes_to }}" class="card">
-					<div class="img" style="background-image: url('{{ community.image }}')"></div>
-					<div class="title">{{ community.title }}</div>
-				</a>
-			{% endfor %}
-		</div>
-	</div>
+  <div class="content">
+    <h1 class="editable">
+      Werde Teil der Familie
+    </h1>
+    <div class="grid">
+      {% for community in page.communities %}
+        <a href="{{ community.goes_to }}" class="card">
+          <div class="img" style="background-image: url('{{ community.image }}')"></div>
+          <div class="title">{{ community.title }}</div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
 {% if page.event_promos %}
 <section class="dark events padding-vertical">
-	<div class="content">
-		<h1 class="editable">Events</h1>
+  <div class="content">
+    <h1 class="editable">Events</h1>
 
-		<div class="grid">
-		{% for promo in page.event_promos %}
-			<a {% if promo.goes_to %}href="{{ promo.goes_to }}"{% endif %} class="card image-only padding-vertical">
-				<div class="img" style="background-image: url('{{ promo.image }}')" title="{{ promo.title }}"></div>
-				<div class="subtitle">{{ promo.subtitle }}</div>
-			</a>
-		{% endfor %}
-		</div>
-	</div>
+    <div class="grid">
+    {% for promo in page.event_promos %}
+      <a {% if promo.goes_to %}href="{{ promo.goes_to }}"{% endif %} class="card image-only padding-vertical">
+        <div class="img" style="background-image: url('{{ promo.image }}')" title="{{ promo.title }}"></div>
+        <div class="subtitle">{{ promo.subtitle }}</div>
+      </a>
+    {% endfor %}
+    </div>
+  </div>
 </section>
 {% endif %}
 
@@ -172,29 +176,29 @@ promos:
 
 {% if events_in_future.size > 0 %}
 <section class="padding-vertical">
-	<div class="content">
-		<h1 class="editable">Was demnächst bei uns ansteht</h1>
-		{% include events.html events=events_in_future %}
-	</div>
+  <div class="content">
+    <h1 class="editable">Was demnächst bei uns ansteht</h1>
+    {% include events.html events=events_in_future %}
+  </div>
 </section>
 {% endif %}
 
 <section class="padding-top">
-	<div class="content">
-		<h1 class="editable">Bleibe auf dem Laufenden</h1>
-		<p class="editable gray-color">
-			Über soziale Medien und unseren Newsletter informieren wir dich über alle unsere Events und mehr.
-			Auf unserem Podcast kannst du unsere Predigten nachhören.
-		</p>
-	</div>
-	{% include squares.html squares=page.connect %}
+  <div class="content">
+    <h1 class="editable">Bleibe auf dem Laufenden</h1>
+    <p class="editable gray-color">
+      Über soziale Medien und unseren Newsletter informieren wir dich über alle unsere Events und mehr.
+      Auf unserem Podcast kannst du unsere Predigten nachhören.
+    </p>
+  </div>
+  {% include squares.html squares=page.connect %}
 </section>
 
 <section class="dark promos">
-	{% for promo in page.promos %}
-		<a href="{{ promo.link }}" class="square {% if promo.overlay != false %}overlay strength-6{% endif %}" style="background-image: url('{{ promo.background_image }}')">
-			<h2 class="uppercase no-margin">{{ promo.title }}</h2>
-			<p class="no-margin">{{ promo.subtitle }}</p>
-		</a>
-	{% endfor %}
+  {% for promo in page.promos %}
+    <a href="{{ promo.link }}" class="square {% if promo.overlay != false %}overlay strength-6{% endif %}" style="background-image: url('{{ promo.background_image }}')">
+      <h2 class="uppercase no-margin">{{ promo.title }}</h2>
+      <p class="no-margin">{{ promo.subtitle }}</p>
+    </a>
+  {% endfor %}
 </section>
