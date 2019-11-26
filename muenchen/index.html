@@ -1,8 +1,10 @@
 ---
 title: Equippers Startup München
 hero:
-  html: <h1>Startup München</h1>
-  image: /uploads/munich-1440.jpg
+  html: >-
+    <h1>Equippers Start-Up München</h1>
+    <a class="green button" style="font-size:0.675em;font-weight:600" href="#newsletter">Bleib auf dem Laufenden</a>
+  image: /uploads/munich-2019-1440.jpg
 mailchimp_options:
   action: https://equippers.us17.list-manage.com/subscribe/post?u=53e3fada419ead2b99592a5b7&amp;id=d643cbbe24
   fake_input_name: b_53e3fada419ead2b99592a5b7_d643cbbe24
@@ -10,33 +12,40 @@ mailchimp_options:
 
 {% include hero.html options=page.hero %}
 
-<section class="light-gray padding-vertical">
-	<div class="editable content">
-		<h3>Wir starten eine Equippers Kirche in München!</h3>
-		<p>Willst du mehr wissen? Lass uns deine Email-Adresse da und wir schicken dir alle Infos zu unseren nächsten Treffen.</p>
+<section class="padding-vertical">
+  <div class="editable content text-center">
+    <h3>
+      Hier entsteht Equippers München - Eine Kirche anders als du denkst!
+    </h3>
+    <p>
+      Wir träumen von einer lebendigen Kirche mitten in der Gesellschaft. Jeden zweiten Sonntag treffen wir uns ab 15:30 Uhr in der <a target="_blank" href="https://goo.gl/maps/z3AgqR1vm17X8E7z9">Flössergasse 8</a>. Wenn du uns kennen lernen oder mehr über unsere Story und die Vision erfahren möchtest, laden wir dich herzlich ein, vorbei zu schauen und dich für unseren Newsletter einzutragen.
+    </p>
+    <p>
+      Wir freuen uns auf dich und das Abenteuer, das vor uns liegt.
+    </p>
+  </div>
+  <div class="content"></div>
+</section>
+
+<section class="">
+	<div class="editable content text-center padding-bottom">
+		<h2>Jeden 2. Sonntag | 15:30 Uhr</h2>
 	</div>
+
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2664.286694417707!2d11.535321215642872!3d48.10470497922074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddf2be420b51f%3A0xf8b16d864c3c6594!2sEquippers%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1574780683672!5m2!1sen!2sde" width="600" height="320" frameborder="0" style="display:block;border:0;width:100%;" allowfullscreen=""></iframe>
+</section>
+
+<section id="newsletter" class="light-gray padding-vertical">
+  <div class="editable content">
+    <p>Willst du mehr wissen? Lass uns deine Email-Adresse da und wir schicken dir alle Infos zu unseren nächsten Treffen.</p>
+  </div>
 </section>
 
 {% include newsletter.html options=page.mailchimp_options %}
 
-<article>
-	<section class="editable content">
-		<h2>Über Uns</h2>
-
-		<h3>Unsere Familie</h3>
-		<p>Equippers München ist Teil einer <a href="https://www.equipperschurch.com">weltweiten Familie</a> von über zwanzig Kirchen, die beständig wächst. Durch den apostolischen Dienst von Pastor Bruce Monk aus Neuseeland entstehen überall auf der Welt wachsende, gesunde Kirchen. Gemeinsam können wir einen größeren Einfluss darauf haben, das Evangelium weiterzugeben.</p>
-
-		<h3>Unsere Mission</h3>
-		<p>Wir wollen die ganze Kirche für ihre Mission ausrüsten und freisetzen. Wir glauben, dass jeder Christ zum Dienen berufen ist, nicht nur ein paar Auserwählte. Erziehung, Bildung, Sport, Gesundheitswesen, Geschäftswelt, Politik, Medien, Kunst, Entertainment, Familie... egal, für welchen Teil unserer Gesellschaft Gott dich berufen hat, wir wollen füreinander einstehen und dich anfeuern, damit du das Reich Gottes in deine Welt bringen kannst.</p>
-
-		<h3>Unsere Werte</h3>
-		<p>Wenn Menschen zusammenkommen und sich mit vereinbarten Werten für ein gemeinsames Ziel einsetzen, werden sie zu einer unaufhaltsamen Kraft. Die Bibel sagt in Sprüche 4, dass aus unserem Herzen das Leben fließt. Um uns zu helfen, eine gesunde Kultur zu erhalten, drücken wir unsere Werte deshalb mit dem einfach zu merkenden Akronym <strong>HEART</strong> aus. Das sind unsere Herzschläge.</p>
-	</section>
-
-	{% include heart-beats.html heart_beats=site.data.heart_beats %}
-
-	<section class="editable content">
-		<h3>Unser Glaube</h3>
-		<p>Wir glauben an Gott, den Vater, den Allmächtigen, den Schöpfer des Himmels und der Erde. Und an Jesus Christus, seinen eingeborenen Sohn, unsern Herrn, empfangen durch den Heiligen Geist, geboren von der Jungfrau Maria, gelitten unter Pontius Pilatus, gekreuzigt, gestorben und begraben, hinab gestiegen in das Reich des Todes, am dritten Tage auferstanden von den Toten, aufgefahren in den Himmel; er sitzt zur Rechten Gottes, des allmächtigen Vaters; von dort wird er kommen, zu richten die Lebenden und die Toten. Wir glauben an den Heiligen Geist, die heilige christliche Kirche, Gemeinschaft der Heiligen, Vergebung der Sünden, Auferstehung der Toten und das ewige Leben.</p>
-	</section>
-</article>
+<script>
+	document.querySelector('a[href="#newsletter"]').addEventListener('click', e => {
+		e.preventDefault();
+		document.querySelector('#newsletter').scrollIntoView({ behavior: 'smooth' });
+	});
+</script>
