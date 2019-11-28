@@ -1,16 +1,4 @@
 .flourish
-  .img-grid
-    makeGrid(1fr)
-
-    @media (min-width: $tablet-breakpoint)
-      grid-template-columns: repeat(2, 1fr)
-
-    @media (min-width: $desktop-breakpoint)
-      grid-template-columns: repeat(3, 1fr)
-
-  .img
-    display: block;
-
 	ul.languages
 		margin: 0
 		padding: 0
@@ -26,6 +14,16 @@
 				span
 					text-decoration: underline
 
+	table
+		td
+			vertical-align: top
+
+	blockquote
+		font-style: italic
+
+		div
+			float: left
+
 	img.speaker
 		width: 100%
 
@@ -36,14 +34,3 @@
 			object-fit: cover
 			margin-right: 0.5em
 			margin-bottom: @margin-right
-
-	blockquote.testimony
-		font-size: 0.8888em
-		margin: 1em 0
-		padding: 1em
-		addBorderRadius()
-		background-color: $light-gray
-
-	span.time
-		width: 7em
-		display: inline-block
