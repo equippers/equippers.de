@@ -4,13 +4,26 @@ aliases:
   - /flourish
 hero:
   html: >-
-    <h1>Flourish - Frauenkonferenz</h1>
+    <h1>Flourish - Frauen&shy;konferenz</h1>
     <p><i>6. & 7. März 2020</i></p>
     <a href="https://flourish20.eventbrite.de" class="green button" style="font-size:0.675em;">Jetzt Anmelden</a>
   image: /uploads/sistas-hero.jpg
 ---
 
-{% include hero.html options=page.hero %}
+<section
+	class="dark hero flourish"
+	style="position: relative; overflow:hidden; background-image: url('{{ page.hero.image }}');"
+>
+	<div style="position:absolute; width: 100%; padding-bottom:56.25%; z-index:0;">
+		<div style="position:absolute; top: 0; left: 0; width:100%; height:100%; border:0;">
+			<div id="player"></div>
+		</div>
+	</div>
+	<div style="position:absolute; width:100%; height:100%; z-index:1; background-color:rgba(0,0,0,0.6);"></div>
+	<div class="content text-center uppercase" style="z-index:2;">
+		{{ page.hero.html }}
+	</div>
+</section>
 
 <article class="flourish">
 	<section class="content">
@@ -102,3 +115,31 @@ hero:
 		</blockquote>
 	</section>
 </article>
+
+<script>
+function onYouTubeIframeAPIReady() {
+	new YT.Player('player', {
+		videoId: 'AvryJCgoGck',
+		playerVars: {
+			autoplay: 1,
+			disablekb: 1,
+			controls: 0,
+			modestbranding: 1,
+			loop: 1,
+			playlist: 'AvryJCgoGck'
+		}
+	});
+}
+
+(function() {
+	if (!matchMedia('(min-width: 60em)').matches) {
+		return;
+	}
+
+	// load youtube iframe api asynchronously
+	var tag = document.createElement('script');
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}());
+</script>
