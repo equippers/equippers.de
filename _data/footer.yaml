@@ -1,19 +1,19 @@
 berlin:
   name: Equippers Berlin e. V.
-  address: Hindenburgdamm 33, 12203 Berlin (Büro)
+  address: 'Hindenburgdamm 33, 12203 Berlin (Büro)'
   email: mail@equippers.de
   phone: '+493028660618'
   phone_formatted: +49 (0)30 286 606 18
   copyright_text: Equippers ist eine Kirche im Bund Freikirchlicher Pfingstgemeinden KdöR.
   links:
     - title: Facebook
-      goes_to: https://www.facebook.com/equippersberlin
+      goes_to: 'https://www.facebook.com/equippersberlin'
       icon_id: facebook
     - title: Instagram
-      goes_to: https://www.instagram.com/equippersberlin/
+      goes_to: 'https://www.instagram.com/equippersberlin/'
       icon_id: instagram
     - title: Twitter
-      goes_to: https://twitter.com/equippersberlin
+      goes_to: 'https://twitter.com/equippersberlin'
       icon_id: twitter
   bank_account:
     owner: Equippers Berlin e. V.
@@ -22,17 +22,17 @@ berlin:
     bank_name: SKB Bad Homburg
 hamburg:
   name: Equippers Start-Up Hamburg
-  address: Grömitzer Weg 13E, 22147 Hamburg
+  address: 'Grömitzer Weg 13E, 22147 Hamburg'
   email: hamburg@equippers.de
   phone: '+4933284445177'
   phone_formatted: +49 (0)3328 444 5177
   copyright_text:
   links:
     - title: Facebook
-      goes_to: https://www.facebook.com/EquippersStartUpHamburg
+      goes_to: 'https://www.facebook.com/EquippersStartUpHamburg'
       icon_id: facebook
     - title: Instagram
-      goes_to: https://www.instagram.com/equippersstartuphamburg/
+      goes_to: 'https://www.instagram.com/equippersstartuphamburg/'
       icon_id: instagram
   bank_account:
     owner:
@@ -41,14 +41,14 @@ hamburg:
     bank_name:
 muenchen:
   name: Equippers Start-Up München
-  address: Geltinger Straße 22, 81379 München
+  address: 'Geltinger Straße 22, 81379 München'
   email: muenchen@equippers.de
-  phone: '+4933284445177'
-  phone_formatted: +49 (0)3328 444 5177
+  phone: '+491742105367'
+  phone_formatted: +49 174 2105367
   copyright_text:
   links:
     - title: Instagram
-      goes_to: https://www.instagram.com/equippersmuenchen/
+      goes_to: 'https://www.instagram.com/equippersmuenchen/'
       icon_id: instagram
   bank_account:
     owner:
