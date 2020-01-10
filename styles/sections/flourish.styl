@@ -40,9 +40,13 @@
 	img.speaker
 		width: 100%
 
+		@media(max-width: 30em)
+			border-radius: 50%
+			margin-bottom: 1em
+
 		@media(min-width: 30em)
 			float: left
-			width: 15em
+			width: 10em
 			height: @width
 			object-fit: cover
 			margin-right: 0.5em
