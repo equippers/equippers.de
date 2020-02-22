@@ -29,8 +29,8 @@ Das ist ein Prozess, der Zeit, Studium und die Bereitschaft, sich Gott zu öffne
     date_text: '14-tägig, sonntags, 12:30-14:30 Uhr'
     location: 'Berlin - Höhenschönhausen'
     full: false
-    lat: 52.4292871
-    lng: 13.3360796
+    lat: 52.5358828
+    lng: 13.4859959
     img: katharina.jpg
     email: katharinastiefelhagen@googlemail.com
   -
@@ -390,256 +390,314 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 {% include hero.html options=page.hero %}
 
 <article>
-  <section class="editable content">
-    <h1>Gemeinsam ganze Sache mit Gott machen.</h1>
-    <p>eGroups sind ein Teil des Lebens bei Equippers. Hier verbindest du dich mit neuen Freunden, hast Gemeinschaft und erlebst Ermutigung in deinem Glauben an Jesus Christus. Zusammen geht das leichter - wir laden dich ein dabei zu sein!</p>
-    <p>Stöbere doch einfach durch die unten gelisteten Gruppen und melde dich direkt über das jeweilige Kontaktformular an. Gern kannst du auch nach dem Gottesdienst am Welcome Desk auf uns zukommen und dich registrieren. Nach der Anmeldung schickt dir dein eGroup-Leiter eine E-Mail mit einer Bestätigung und der genauen Adresse.</p>
-    {% comment %}<p>Im Moment sind wir mitten in einer eGroups-Saison. Zu den unten stehenden Gruppen kannst du aber gern jederzeit dazukommen. Kontaktiere einfach den jeweiligen Leiter, um alle weiteren Infos zu bekommen. Wir freuen uns auf dich!</p>
-    {% endcomment %}
-    <p>Wir freuen uns auf dich.</p>
-  </section>
+	<section class="editable content">
+		<h1>Gemeinsam ganze Sache mit Gott machen.</h1>
+		<p>
+			eGroups sind ein Teil des Lebens bei Equippers. Hier verbindest du dich
+			mit neuen Freunden, hast Gemeinschaft und erlebst Ermutigung in deinem
+			Glauben an Jesus Christus. Zusammen geht das leichter - wir laden dich ein
+			dabei zu sein!
+		</p>
+		<p>
+			Stöbere doch einfach durch die unten gelisteten Gruppen und melde dich
+			direkt über das jeweilige Kontaktformular an. Gern kannst du auch nach dem
+			Gottesdienst am Welcome Desk auf uns zukommen und dich registrieren. Nach
+			der Anmeldung schickt dir dein eGroup-Leiter eine E-Mail mit einer
+			Bestätigung und der genauen Adresse.
+		</p>
+		{% comment %}
+		<p>
+			Im Moment sind wir mitten in einer eGroups-Saison. Zu den unten stehenden
+			Gruppen kannst du aber gern jederzeit dazukommen. Kontaktiere einfach den
+			jeweiligen Leiter, um alle weiteren Infos zu bekommen. Wir freuen uns auf
+			dich!
+		</p>
+		{% endcomment %}
+		<p>Wir freuen uns auf dich.</p>
+	</section>
 
-  <section>
-    {% if page.egroups.size > 0 %}
-    <p style="text-align:center;margin: 2em 0 0.5em;"><a href="#center-map" id="center-map" onclick="return false;">Karte zentrieren</a></p>
-    <div id="gmap" style="width:100%; height:30em;margin-bottom:1em"></div>
-    {% endif %}
-  </section>
+	<section>
+		{% if page.egroups.size > 0 %}
+		<p style="text-align:center;margin: 2em 0 0.5em;">
+			<a href="#center-map" id="center-map" onclick="return false;"
+				>Karte zentrieren</a
+			>
+		</p>
+		<div id="gmap" style="width:100%; height:30em;margin-bottom:1em"></div>
+		{% endif %}
+	</section>
 
-  <section class="egroups padding-vertical">
-    <div class="content">
-      <div class="s-group-grid">
-        {% for group in page.egroups %}
-          <div class="s-group">
-            <h4>{{ group.name }}</h4>
-            <p>{{ group.date_text }}<br />Ort: <a href="#gmap" id="location-{{ group.id }}-1">{{ group.location }}</a>{% if group.full %}<br />Keine Plätze mehr!{% endif %}<br/>Für {{ group.short_target }}</p>
-            <button class="button outline" href="https://google.com" onclick="toggleModal('{{ group.id }}', 'on'); return false;">
-              Melde dich an!
-            </button>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-</section>
+	<section class="egroups padding-vertical">
+		<div class="content">
+			<div class="s-group-grid">
+				{% for group in page.egroups %}
+				<div class="s-group">
+					<h4>{{ group.name }}</h4>
+					<p>
+						{{ group.date_text }}<br />Ort:
+						<a href="#gmap" id="location-{{ group.id }}-1"
+							>{{ group.location }}</a
+						>{% if group.full %}<br />Keine Plätze mehr!{% endif %}<br />Für {{
+						group.short_target }}
+					</p>
+					<button
+						class="button outline"
+						href="https://google.com"
+						onclick="toggleModal('{{ group.id }}', 'on'); return false;"
+					>
+						Melde dich an!
+					</button>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
 
-<div id="modal-bg"></div>
+	<div id="modal-bg"></div>
 
-{% for g in page.egroups %}
-<div class="modal" id="group-modal-{{ g.id }}" onclick="toggleModal('{{ g.id }}', 'off');">
-    <div class="modal-content">
-        <div class="modal-close" onclick="toggleModal('{{ g.id }}', 'off');">X</div>
-        <h5>{{ g.name }}</h5>
-        {% if g.img %}<img src="{{ page.route }}/uploads/egroups/{{ g.img }}" alt="Profile" />{% endif %}
-        {% if g.img2 %}<img src="{{ page.route }}/uploads/egroups/{{ g.img2 }}" alt="Profile2" />{% endif %}
-        <p>
-            <strong>Beschreibung:</strong> {{ g.description }}<br />
-            <strong>Leiter:</strong> {{ g.leader }}<br />
-            <strong>Zielgruppe:</strong> {{ g.target }}<br />
-            <strong>Zeit:</strong> {{ g.date_text }}<br />
-            <strong>Ort:</strong> <a href="#gmap" id="location-{{ g.id }}-2">{{ g.location }}</a><br />
-            {% if g.max %}<strong>Maximale Teilnehmerzahl:</strong> {{ g.max }} {% endif %}
-        </p>
-        {% if g.full %}<p>Keine Plätze mehr!</p>{% endif %}
-        <form method="post" id="group-form-{{ g.id }}" action="/berlin/egroups">
-            <legend>Kontaktiere den Leiter:</legend>
-            <label>
-                Dein Name:
-                <input type="text" name="Name" />
-            </label>
-            <label>
-                Email-Adresse:
-                <input type="email" name="email" />
-            </label>
-            <label style="margin-bottom:0;">
-                Nachricht:
-                <textarea name="Nachricht" rows="5"></textarea>
-            </label>
+	{% for g in page.egroups %}
+	<div
+		class="modal"
+		id="group-modal-{{ g.id }}"
+		onclick="toggleModal('{{ g.id }}', 'off');"
+	>
+		<div class="modal-content">
+			<div class="modal-close" onclick="toggleModal('{{ g.id }}', 'off');">
+				X
+			</div>
+			<h5>{{ g.name }}</h5>
+			{% if g.img %}<img
+				src="{{ page.route }}/uploads/egroups/{{ g.img }}"
+				alt="Profile"
+			/>{% endif %} {% if g.img2 %}<img
+				src="{{ page.route }}/uploads/egroups/{{ g.img2 }}"
+				alt="Profile2"
+			/>{% endif %}
+			<p>
+				<strong>Beschreibung:</strong> {{ g.description }}<br />
+				<strong>Leiter:</strong> {{ g.leader }}<br />
+				<strong>Zielgruppe:</strong> {{ g.target }}<br />
+				<strong>Zeit:</strong> {{ g.date_text }}<br />
+				<strong>Ort:</strong>
+				<a href="#gmap" id="location-{{ g.id }}-2">{{ g.location }}</a><br />
+				{% if g.max %}<strong>Maximale Teilnehmerzahl:</strong> {{ g.max }} {%
+				endif %}
+			</p>
+			{% if g.full %}
+			<p>Keine Plätze mehr!</p>
+			{% endif %}
+			<form method="post" id="group-form-{{ g.id }}" action="/berlin/egroups">
+				<legend>Kontaktiere den Leiter:</legend>
+				<label>
+					Dein Name:
+					<input type="text" name="Name" />
+				</label>
+				<label>
+					Email-Adresse:
+					<input type="email" name="email" />
+				</label>
+				<label style="margin-bottom:0;">
+					Nachricht:
+					<textarea name="Nachricht" rows="5"></textarea>
+				</label>
 
-            <input type="hidden" name="Gewählte Gruppe" value="{{g.name}}" />
-            <input type="hidden" name="_cc" value="{{ page.email.admins }}" />
-            <input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
-            <input type="hidden" name="_subject" value="{{ page.email.subject }}" />
+				<input type="hidden" name="Gewählte Gruppe" value="{{g.name}}" />
+				<input type="hidden" name="_cc" value="{{ page.email.admins }}" />
+				<input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
+				<input type="hidden" name="_subject" value="{{ page.email.subject }}" />
 
-            <input class="btn" type="button" value="Abbrechen" onclick="toggleModal('{{ g.id }}', 'off');" />
-            <input id="group-modal-send-{{ g.id }}" class="btn btn-blue" type="submit" value="Senden" />
-            {% comment %}
-            TODO: Perhaps try a google captcha
-            Hint by Simon: Cloudcannon offers captchas (search in the docs)
-            {% endcomment %}
-            <input type="text" name="_gotcha" style="display: none;" />
-        </form>
-    </div>
-</div>
-{% endfor %}
+				<input
+					class="btn"
+					type="button"
+					value="Abbrechen"
+					onclick="toggleModal('{{ g.id }}', 'off');"
+				/>
+				<input
+					id="group-modal-send-{{ g.id }}"
+					class="btn btn-blue"
+					type="submit"
+					value="Senden"
+				/>
+				{% comment %} TODO: Perhaps try a google captcha Hint by Simon:
+				Cloudcannon offers captchas (search in the docs) {% endcomment %}
+				<input type="text" name="_gotcha" style="display: none;" />
+			</form>
+		</div>
+	</div>
+	{% endfor %}
 </article>
 
 <script>
-  var markers = [];
-  {% for g in page.egroups %}
-  {% if g.lat %}
-  markers.push({
-      name: '{{ g.name }}',
-      leader: '{{ g.leader }}',
-      modalId: '{{ g.id }}',
-      locationId: 'location-{{ g.id }}',
-      pos: { lat: {{ g.lat }},lng: {{ g.lng }} }
-  });
-  {% endif %}
-  {% endfor %}
+	var markers = [];
+	{% for g in page.egroups %}
+	{% if g.lat %}
+	markers.push({
+	    name: '{{ g.name }}',
+	    leader: '{{ g.leader }}',
+	    modalId: '{{ g.id }}',
+	    locationId: 'location-{{ g.id }}',
+	    pos: { lat: {{ g.lat }},lng: {{ g.lng }} }
+	});
+	{% endif %}
+	{% endfor %}
 
-  //console.table(markers);
+	//console.table(markers);
 
-  function initMap() {
-      var bounds = new google.maps.LatLngBounds();
+	function initMap() {
+	    var bounds = new google.maps.LatLngBounds();
 
-      var berlin = { lat: 52.52000659999999, lng: 13.404954 };
-      var initState = {
-          zoom: 10,
-          center: berlin,
-          disableDefaultUI: true,
-          zoomControl: true
-      };
+	    var berlin = { lat: 52.52000659999999, lng: 13.404954 };
+	    var initState = {
+	        zoom: 10,
+	        center: berlin,
+	        disableDefaultUI: true,
+	        zoomControl: true
+	    };
 
-      var map = new google.maps.Map(document.getElementById('gmap'), initState);
+	    var map = new google.maps.Map(document.getElementById('gmap'), initState);
 
-      markers.forEach(function (m) {
-          var marker = new google.maps.Marker({
-              position: m.pos,
-              map: map
-          });
+	    markers.forEach(function (m) {
+	        var marker = new google.maps.Marker({
+	            position: m.pos,
+	            map: map
+	        });
 
-          var markerPos = new google.maps.LatLng(m.pos.lat, m.pos.lng);
-          bounds.extend(markerPos);
+	        var markerPos = new google.maps.LatLng(m.pos.lat, m.pos.lng);
+	        bounds.extend(markerPos);
 
-          var infowindow = new google.maps.InfoWindow({
-              content: '<strong>Name:</strong> ' + m.name + '<br><strong>Leiter:</strong> ' + m.leader
-          });
+	        var infowindow = new google.maps.InfoWindow({
+	            content: '<strong>Name:</strong> ' + m.name + '<br><strong>Leiter:</strong> ' + m.leader
+	        });
 
-          google.maps.event.addListener(marker, 'click', function () {
-              toggleModal(m.modalId, 'on');
-          });
-          google.maps.event.addListener(marker, 'mouseover', function() {
-              infowindow.open(map, this);
-          });
-          google.maps.event.addListener(marker, 'mouseout', function() {
-              infowindow.close();
-          });
+	        google.maps.event.addListener(marker, 'click', function () {
+	            toggleModal(m.modalId, 'on');
+	        });
+	        google.maps.event.addListener(marker, 'mouseover', function() {
+	            infowindow.open(map, this);
+	        });
+	        google.maps.event.addListener(marker, 'mouseout', function() {
+	            infowindow.close();
+	        });
 
-          function showLocation(){
-              toggleModal(m.modalId, 'off');
-              map.setCenter(markerPos);
-              map.setZoom(13);
-          }
-          document.getElementById( m.locationId + "-1" ).addEventListener( 'click', showLocation );
-          document.getElementById( m.locationId + "-2" ).addEventListener( 'click', showLocation );
-      });
+	        function showLocation(){
+	            toggleModal(m.modalId, 'off');
+	            map.setCenter(markerPos);
+	            map.setZoom(13);
+	        }
+	        document.getElementById( m.locationId + "-1" ).addEventListener( 'click', showLocation );
+	        document.getElementById( m.locationId + "-2" ).addEventListener( 'click', showLocation );
+	    });
 
-      map.fitBounds(bounds);
+	    map.fitBounds(bounds);
 
-      function centerMap() {
-          // map.setCenter(initState.center);
-          // map.setZoom(initState.zoom);
-          map.fitBounds(bounds);
-      }
+	    function centerMap() {
+	        // map.setCenter(initState.center);
+	        // map.setZoom(initState.zoom);
+	        map.fitBounds(bounds);
+	    }
 
-      document.getElementById('center-map').addEventListener('click', function () {
-          centerMap();
-          return false;
-      });
-  }
-  function toggleModal(id, status)
-  {
-    try { // just in case the modal background div is missing
-        document.getElementById('modal-bg').style.display = (status == 'on') ? 'block' : 'none';
-    } catch (e) {};
-    var groupModal = document.getElementById('group-modal-'+id);
-    groupModal.style.display = (status == 'on') ? 'block' : 'none';
-    var st = document.body.scrollTop || document.documentElement.scrollTop;
-    var ch = document.documentElement.clientHeight;
-    var mh = groupModal.clientHeight;
-    t = (mh > ch) ? st + 10 : st + Math.round((ch - mh)/2);
-    groupModal.style.top = t + 'px';
+	    document.getElementById('center-map').addEventListener('click', function () {
+	        centerMap();
+	        return false;
+	    });
+	}
+	function toggleModal(id, status)
+	{
+	  try { // just in case the modal background div is missing
+	      document.getElementById('modal-bg').style.display = (status == 'on') ? 'block' : 'none';
+	  } catch (e) {};
+	  var groupModal = document.getElementById('group-modal-'+id);
+	  groupModal.style.display = (status == 'on') ? 'block' : 'none';
+	  var st = document.body.scrollTop || document.documentElement.scrollTop;
+	  var ch = document.documentElement.clientHeight;
+	  var mh = groupModal.clientHeight;
+	  t = (mh > ch) ? st + 10 : st + Math.round((ch - mh)/2);
+	  groupModal.style.top = t + 'px';
 
-    // enable the button
-    var sendBtn = document.getElementById('group-modal-send-' + id);
-    sendBtn.disabled = false;
-  }
+	  // enable the button
+	  var sendBtn = document.getElementById('group-modal-send-' + id);
+	  sendBtn.disabled = false;
+	}
 
-  // to support IE <= 8
-  function stopPropagation(e) {
-      var evt = e || window.event;
-      if (typeof evt.stopPropagation != "undefined") {
-          evt.stopPropagation();
-      } else {
-          evt.cancelBubble = true;
-      }
-  }
+	// to support IE <= 8
+	function stopPropagation(e) {
+	    var evt = e || window.event;
+	    if (typeof evt.stopPropagation != "undefined") {
+	        evt.stopPropagation();
+	    } else {
+	        evt.cancelBubble = true;
+	    }
+	}
 
-  // dont toggle modals off, if modal content is clicked
-  var modalContentList = document.querySelectorAll('.modal-content');
-  for (var i = 0; i < modalContentList.length; i++) {
-      modalContentList[i].onclick = function (e) {
-          stopPropagation(e);
-      }
-  }
+	// dont toggle modals off, if modal content is clicked
+	var modalContentList = document.querySelectorAll('.modal-content');
+	for (var i = 0; i < modalContentList.length; i++) {
+	    modalContentList[i].onclick = function (e) {
+	        stopPropagation(e);
+	    }
+	}
 
-  // Helper function to get form data in the supported format
-  function getFormDataString(formEl) {
-    var formData = new FormData(formEl),
-        data = [];
+	// Helper function to get form data in the supported format
+	function getFormDataString(formEl) {
+	  var formData = new FormData(formEl),
+	      data = [];
 
-    for (var keyValue of formData) {
-      data.push(encodeURIComponent(keyValue[0]) + "=" + encodeURIComponent(keyValue[1]));
-    }
+	  for (var keyValue of formData) {
+	    data.push(encodeURIComponent(keyValue[0]) + "=" + encodeURIComponent(keyValue[1]));
+	  }
 
-    return data.join("&");
-  }
+	  return data.join("&");
+	}
 
-  var ids = [ {% for g in page.egroups %} "{{ g.id }}", {% endfor %} ];
-  for(var i = 0; i < ids.length; i++)
-  {
-    // We use a closure to properly capture i.
-    (function(){
-      // Fetch the form element
-      var id = ids[i];
-      var formEl = document.getElementById("group-form-" + id);
-      var modalId = "group-modal-" + id;
-      var sendBtnId = "group-modal-send-" + id;
+	var ids = [ {% for g in page.egroups %} "{{ g.id }}", {% endfor %} ];
+	for(var i = 0; i < ids.length; i++)
+	{
+	  // We use a closure to properly capture i.
+	  (function(){
+	    // Fetch the form element
+	    var id = ids[i];
+	    var formEl = document.getElementById("group-form-" + id);
+	    var modalId = "group-modal-" + id;
+	    var sendBtnId = "group-modal-send-" + id;
 
-      // Override the submit event
-      formEl.addEventListener("submit", function (e) {
-        // Disable the send button to prevent multiple emails
-        var sendBtn = document.getElementById(sendBtnId);
-        sendBtn.disabled = true;
-        e.preventDefault();
+	    // Override the submit event
+	    formEl.addEventListener("submit", function (e) {
+	      // Disable the send button to prevent multiple emails
+	      var sendBtn = document.getElementById(sendBtnId);
+	      sendBtn.disabled = true;
+	      e.preventDefault();
 
-        /*
-        if (grecaptcha) {
-          var recaptchaResponse = grecaptcha.getResponse();
-          if (!recaptchaResponse) { // reCAPTCHA not clicked yet
-            return false;
-          }
-        }*/
+	      /*
+	      if (grecaptcha) {
+	        var recaptchaResponse = grecaptcha.getResponse();
+	        if (!recaptchaResponse) { // reCAPTCHA not clicked yet
+	          return false;
+	        }
+	      }*/
 
-        var request = new XMLHttpRequest();
+	      var request = new XMLHttpRequest();
 
-        request.addEventListener("load", function () {
-          if (request.status === 302 || // CloudCannon redirects on success
-              request.status == 200 ) { // Or testing showed that it didn't
-            alert("Nachricht gesendet.");
-          }
-          else {
-            alert("Fehler beim Senden der Nachricht. Bitte versuche es später nochmal.");
-          }
-          toggleModal(id, 'off');
-        });
+	      request.addEventListener("load", function () {
+	        if (request.status === 302 || // CloudCannon redirects on success
+	            request.status == 200 ) { // Or testing showed that it didn't
+	          alert("Nachricht gesendet.");
+	        }
+	        else {
+	          alert("Fehler beim Senden der Nachricht. Bitte versuche es später nochmal.");
+	        }
+	        toggleModal(id, 'off');
+	      });
 
-        request.open(formEl.method, formEl.action);
-        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send(getFormDataString(formEl));
-      });
-    })();
-  }
+	      request.open(formEl.method, formEl.action);
+	      request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	      request.send(getFormDataString(formEl));
+	    });
+	  })();
+	}
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap"></script>
+<script
+	async
+	defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap"
+></script>
