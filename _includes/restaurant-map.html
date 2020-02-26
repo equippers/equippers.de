@@ -1,0 +1,9 @@
+<section>
+    <h2>{{include.header}}</h2>
+    {% if page.restaurants.size > 0 %}
+    <p style="text-align:center;margin: 0">
+        <a href="#center-map" id="center-map" onclick="return false;">{{include.cm}}</a>
+    </p>
+    <div id="gmap" style="width:100%; height:30em;margin-bottom:1em"></div>
+    {% endif %}
+</section>

@@ -1,0 +1,80 @@
+<script>
+
+var markers = [];
+{% for g in page.restaurants %}
+{% if g.lat %}
+markers.push({
+	name: '{{ g.name }}',
+	phone: '{{ g.phone }}',
+	website: '{{ g.website }}',
+	pos: { lat: {{ g.lat }}, lng: {{ g.lng }} },
+	type: '{{ g.type }}',
+	address: '{{ g.address }}'
+});
+{% endif %}
+{% endfor %}
+
+function initMap() {
+	var bounds = new google.maps.LatLngBounds();
+
+	var berlin = { lat: 52.52000659999999, lng: 13.404954 };
+	var initState = {
+		zoom: 10,
+		center: berlin,
+		disableDefaultUI: true,
+		zoomControl: true
+	};
+
+	var map = new google.maps.Map(document.getElementById('gmap'), initState);
+
+	markers.forEach(function (m) {
+		var church = {
+			path: "M11 2h2v2h2v2h-2v3.4l9 3.6v2l-2-.8V22h-6v-5a2 2 0 0 0-2-2a2 2 0 0 0-2 2v5H4v-7.8L2 15v-2l9-3.6V6H9V4h2V2M6 20h2v-5l-1-1l-1 1v5m10 0h2v-5l-1-1l-1 1v5z",
+			fillColor: 'black',
+			fillOpacity: 0.8,
+			scale: 2,
+			strokeColor: 'grey',
+			strokeWeight: 0.1,
+			anchor: new google.maps.Point(11, 11)
+		}
+		var marker = new google.maps.Marker({
+			position: m.pos,
+			map: map,
+			icon: m.type === "{{include.ct}}" ? church : undefined
+		});
+
+		var markerPos = new google.maps.LatLng(m.pos.lat, m.pos.lng);
+		bounds.extend(markerPos);
+
+		var infowindow = new google.maps.InfoWindow({
+			content: '<strong>{{include.nt}}:</strong> ' + m.name +
+				(m.phone !== '' ? ('<br><strong>{{include.pt}}:</strong> ' + m.phone) : '') +
+				(m.website !== '' ? ('<br><strong>{{include.wt}}:</strong> ' + m.website) : '') +
+				(m.type !== '' ? ('<br><strong>{{include.tt}}:</strong> ' + m.type) : '') +
+				(m.address !== '' ? ('<br><strong>{{include.at}}:</strong> ' + m.address) : '')
+		});
+
+		google.maps.event.addListener(marker, 'mouseover', function () {
+			infowindow.open(map, this);
+		});
+		google.maps.event.addListener(marker, 'click', function () {
+			infowindow.open(map, this);
+		})
+	});
+
+	map.fitBounds(bounds);
+
+	function centerMap() {
+		map.fitBounds(bounds);
+	}
+
+	document.getElementById('center-map').addEventListener('click', function () {
+		centerMap();
+		return false;
+	});
+}
+
+</script>
+
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap"></script>
