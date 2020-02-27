@@ -4,8 +4,8 @@ berlin:
     hidden_on_tablet: true
   - title: Über uns
     goes_to: /berlin/about
-  - title: Events
-    goes_to: /berlin/events
+  - title: Flourish
+    goes_to: /berlin/flourish
   - title: Equip
     goes_to: /berlin/equip
   - title: eGroups
