@@ -11,6 +11,9 @@ cd equippers.de
 bundle install
 ```
 
+If you have problems after upgrading to Catalina, run `xcode-select --install` and then re-run
+`bundle install`. `brew install ruby` may also be required.
+
 ## Development
 
 These editor plugins are recommended:
