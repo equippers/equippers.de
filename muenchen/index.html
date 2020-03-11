@@ -29,7 +29,11 @@ mailchimp_options:
 
 <section class="">
 	<div class="editable content text-center padding-bottom">
-		<h2>Jeden 2. Sonntag | 15:30 Uhr</h2>
+		<h2>Für aktuelle Termine zu unseren Treffen trag dich für den Newsletter ein oder folge uns auf Instagram.</h2>
+		<p>
+				<a class="green button" style="font-size:0.675em;font-weight:600" href="#newsletter">Newsletter</a>
+				<a class="yellow button" style="font-size:0.675em;font-weight:600" href="https://www.instagram.com/equippersstartupmuenchen/" target="_blank">Instagram</a>
+		</p>
 	</div>
 
 	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10657.146773362516!2d11.53751!3d48.104705!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8b16d864c3c6594!2sEquippers%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1574783521290!5m2!1sen!2sde" width="600" height="320" frameborder="0" style="display:block;border:0;width:100%;" allowfullscreen=""></iframe>
@@ -44,8 +48,8 @@ mailchimp_options:
 {% include newsletter.html options=page.mailchimp_options %}
 
 <script>
-	document.querySelector('a[href="#newsletter"]').addEventListener('click', e => {
+	document.querySelectorAll('a[href="#newsletter"]').forEach(link => link.addEventListener('click', e => {
 		e.preventDefault();
 		document.querySelector('#newsletter').scrollIntoView({ behavior: 'smooth' });
-	});
+	}));
 </script>
