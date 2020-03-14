@@ -3,7 +3,7 @@ title: Equippers Berlin
 hero:
   html: <h1>Kirche anders als du denkst</h1>
   image: /uploads/hero-berlin-home.jpg
-service_time_: 'Kein 17 Uhr Gottesdienst!'
+service_time_: '17:00 Uhr'
 location: tsb
 locations:
   tsb:
@@ -114,12 +114,24 @@ promos:
     link: 'https://www.equipperschurch.com/music'
 ---
 
+<section class="dark" style="background-color: #fe4a49;">
+  <div class="content text-center padding">
+    <p class="no-margin padding">Aufgrund der aktuellen Situation werden wir bis einschließlich 19. April 2020 keine Gottesdienste um 17 Uhr feiern - Den 10:00 Uhr Gottesdienst feiern wir über Livestream. Alle aktuellen Updates findest du auf unserer Webseite und unseren Social-Media-Kanälen.</p>
+  </div>
+</section>
+
 {% include hero.html options=page.hero %}
 
 <section class="padding-vertical">
   <div class="content text-center">
     <h2 class="editable no-margin-after">Gottesdienst diesen Sonntag:</h2>
     <p>
+      <span class="light-font" style="font-size: 2.5em;">10:00 Uhr</span><br />
+      Livestream-Gottesdienst<br />
+      auf unserem <a href="https://www.youtube.com/channel/UCsrmi9NdlmG_Vor6raljIBg">Youtube-Channel</a>
+    </p>
+
+    <!-- <p>
       <span class="light-font" style="font-size: 2.5em;">10:00 Uhr</span><br />
       Christus-Gemeinde Hohenschönhausen<br />
       Landsberger Allee 225, 13055 Berlin
@@ -136,8 +148,8 @@ promos:
       <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
       <br />
       {% if page.bvg_link != '' %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
-    </p>
-  </div>
+    </p> -->
+	</div>
   <div style="display:block;width:3em;margin:0 auto;border-bottom:1px solid #353231" class="padding-vertical"></div>
   <div class="content text-center">
     <p class="editable text-max-width">Bei Equippers sind wir ein Haufen guter Freunde, die sich gegenseitig anfeuern, höher mit Gott zu gehen. Unsere Mission ist es, Menschen durch den Glauben an Jesus Christus für das Leben auszurüsten.</p>
