@@ -506,6 +506,7 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 				<input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
 				<input type="hidden" name="_subject" value="{{ page.email.subject }}" />
 
+				<div class="captcha" id="html_element_{{ g.id }}"></div>
 				<input
 					class="btn"
 					type="button"
@@ -694,10 +695,24 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 	    });
 	  })();
 	}
+
+	  var onloadCallback = function() {
+	     {% for g in page.egroups %}
+	       grecaptcha.render('html_element_{{g.id}}', {
+	         'sitekey' : '6LeT2eIUAAAAAAv-2aY88nkBsoV92fYR7qSiV-Ov'
+	       });
+	     {% endfor %}
+	  };
 </script>
 
 <script
 	async
 	defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap"
+></script>
+
+<script
+	src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+	async
+	defer
 ></script>
