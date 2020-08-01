@@ -3,9 +3,11 @@ title: Equippers Berlin
 hero:
   html: <h1>Kirche anders als du denkst</h1>
   image: /uploads/hero-berlin-home.jpg
-service_time_: '17:00 Uhr'
-location: tsb
+service_time_: '10:00 Uhr'
+location: hsh
 locations:
+  hsh:
+    name: Landsberger Allee 225, 13055 Berlin
   tsb:
     name: TSB Berlin - Konferenzzentrum Charlottenburg<br>Helmholtzstr. 9, 10587 Berlin
     bvg_link: >-
@@ -114,41 +116,15 @@ promos:
     link: 'https://www.equipperschurch.com/music'
 ---
 
-<section class="dark" style="background-color: #fe4a49;">
-  <div class="content text-center padding">
-    <p class="no-margin padding">Aufgrund der aktuellen Situation werden wir bis auf Weiteres keine Gottesdienste um 17 Uhr feiern - Den 10:00 Uhr Gottesdienst feiern wir über Livestream. Alle aktuellen Updates findest du auf unserer Webseite und unseren Social-Media-Kanälen.</p>
-  </div>
-</section>
-
 {% include hero.html options=page.hero %}
 
 <section class="padding-vertical">
   <div class="content text-center">
     <h2 class="editable no-margin-after">Gottesdienst diesen Sonntag:</h2>
-    <p>
-      <span class="light-font" style="font-size: 2.5em;">10:00 Uhr</span><br />
-      Livestream-Gottesdienst<br />
-      <strong><a class="blue-color" href="https://www.facebook.com/equippersberlin/">Facebook</a></strong> // <strong><a class="red-color" href="https://www.youtube.com/channel/UCsrmi9NdlmG_Vor6raljIBg">Youtube</a></strong>
-    </p>
-    <p class="light-font">
-      Wir würden es lieben, mit dir in Kontakt zu treten, oder dein Gebetsanliegen zu hören.
-      <br>
-      Füll dazu doch gerne unsere <a style="font-weight: 400;" href="https://forms.gle/GwMtcCmn8ZgEfpqo7">Online-Kontaktkarte</a> oder <a style="font-weight: 400;" href="https://forms.gle/UpVB5EwHdkBLS9736">Gebetskarte</a> aus.
-      <br>
-      Wenn du praktische Hilfe brauchst oder anbieten möchtest, dann melde dich bei uns über unsere <a style="font-weight: 400;" href="http://www.equippers.de/berlin/hilfe">Corona Hilfe.</a>
-    </p>
 
-    {% include youtube-video.html id="1nScUa4vWjU" %}
-
-    <!-- <p>
-      <span class="light-font" style="font-size: 2.5em;">10:00 Uhr</span><br />
-      Christus-Gemeinde Hohenschönhausen<br />
-      Landsberger Allee 225, 13055 Berlin
-    </p>
     <p>
       <span class="light-font" style="font-size: 2.5em;">{{ page.service_time_ }}</span><br />
       {{ page.locations[page.location].name }}<br />
-      <i class="light-font" style="font-size: 0.675em;">(keine Postanschrift)</i>
     </p>
 
     <p><i class="editable">Der Check-In für <strong>Equippers Kids</strong> öffnet 15 Minuten vor dem Gottesdienst.</i></p>
@@ -156,8 +132,18 @@ promos:
     <p>
       <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
       <br />
-      {% if page.bvg_link != '' %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
-    </p> -->
+      {% if page.locations[page.location].bvg_link %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
+    </p>
+
+    <h2 class="padding-top">Livestream:</h2>
+    <p>
+      <strong><a class="blue-color" href="https://www.facebook.com/equippersberlin/">Facebook</a></strong> // <strong><a class="red-color" href="https://www.youtube.com/channel/UCsrmi9NdlmG_Vor6raljIBg">Youtube</a></strong>
+    </p>
+    <p class="light-font" style="max-width: 27em; margin-left: auto; margin-right: auto">
+      Wir würden es lieben, mit dir in Kontakt zu treten, oder dein Gebetsanliegen zu hören. Füll dazu doch gerne unsere <a style="font-weight: 400;" href="https://forms.gle/GwMtcCmn8ZgEfpqo7">Online-Kontaktkarte</a> oder <a style="font-weight: 400;" href="https://forms.gle/UpVB5EwHdkBLS9736">Gebetskarte</a> aus. Wenn du praktische Hilfe brauchst oder anbieten möchtest, dann melde dich bei uns über unsere <a style="font-weight: 400;" href="http://www.equippers.de/berlin/hilfe">Corona Hilfe.</a>
+    </p>
+
+    {% include youtube-video.html id="1nScUa4vWjU" %}
   </div>
   <div style="display:block;width:3em;margin:0 auto;border-bottom:1px solid #353231" class="padding-vertical"></div>
   <div class="content text-center">
