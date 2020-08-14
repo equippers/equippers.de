@@ -89,6 +89,34 @@ Das ist ein Prozess, der Zeit, Studium und die Bereitschaft, sich Gott zu öffne
     lng: 13.3410407
     img: sm.jpg
     email: simon.haenisch@equippers.de
+  -
+    id: benji
+    name: 'Wenn Bro‘s chillen...'
+    leader: 'Benjamin Müller (Benji)'
+    target: 'junge Männer von 18 in die 30‘er'
+    short_target: 'Junge Männer'
+    description: 'Wenn Bro‘s chillen, wird auf jeden Fall mal heftig gut gegessen, dann läuft ein deeper Video-Input (Egroup Sessions von Equippers Auckland), dann wird gepflegt drüber gesprochen und wenn du dann noch bleiben willst, (kein Muss um teilzunehmen) rocken wir noch ein bisschen Egitarre und Bass. Das wärs dann auch schon. Haste Bock? Meld dich an!!'
+    date_text: 'wird gemeinsam abgestimmt'
+    location: 'Kreuzberg'
+    full: false
+    lat: 52.4946561
+    lng: 13.386768
+    img: benji.jpg
+    email: benjamin.mueller@equippers.de
+  -
+    id: salome
+    name: 'Wir lieben Lobpreis!'
+    leader: 'Salome'
+    target: 'Junge Erwachsene'
+    short_target: 'Junge Erwachsene'
+    description: 'Wir sind eine Gruppe von jungen Leuten, die sich trifft, um Gott anzubeten. Wir lieben es Lobpreis zu machen! Gemeinsam wollen wir hungrig nach mehr von seiner Gegenwart vor seinen Thron kommen und von ihm empfangen. Wir wollen erleben wie der Himmel auf die Erde kommt. Wir freuen uns über jeden, der dabei sein möchte. Du musst auch überhaupt nicht musikalisch sein, komm einfach mit einem hungrigen Herzen. Wir starten immer mit Essen & Gemeinschaft'
+    date_text: 'alle zwei Wochen Samstag ab 11 (das ist noch sehr flexibel)'
+    location: 'Pankow'
+    full: false
+    lat: 52.5663249
+    lng: 13.4103652
+    img: salome.jpg
+    email: salome_brandt@arcor.de
 _deleted:
   -
     id: equip
@@ -399,11 +427,14 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 			dabei zu sein!
 		</p>
 		<p>
+			Last uns ab 7. September gemeinsam eine neue eGroup-Saison starten. Bis du
+			dabei?
+		</p>
+		<p>
 			Stöbere doch einfach durch die unten gelisteten Gruppen und melde dich
-			direkt über das jeweilige Kontaktformular an. Gern kannst du auch nach dem
-			Gottesdienst am Welcome Desk auf uns zukommen und dich registrieren. Nach
-			der Anmeldung schickt dir dein eGroup-Leiter eine E-Mail mit einer
-			Bestätigung und der genauen Adresse.
+			direkt über das jeweilige Kontaktformular an. Nach der Anmeldung schickt
+			dir dein eGroup-Leiter eine E-Mail mit einer Bestätigung und der genauen
+			Adresse.
 		</p>
 		{% comment %}
 		<p>
@@ -418,12 +449,12 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 
 	<section>
 		{% if page.egroups.size > 0 %}
-		<p style="text-align:center;margin: 2em 0 0.5em;">
+		<p style="text-align: center; margin: 2em 0 0.5em;">
 			<a href="#center-map" id="center-map" onclick="return false;"
 				>Karte zentrieren</a
 			>
 		</p>
-		<div id="gmap" style="width:100%; height:30em;margin-bottom:1em"></div>
+		<div id="gmap" style="width: 100%; height: 30em; margin-bottom: 1em;"></div>
 		{% endif %}
 	</section>
 
@@ -496,7 +527,7 @@ Woraus wartest du noch? Wir brauchen DICH in dieser Gruppe!'
 					Email-Adresse:
 					<input type="email" name="email" />
 				</label>
-				<label style="margin-bottom:0;">
+				<label style="margin-bottom: 0;">
 					Nachricht:
 					<textarea name="Nachricht" rows="5"></textarea>
 				</label>
