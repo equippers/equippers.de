@@ -20,25 +20,6 @@ berlin:
     iban: DE18500921000001744607
     bic: GENODE51BH2
     bank_name: SKB Bad Homburg
-hamburg:
-  name: Equippers Start-Up Hamburg
-  address: 'Grömitzer Weg 13E, 22147 Hamburg'
-  email: hamburg@equippers.de
-  phone: '+4933284445177'
-  phone_formatted: +49 (0)3328 444 5177
-  copyright_text:
-  links:
-    - title: Facebook
-      goes_to: 'https://www.facebook.com/EquippersStartUpHamburg'
-      icon_id: facebook
-    - title: Instagram
-      goes_to: 'https://www.instagram.com/equippersstartuphamburg/'
-      icon_id: instagram
-  bank_account:
-    owner:
-    iban:
-    bic:
-    bank_name:
 muenchen:
   name: Equippers Start-Up München
   address: 'Geltinger Straße 22, 81379 München'
