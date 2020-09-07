@@ -286,7 +286,19 @@ _template:
 		<p>Wir freuen uns auf dich.</p>
 	</section>
 
-	<section>
+	<section id="gdpr" style="background-color:#eaeae9; padding-top:3em; padding-bottom:3em;">
+		<div class="content">
+			<p class="text-center" style="margin: 1em auto">
+				Um unsere eGroups auf einer Karte anzuzeigen und damit du dich für Gruppen anmelden kannst, werden Cookies gespeichert und personenbezogene Daten (deine IP-Adresse) anonymisiert an Google weitergeleitet.
+			</p>
+
+			<button class="green button" style="width: 100%">
+				Ich bin einverstanden
+			</button>
+		</div>
+	</section>
+
+	<section id="gmap-wrapper" style="display: none">
 		{% if page.egroups.size > 0 %}
 		<p style="text-align: center; margin: 2em 0 0.5em;">
 			<a href="#center-map" id="center-map" onclick="return false;"
@@ -314,6 +326,7 @@ _template:
 						class="button outline"
 						href="https://google.com"
 						onclick="toggleModal('{{ group.id }}', 'on'); return false;"
+						disabled
 					>
 						Melde dich an!
 					</button>
@@ -376,6 +389,12 @@ _template:
 				<input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
 				<input type="hidden" name="_subject" value="{{ page.email.subject }}" />
 
+				<p>
+					Durch das Absenden dieses Formulars erkläre ich mich damit einverstanden, dass meine Daten zum Zweck der eGroup-Anmeldung verarbeitet werden, damit ich kontaktiert werden kann.
+					<br>
+					<i class="gray-color"></i>Diese personenbezogenen Daten werden nicht an Dritte weitergegeben und können auf Anfrage gelöscht werden.</i>
+				</p>
+
 				<div class="captcha" id="html_element_{{ g.id }}"></div>
 				<input
 					class="btn"
@@ -389,8 +408,6 @@ _template:
 					type="submit"
 					value="Senden"
 				/>
-				{% comment %} TODO: Perhaps try a google captcha Hint by Simon:
-				Cloudcannon offers captchas (search in the docs) {% endcomment %}
 				<input type="text" name="_gotcha" style="display: none;" />
 			</form>
 		</div>
@@ -399,190 +416,19 @@ _template:
 </article>
 
 <script>
-	var markers = [];
-	{% for g in page.egroups %}
-	{% if g.lat %}
-	markers.push({
-	    name: '{{ g.name }}',
-	    leader: '{{ g.leader }}',
-	    modalId: '{{ g.id }}',
-	    locationId: 'location-{{ g.id }}',
-	    pos: { lat: {{ g.lat }},lng: {{ g.lng }} }
-	});
-	{% endif %}
-	{% endfor %}
-
-	//console.table(markers);
-
-	function initMap() {
-	    var bounds = new google.maps.LatLngBounds();
-
-	    var berlin = { lat: 52.52000659999999, lng: 13.404954 };
-	    var initState = {
-	        zoom: 10,
-	        center: berlin,
-	        disableDefaultUI: true,
-	        zoomControl: true
-	    };
-
-	    var map = new google.maps.Map(document.getElementById('gmap'), initState);
-
-	    markers.forEach(function (m) {
-	        var marker = new google.maps.Marker({
-	            position: m.pos,
-	            map: map
-	        });
-
-	        var markerPos = new google.maps.LatLng(m.pos.lat, m.pos.lng);
-	        bounds.extend(markerPos);
-
-	        var infowindow = new google.maps.InfoWindow({
-	            content: '<strong>Name:</strong> ' + m.name + '<br><strong>Leiter:</strong> ' + m.leader
-	        });
-
-	        google.maps.event.addListener(marker, 'click', function () {
-	            toggleModal(m.modalId, 'on');
-	        });
-	        google.maps.event.addListener(marker, 'mouseover', function() {
-	            infowindow.open(map, this);
-	        });
-	        google.maps.event.addListener(marker, 'mouseout', function() {
-	            infowindow.close();
-	        });
-
-	        function showLocation(){
-	            toggleModal(m.modalId, 'off');
-	            map.setCenter(markerPos);
-	            map.setZoom(13);
-	        }
-	        document.getElementById( m.locationId + "-1" ).addEventListener( 'click', showLocation );
-	        document.getElementById( m.locationId + "-2" ).addEventListener( 'click', showLocation );
-	    });
-
-	    map.fitBounds(bounds);
-
-	    function centerMap() {
-	        // map.setCenter(initState.center);
-	        // map.setZoom(initState.zoom);
-	        map.fitBounds(bounds);
-	    }
-
-	    document.getElementById('center-map').addEventListener('click', function () {
-	        centerMap();
-	        return false;
-	    });
-	}
-	function toggleModal(id, status)
-	{
-	  try { // just in case the modal background div is missing
-	      document.getElementById('modal-bg').style.display = (status == 'on') ? 'block' : 'none';
-	  } catch (e) {};
-	  var groupModal = document.getElementById('group-modal-'+id);
-	  groupModal.style.display = (status == 'on') ? 'block' : 'none';
-	  var st = document.body.scrollTop || document.documentElement.scrollTop;
-	  var ch = document.documentElement.clientHeight;
-	  var mh = groupModal.clientHeight;
-	  t = (mh > ch) ? st + 10 : st + Math.round((ch - mh)/2);
-	  groupModal.style.top = t + 'px';
-
-	  // enable the button
-	  var sendBtn = document.getElementById('group-modal-send-' + id);
-	  sendBtn.disabled = false;
-	}
-
-	// to support IE <= 8
-	function stopPropagation(e) {
-	    var evt = e || window.event;
-	    if (typeof evt.stopPropagation != "undefined") {
-	        evt.stopPropagation();
-	    } else {
-	        evt.cancelBubble = true;
-	    }
-	}
-
-	// dont toggle modals off, if modal content is clicked
-	var modalContentList = document.querySelectorAll('.modal-content');
-	for (var i = 0; i < modalContentList.length; i++) {
-	    modalContentList[i].onclick = function (e) {
-	        stopPropagation(e);
-	    }
-	}
-
-	// Helper function to get form data in the supported format
-	function getFormDataString(formEl) {
-	  var formData = new FormData(formEl),
-	      data = [];
-
-	  for (var keyValue of formData) {
-	    data.push(encodeURIComponent(keyValue[0]) + "=" + encodeURIComponent(keyValue[1]));
-	  }
-
-	  return data.join("&");
-	}
-
-	var ids = [ {% for g in page.egroups %} "{{ g.id }}", {% endfor %} ];
-	for(var i = 0; i < ids.length; i++)
-	{
-	  // We use a closure to properly capture i.
-	  (function(){
-	    // Fetch the form element
-	    var id = ids[i];
-	    var formEl = document.getElementById("group-form-" + id);
-	    var modalId = "group-modal-" + id;
-	    var sendBtnId = "group-modal-send-" + id;
-
-	    // Override the submit event
-	    formEl.addEventListener("submit", function (e) {
-	      // Disable the send button to prevent multiple emails
-	      var sendBtn = document.getElementById(sendBtnId);
-	      sendBtn.disabled = true;
-	      e.preventDefault();
-
-	      /*
-	      if (grecaptcha) {
-	        var recaptchaResponse = grecaptcha.getResponse();
-	        if (!recaptchaResponse) { // reCAPTCHA not clicked yet
-	          return false;
-	        }
-	      }*/
-
-	      var request = new XMLHttpRequest();
-
-	      request.addEventListener("load", function () {
-	        if (request.status === 302 || // CloudCannon redirects on success
-	            request.status == 200 ) { // Or testing showed that it didn't
-	          alert("Nachricht gesendet.");
-	        }
-	        else {
-	          alert("Fehler beim Senden der Nachricht. Bitte versuche es später nochmal.");
-	        }
-	        toggleModal(id, 'off');
-	      });
-
-	      request.open(formEl.method, formEl.action);
-	      request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	      request.send(getFormDataString(formEl));
-	    });
-	  })();
-	}
-
-	  var onloadCallback = function() {
-	     {% for g in page.egroups %}
-	       grecaptcha.render('html_element_{{g.id}}', {
-	         'sitekey' : '6LeW2uIUAAAAAEtrsdn7MavR-8HvIhEe44jaUhYd'
-	       });
-	     {% endfor %}
-	  };
+	const groups = [
+		{% for g in page.egroups %}
+			{% if g.lat %}
+				{
+						name: '{{ g.name }}',
+						leader: '{{ g.leader }}',
+						modalId: '{{ g.id }}',
+						locationId: 'location-{{ g.id }}',
+						pos: { lat: {{ g.lat }}, lng: {{ g.lng }} },
+				},
+			{% endif %}
+		{% endfor %}
+	];
 </script>
 
-<script
-	async
-	defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap"
-></script>
-
-<script
-	src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-	async
-	defer
-></script>
+<script src="/js/egroups-bundle.js"></script>
