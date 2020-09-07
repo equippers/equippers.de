@@ -1,13 +1,8 @@
 // --
-// Add Border Radius
-
-addBorderRadius(r = 0.1875rem)
-	border-radius: r
-
-// --
 // Make Grid
+
 makeGrid(cols, rows = none, gap = 1em)
-	display: block
+	display: block // fallback
 	display: grid
 	grid-template: rows / cols
 	grid-gap: gap
@@ -25,9 +20,56 @@ addTransition(props, duration = 300ms)
 	$parts = ()
 	for prop in split(', ', props)
 		push($parts, prop)
-		will-change: unquote(join(', ', $parts))
+
+	will-change: unquote(join(', ', $parts))
 
 	$parts = ()
 	for prop in split(', ', props)
 		push($parts, (prop + ' ' + duration + ' ease'))
-		transition: unquote(join(', ', $parts))
+
+	transition: unquote(join(', ', $parts))
+
+// --
+// Add Transparent Background Overlay
+
+addTransparentBackgroundOverlay(value = 0.3)
+	position: relative
+
+	& > *
+		position: relative // this is for IE11
+		z-index: 1
+
+	&::before
+		content: ''
+		position: absolute
+		z-index: 0
+		width: 100%
+		height 100%
+		background-color: rgba(0, 0, 0, value)
+
+		// to make it work in IE11
+		display: block
+		top: 0
+		left: 0
+
+// --
+// Add Border Radius
+
+addBorderRadius(r = 0.1875rem)
+	border-radius: r
+
+addBorderRadiusTop(r = 0.1875rem)
+	border-top-left-radius: r
+	border-top-right-radius: r
+
+addBorderRadiusBottom(r = 0.1875rem)
+	border-bottom-left-radius: r
+	border-bottom-right-radius: r
+
+addBorderRadiusLeft(r = 0.1875rem)
+	border-top-left-radius: r
+	border-bottom-left-radius: r
+
+addBorderRadiusRight(r = 0.1875rem)
+	border-top-right-radius: r
+	border-bottom-right-radius: r

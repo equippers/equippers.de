@@ -1,0 +1,23 @@
+form
+	input
+	textarea
+	select
+		font-size: 1rem
+		padding: 1em
+		border: 1px solid darken($light-gray, 10%)
+		background-color: $white
+		addBorderRadius()
+
+		&::placeholder
+			color: darken($light-gray, 20%)
+			opacity: 1
+
+	input
+	select
+		height: 3em
+
+	textarea
+		resize: vertical
+
+	div.captcha
+		padding: 0 0 1em 1em

@@ -1,0 +1,8 @@
+{
+	"recommendations": [
+		"editorconfig.editorconfig",
+		"esbenp.prettier-vscode",
+		"sissel.shopify-liquid",
+		"sysoev.language-stylus"
+	]
+}

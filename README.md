@@ -4,31 +4,32 @@ Equippers website for Germany. Built with Jekyll, hosted on [Cloudcannon](https:
 
 ## Install
 
-```
-sudo gem install bundler
-git clone git@github.com:equippers/equippers.de
-cd equippers.de
+ ```sh
+gem install bundler # only if needed
 bundle install
 ```
 
-If you have problems after upgrading to Catalina, run `xcode-select --install` and then re-run
-`bundle install`. `brew install ruby` may also be required.
+ ## Develop
 
-## Development
+The following editor plugins are recommended:
 
-These editor plugins are recommended:
-
-* [Editorconfig](https://editorconfig.org/#download)
+* [Editorconfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 * [language-stylus](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
 * [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid)
 
-To start a local development server, run
-
-```
-bundle exec jekyll serve --host=0.0.0.0
+ ```sh
+npm start
 ```
 
-Then you can open http://localhost:4000 in your browser. Adding the `--host=0.0.0.0` cli argument to be able to access the site from other devices in your network (like your phone) by opening `http://<LOCAL_IP_OF_HOST>:4000` in the device's browser (or `http://<HOST_NAME>.local:4000` on Apple devices).
+The dev server automatically re-generates js and css files on save and has live-reload enabled.
+
+ ## Build
+
+ ```sh
+npm run build # or
+npm run build:prod # sets JEKYLL_ENV=production
+```
 
 ## Workflow
 
@@ -36,7 +37,15 @@ Cloudcannon is set up to track changes on the `master` branch of this repository
 
 If you work on major changes, please create a branch and then a pull request to merge back into `master`, and add someone for code review.
 
-## Documentation
+## Information
+
+### Plugins
+
+The **`bundle-js`** plugin takes care of installing npm packages and generating the Javascript bundle (`js/bundle.js`) before the `js` folder gets copied into the output. It is generated from the Tyepscript source files in `_js/src` and bundled using Rollup.
+
+The **`stylus-converter`** plugin transpiles `styles/main.styl` (or any file with a front-matter) into a css file. (Note: for some reason this plugin does not work properly when the `--incremental` build flag for jekyll is set.)
+
+### Documentation
 
 * https://learn.cloudcannon.com
 * https://docs.cloudcannon.com
@@ -45,4 +54,4 @@ If you work on major changes, please create a branch and then a pull request to 
 
 ## License
 
-Unlicensed. © Equippers Deutschland - All rights reserved.
+Unlicensed. © Equippers - All rights reserved.

@@ -8,6 +8,7 @@ module Jekyll
 			@site = site
 
 			process_pages()
+			# process_collection('posts')
 		end
 
 		def process_pages()

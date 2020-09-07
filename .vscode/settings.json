@@ -1,5 +1,10 @@
 {
-	"emmet.includeLanguages": {
-		"jekyll": "html"
+	"html.validate.styles": false,
+	"liquid.format": false,
+	"prettier.disableLanguages": ["markdown", "html"],
+	"search.exclude": {
+		"**/_site": true,
+		"**/.jekyll-cache": true,
+		"js": true
 	}
 }

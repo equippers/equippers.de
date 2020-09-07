@@ -76,6 +76,12 @@
 	padding-left: 0
 	padding-right: 0
 
+.no-padding-after
+	padding-bottom: 0
+
+	& + *
+		padding-top: 0
+
 // --
 // Typography
 
@@ -95,6 +101,9 @@
 .text-center
 	text-align: center
 
+.text-right
+	text-align: right
+
 .uppercase
 	text-transform: uppercase
 
@@ -104,6 +113,9 @@
 .tabular-nums
 	font-feature-settings: "tnum"
 	font-variant-numeric: tabular-nums
+
+.small-font
+	font-size: 0.8em
 
 .light-font
 	font-weight: 200
@@ -149,6 +161,10 @@ for i in (1..9)
 // --
 // Colors
 
+.bg-light-gray
+.bg-light-grey
+	background-color: $light-gray
+
 .dark-gray-color
 .dark-grey-color
 	color: $dark-gray
@@ -182,6 +198,9 @@ for i in (1..9)
 
 // --
 // Other
+
+.hidden
+	display: none
 
 .top-dash::before
 	content: ''

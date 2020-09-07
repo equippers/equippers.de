@@ -4,19 +4,11 @@ html
 *, *:before, *:after
 	box-sizing: inherit
 
-body
+body > :not(header)
 	overflow-x: hidden
 
 button
 	cursor: pointer
-
-section
-	background-size: cover
-	background-position: center
-
-	for bg-color in 'light-gray'
-		&.{bg-color}
-			background-color: $ + unquote(bg-color)
 
 .content
 	@extends .padding-horizontal
@@ -27,6 +19,14 @@ section
 		width: 100%
 		max-height: 75vh
 		object-fit: cover
+
+section
+	background-size: cover
+	background-position: center
+
+	for bg-color in 'light-gray'
+		&.{bg-color}
+			background-color: $ + unquote(bg-color)
 
 *:focus
 	outline-color: $yellow

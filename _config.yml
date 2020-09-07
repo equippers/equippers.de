@@ -1,40 +1,43 @@
 url: https://equippers.de
 timezone: Europe/Berlin
 
-stylus:
-  compression: true
-  path: styles
+permalink: /blog/:year/:month/:title
 
-assets:
-  defaults:
-    js: { integrity: false }
-  sources:
-    - _scripts
+exclude:
+  - 'node_modules'
+  - 'package.json'
+  - 'package-lock.json'
+  - 'tsconfig.tsbuildinfo'
 
 defaults:
   - scope:
-      path: ""
-      type: "pages"
+      path: ''
+      type: pages
     values:
-      layout: "base"
+      layout: base
   - scope:
-      path: "berlin"
-      type: "pages"
+      path: 'berlin'
+      type: 'pages'
     values:
-      layout: "berlin"
-      title_suffix: "Gottesdienst in Berlin"
+      layout: 'berlin'
+      title_suffix: 'Gottesdienst in Berlin'
   - scope:
-      path: "hamburg"
-      type: "pages"
+      path: 'hamburg'
+      type: 'pages'
     values:
-      layout: "hamburg"
+      layout: 'hamburg'
   - scope:
-      path: "muenchen"
-      type: "pages"
+      path: 'muenchen'
+      type: 'pages'
     values:
-      layout: "muenchen"
+      layout: 'muenchen'
 
+# --
 # Cloudcannon
+
+_options:
+  hero_image:
+    uploads_dir: 'uploads/hero'
 
 icon_ids:
   - facebook
@@ -42,3 +45,10 @@ icon_ids:
   - twitter
   - newsletter
   - podcast
+
+# --
+# Assets
+
+stylus:
+  compress: false # Cloudcannon will do the compression
+  path: styles
