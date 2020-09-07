@@ -11,18 +11,18 @@ bundle install
 
  ## Develop
 
+ ```sh
+npm start
+```
+
+The dev server automatically re-generates js and css files on save and has live-reload enabled.
+
 The following editor plugins are recommended:
 
 * [Editorconfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 * [language-stylus](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
 * [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid)
-
- ```sh
-npm start
-```
-
-The dev server automatically re-generates js and css files on save and has live-reload enabled.
 
  ## Build
 
