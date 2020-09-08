@@ -1,6 +1,7 @@
 import { initMap } from './init-map';
 import { loadScripts } from './load-scripts';
 import { renderRecaptchas } from './render-recaptchas';
+import { setUpForms } from './set-up-forms';
 import { toggleModal } from './toggle-modal';
 import { stopModalContentPropagation } from './utils';
 
@@ -22,6 +23,7 @@ declare const groups: Group[];
 (window as any).renderRecaptchas = renderRecaptchas(groups);
 
 stopModalContentPropagation();
+setUpForms(groups);
 
 if (localStorage.getItem('egroups-gdpr-accepted')) {
 	loadScripts();
