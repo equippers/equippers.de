@@ -1,10 +1,11 @@
 berlin:
   name: Equippers Berlin e. V.
-  address: 'Hindenburgdamm 33, 12203 Berlin (Büro)'
+  address: 'Landsberger Allee 225, 13055 Berlin'
+  office_address: 'Hindenburgdamm 33, 12203 Berlin'
   email: mail@equippers.de
   phone: '+493028660618'
   phone_formatted: +49 (0)30 286 606 18
-  copyright_text: Equippers ist eine Kirche im Bund Freikirchlicher Pfingstgemeinden KdöR.
+  copyright_text: Equippers Berlin ist eine Kirche im Bund Freikirchlicher Pfingstgemeinden KdöR.
   links:
     - title: Facebook
       goes_to: 'https://www.facebook.com/equippersberlin'
