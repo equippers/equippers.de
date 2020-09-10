@@ -135,6 +135,7 @@ Warum du so wichtig bist'
     date_text: '14-tägig'
     location: 'Gemeinderäume Höhenschönhausen'
     full: false
+    visible: false
     lat: 52.5356654
     lng: 13.486051
     img: rainer.jpg
@@ -149,6 +150,7 @@ Warum du so wichtig bist'
     date_text: '14-tägig mittwochs'
     location: 'Kaulsdorf'
     full: false
+    visible: false
     lat: 52.4999639
     lng: 13.5790452
     img: rainer2.JPG
@@ -313,6 +315,10 @@ _template:
 		<div class="content">
 			<div class="s-group-grid">
 				{% for group in page.egroups %}
+					{% if group.visible == false %}
+						{% continue %}
+					{% endif %}
+
 				<div class="s-group">
 					<h4>{{ group.name }}</h4>
 					<p>
