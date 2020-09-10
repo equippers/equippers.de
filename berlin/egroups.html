@@ -345,6 +345,9 @@ _template:
 	<div id="modal-bg"></div>
 
 	{% for g in page.egroups %}
+	{% if g.visible == false %}
+		{% continue %}
+	{% endif %}
 	<div
 		class="modal"
 		id="group-modal-{{ g.id }}"
@@ -424,6 +427,9 @@ _template:
 <script>
 	const groups = [
 		{% for g in page.egroups %}
+			{% if g.visible == false %}
+				{% continue %}
+			{% endif %}
 			{% if g.lat %}
 				{
 						name: '{{ g.name }}',
