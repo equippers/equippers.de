@@ -1,5 +1,5 @@
 berlin:
-  name: Equippers Berlin e. V.
+  name: Equippers Christusgemeinde Berlin e. V.
   address: 'Landsberger Allee 225, 13055 Berlin'
   office_address: 'Hindenburgdamm 33, 12203 Berlin'
   email: mail@equippers.de
@@ -17,7 +17,7 @@ berlin:
       goes_to: 'https://twitter.com/equippersberlin'
       icon_id: twitter
   bank_account:
-    owner: Equippers Berlin e. V.
+    owner: Equippers Berlin
     iban: DE18500921000001744607
     bic: GENODE51BH2
     bank_name: SKB Bad Homburg

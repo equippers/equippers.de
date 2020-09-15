@@ -21,6 +21,7 @@
 		<h3 class="uppercase underline">Kontakt:</h3>
 		<p class="no-margin-top">
 			{{ include.data.address }}<br>
+			{% if include.data.office_address %}<strong>Büro:</strong> {{ include.data.office_address }}<br>{% endif %}
 			<a href="mailto:{{ include.data.email }}">{{ include.data.email }}</a><br>
 			<a href="tel:{{ include.data.phone }}">{{ include.data.phone_formatted }}</a>
 		</p>
