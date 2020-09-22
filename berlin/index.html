@@ -1,7 +1,7 @@
 ---
 title: Equippers Berlin
 hero:
-  html: <h1>Kirche anders als du denkst</h1>
+  html: <h1>Kirche anders als du denkst.</h1>
   image: /uploads/hero-berlin-home.jpg
 service_time_: '10:00 Uhr'
 location: hsh
@@ -38,6 +38,18 @@ locations:
 #    image: /uploads/events/flourish-2020.jpg
 #    goes_to: /flourish
 events:
+  - title: Kids Herbst-Camp
+    date: 2020-10-14 10:00:00 +0200
+    description: >-
+      Ein dreitägiges Ferien-Camp für Kids von 14. bis 16. Oktober inkl. Übernachtung.
+      <br>
+      <a class="green button" href="https://forms.gle/3bSWWWTibqvggj8s7" target="_blank">Anmeldung</a>
+  - title: Connect Konferenz 2018
+    date: 2020-10-30 19:30:00 +0100
+    description: >-
+      Am 30. und 31. Oktober findet unsere jährliche Connect Konferenz statt!
+      <br>
+      <a class="green button" href="https://connect20.eventbrite.de/" target="_blank">Anmeldung</a>
   - title: Team Night
     date: 2018-10-11 19:00:00 +0200
     description: >-
@@ -48,13 +60,6 @@ events:
     description: >-
       Die Lobpreispastoren von Equippers in Neuseeland geben eine Worship
       MasterClass. Von 17 bis 22 Uhr im Café Charly.
-  - title: Connect Konferenz 2018
-    date: 2018-11-03 09:00:00 +0100
-    description: >-
-      Am 3. November findet unsere Connect Konferenz im Maritim ProArte Hotel
-      (Friedrichstraße) in Berlin statt. <a
-      href="https://connect-equippers.eventbrite.de/" target="_blank">Melde dich
-      jetzt an!</a>
   - title: Gottesdienst mit Mark Collard
     date: 2018-11-04 10:00:00 +0100
     description: >-
@@ -139,12 +144,15 @@ promos:
     <p>
       <strong><a class="red-color" href="https://www.youtube.com/channel/UCsrmi9NdlmG_Vor6raljIBg">Youtube</a></strong> // <strong><a class="blue-color" href="https://www.facebook.com/equippersberlin/">Facebook</a></strong>
     </p>
-    <p class="light-font" style="max-width: 27em; margin-left: auto; margin-right: auto">
-			Wir würden es lieben, mit dir in Kontakt zu treten, oder dein Gebetsanliegen zu hören. Füll dazu doch gerne unsere <a style="font-weight: 400;" href="https://forms.gle/GwMtcCmn8ZgEfpqo7">Online-Kontaktkarte</a> oder <a style="font-weight: 400;" href="https://forms.gle/UpVB5EwHdkBLS9736">Gebetskarte</a> aus.
-			<!-- Wenn du praktische Hilfe brauchst oder anbieten möchtest, dann melde dich bei uns über unsere <a style="font-weight: 400;" href="http://www.equippers.de/berlin/hilfe">Corona Hilfe.</a> -->
+
+    {%- comment -%}<p class="light-font" style="max-width: 27em; margin-left: auto; margin-right: auto">
+      Wir würden es lieben, mit dir in Kontakt zu treten, oder dein Gebetsanliegen zu hören. Füll dazu doch gerne unsere <a style="font-weight: 400;" href="https://forms.gle/GwMtcCmn8ZgEfpqo7">Online-Kontaktkarte</a> oder <a style="font-weight: 400;" href="https://forms.gle/UpVB5EwHdkBLS9736">Gebetskarte</a> aus.
+      <!-- Wenn du praktische Hilfe brauchst oder anbieten möchtest, dann melde dich bei uns über unsere <a style="font-weight: 400;" href="http://www.equippers.de/berlin/hilfe">Corona Hilfe.</a> -->
     </p>
 
     <!-- {% include youtube-video.html id="6V19m7JmigA" %} -->
+    {%- endcomment -%}
+
   </div>
   <div style="display:block;width:3em;margin:0 auto;border-bottom:1px solid #353231" class="padding-vertical"></div>
   <div class="content text-center">
@@ -153,22 +161,6 @@ promos:
     <p>
       <a class="button outline" href="/berlin/about">Mehr über uns</a>
     </p>
-  </div>
-</section>
-
-<section class="communities padding-vertical">
-  <div class="content">
-    <h1 class="editable">
-      Werde Teil der Familie
-    </h1>
-    <div class="grid">
-      {% for community in page.communities %}
-        <a href="{{ community.goes_to }}" class="card">
-          <div class="img" style="background-image: url('{{ community.image }}')"></div>
-          <div class="title">{{ community.title }}</div>
-        </a>
-      {% endfor %}
-    </div>
   </div>
 </section>
 
@@ -189,16 +181,33 @@ promos:
 </section>
 {% endif %}
 
-{% assign events_in_future = page.events | where_exp: 'date', 'date > site.time' | sort: 'date' %}
+{% assign events_in_future = page.events | where_exp: 'event', 'event.date > site.time' | sort: 'date' %}
 
 {% if events_in_future.size > 0 %}
-<section class="padding-vertical">
+<section class="padding-vertical dark">
   <div class="content">
-    <h1 class="editable">Was demnächst bei uns ansteht</h1>
+    <h1 class="editable no-margin-after">Events</h1>
+    <p class="editable">Was demnächst bei uns ansteht.</p>
     {% include events.html events=events_in_future %}
   </div>
 </section>
 {% endif %}
+
+<section class="communities padding-vertical">
+  <div class="content">
+    <h1 class="editable">
+      Werde Teil der Familie
+    </h1>
+    <div class="grid">
+      {% for community in page.communities %}
+        <a href="{{ community.goes_to }}" class="card">
+          <div class="img" style="background-image: url('{{ community.image }}')"></div>
+          <div class="title">{{ community.title }}</div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
 <section class="padding-top">
   <div class="content">

@@ -12,7 +12,7 @@
 if (Array.from) {
 	for (const eventItem of Array.from(document.querySelectorAll('[data-date]'))) {
 		if ((parseInt(eventItem.dataset.date) * 1000) < Date.now()) {
-			eventItem.style.display = 'none';
+			eventItem.remove();
 		}
 	}
 }
