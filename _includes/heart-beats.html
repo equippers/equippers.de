@@ -1,9 +1,9 @@
 <div class="heart-beats padding-bottom">
-	{% for beat in include.heart_beats %}
-		<div class="beat padding text-center">
-			<h2 class="drop-cap no-margin-top no-margin-after">{{ beat.title | slice: 0 }}</h2>
-			<h4>{{ beat.title }}<br><i class="normal-font">{{ beat.translation }}</i></h4>
-			<p>{{ beat.description }}</p>
-		</div>
-	{% endfor %}
+  {% for beat in include.heart_beats %}
+    <div class="beat padding text-center">
+      <h2 class="drop-cap no-margin-top no-margin-after">{{ beat.title | slice: 0 }}</h2>
+      <h4>{{ beat.title }}<br><i class="normal-font">{{ beat.translation }}</i></h4>
+      <p>{{ beat.description }}</p>
+    </div>
+  {% endfor %}
 </div>

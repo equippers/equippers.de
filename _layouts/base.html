@@ -5,80 +5,80 @@ title: Kirche anders als du denkst
 <!DOCTYPE html>
 <!-- https://github.com/equippers/equippers.de -->
 <html lang="de">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<meta name="google-site-verification" content="aHG57sS_1tMIIWGW-MXQVZY-hipSQg9Poc9-gBKyC3Q">
-		{{ page.head }}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="aHG57sS_1tMIIWGW-MXQVZY-hipSQg9Poc9-gBKyC3Q">
+    {{ page.head }}
 
-		<title>{% if page.title %}{{ page.title }} — {% endif %}{{ layout.title }}{% if page.title_suffix %} — {{ page.title_suffix }}{% endif%}</title>
+    <title>{% if page.title %}{{ page.title }} — {% endif %}{{ layout.title }}{% if page.title_suffix %} — {{ page.title_suffix }}{% endif%}</title>
 
-		<meta name="author" content="Equippers Berlin">
-		{% if page.meta %}
-			{% for entry in page.meta %}
-				<meta name="{{ entry[0] }}" content="{{ entry[1] }}">
-			{% endfor %}
-		{% endif %}
+    <meta name="author" content="Equippers Berlin">
+    {% if page.meta %}
+      {% for entry in page.meta %}
+        <meta name="{{ entry[0] }}" content="{{ entry[1] }}">
+      {% endfor %}
+    {% endif %}
 
-		<style>
-			{% capture critical %}
-				{%- include critical.styl -%}
-			{%- endcapture -%}
-			{{ critical | stylusize }}
-		</style>
-	</head>
-	<body>
+    <style>
+      {% capture critical %}
+        {%- include critical.styl -%}
+      {%- endcapture -%}
+      {{ critical | stylusize }}
+    </style>
+  </head>
+  <body>
 
-	{{ content }}
+  {{ content }}
 
-	<link rel="stylesheet" href="/styles/main.css">
-	<script src="/js/bundle.js"></script>
+  <link rel="stylesheet" href="/styles/main.css">
+  <script src="/js/bundle.js"></script>
 
-	{% include icons.html %}
+  {% include icons.html %}
 
-	{% comment %} breadcrumbs {% endcomment %}
-	<script type="application/ld+json">
-	{%- assign parts = page.url | split: "/" | shift | pop %}
-	{%- if page.path contains "_posts/" %}
-		{%- assign parts = parts | pop | pop %}
-	{%- endif %}
-	{%- assign partialUrl = "" %}
+  {% comment %} breadcrumbs {% endcomment %}
+  <script type="application/ld+json">
+  {%- assign parts = page.url | split: "/" | shift | pop %}
+  {%- if page.path contains "_posts/" %}
+    {%- assign parts = parts | pop | pop %}
+  {%- endif %}
+  {%- assign partialUrl = "" %}
 
-	{
-		"@context": "http://schema.org/",
-		"@type": "BreadcrumbList",
-		"itemListElement": [
-			{
-				"@type": "ListItem",
-				"position": "1",
-				"item": {
-					"@id": "{{ site.url }}",
-					"name": "Home"
-				}
-			}{% if parts.size > 0 %},{% endif %}
-			{% for part in parts %}{% assign partialUrl = partialUrl | append: "/" | append: part %}
-			{
-				"@type": "ListItem",
-				"position": "{{ forloop.index | plus: 1 }}",
-				"item": {
-					"@id": "{{ site.url }}{{ partialUrl }}",
-					"name": "{{ part | titlecase }}"
-				}
-			}{% if forloop.last == false %},{% endif %}
-			{% endfor %}
-			{% if page.url != "/" %}
-			,{
-				"@type": "ListItem",
-				"position": "{{ parts | size | plus: 2 }}",
-				"item": {
-					"@id": "{{ site.url }}{{ page.url }}",
-					"name": "{% if parts.size > 0 %}{{ page.title }}{% else %}{{ page.url | split: "/" | last | titlecase }}{% endif %}"
-				}
-			}
-			{% endif %}
-		]
-	}
-	</script>
+  {
+    "@context": "http://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": "1",
+        "item": {
+          "@id": "{{ site.url }}",
+          "name": "Home"
+        }
+      }{% if parts.size > 0 %},{% endif %}
+      {% for part in parts %}{% assign partialUrl = partialUrl | append: "/" | append: part %}
+      {
+        "@type": "ListItem",
+        "position": "{{ forloop.index | plus: 1 }}",
+        "item": {
+          "@id": "{{ site.url }}{{ partialUrl }}",
+          "name": "{{ part | titlecase }}"
+        }
+      }{% if forloop.last == false %},{% endif %}
+      {% endfor %}
+      {% if page.url != "/" %}
+      ,{
+        "@type": "ListItem",
+        "position": "{{ parts | size | plus: 2 }}",
+        "item": {
+          "@id": "{{ site.url }}{{ page.url }}",
+          "name": "{% if parts.size > 0 %}{{ page.title }}{% else %}{{ page.url | split: "/" | last | titlecase }}{% endif %}"
+        }
+      }
+      {% endif %}
+    ]
+  }
+  </script>
 
-	</body>
+  </body>
 </html>

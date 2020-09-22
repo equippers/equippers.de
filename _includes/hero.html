@@ -1,11 +1,11 @@
 <section
-	class="dark hero overlay strength-6"
-	{% if include.options.image %}style="
-		background-image: url('{{ include.options.image }}');
-		{% if include.options.image_position %}background-position: {{ include.options.image_position }};{% endif %}
-	"{% endif %}
+  class="dark hero overlay strength-6"
+  {% if include.options.image %}style="
+    background-image: url('{{ include.options.image }}');
+    {% if include.options.image_position %}background-position: {{ include.options.image_position }};{% endif %}
+  "{% endif %}
 >
-	<div class="content text-center uppercase">
-		{{ include.options.html }}
-	</div>
+  <div class="content text-center uppercase">
+    {{ include.options.html }}
+  </div>
 </section>

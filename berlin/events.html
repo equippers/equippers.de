@@ -15,17 +15,17 @@ events:
 {% include hero.html options=page.hero %}
 
 <section class="events padding-vertical">
-	<div class="content">
-		<div class="grid">
-			{% for event in page.events %}
-				<a {% if event.goes_to %} href="{{ event.goes_to }}"{% endif %} class="card">
-					<div class="img" style="background-image: url('{{ event.image }}')"></div>
-					<div class="title">
-						{{ event.title }}
-						<div class="description">{{ event.description }}</div>
-					</div>
-				</a>
-			{% endfor %}
-		</div>
-	</div>
+  <div class="content">
+    <div class="grid">
+      {% for event in page.events %}
+        <a {% if event.goes_to %} href="{{ event.goes_to }}"{% endif %} class="card">
+          <div class="img" style="background-image: url('{{ event.image }}')"></div>
+          <div class="title">
+            {{ event.title }}
+            <div class="description">{{ event.description }}</div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
 </section>

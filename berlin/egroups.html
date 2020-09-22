@@ -259,188 +259,188 @@ _template:
 {% include hero.html options=page.hero %}
 
 <article>
-	<section class="editable content">
-		<h1>Gemeinsam ganze Sache mit Gott machen.</h1>
-		<p>
-			eGroups sind ein Teil des Lebens bei Equippers. Hier verbindest du dich
-			mit neuen Freunden, hast Gemeinschaft und erlebst Ermutigung in deinem
-			Glauben an Jesus Christus. Zusammen geht das leichter - wir laden dich
-			ein, dabei zu sein!
-		</p>
-		<p>
-			Lasst uns ab 7. September gemeinsam in eine neue eGroup-Saison starten.
-			Bis du dabei?
-		</p>
-		<p>
-			Stöbere doch einfach durch die unten gelisteten Gruppen und melde dich
-			direkt über das jeweilige Kontaktformular an. Nach der Anmeldung schickt
-			dir dein eGroup-Leiter eine E-Mail mit einer Bestätigung und der genauen
-			Adresse.
-		</p>
-		{% comment %}
-		<p>
-			Im Moment sind wir mitten in einer eGroups-Saison. Zu den unten stehenden
-			Gruppen kannst du aber gern jederzeit dazukommen. Kontaktiere einfach den
-			jeweiligen Leiter, um alle weiteren Infos zu bekommen. Wir freuen uns auf
-			dich!
-		</p>
-		{% endcomment %}
-		<p>Wir freuen uns auf dich.</p>
-	</section>
+  <section class="editable content">
+    <h1>Gemeinsam ganze Sache mit Gott machen.</h1>
+    <p>
+      eGroups sind ein Teil des Lebens bei Equippers. Hier verbindest du dich
+      mit neuen Freunden, hast Gemeinschaft und erlebst Ermutigung in deinem
+      Glauben an Jesus Christus. Zusammen geht das leichter - wir laden dich
+      ein, dabei zu sein!
+    </p>
+    <p>
+      Lasst uns ab 7. September gemeinsam in eine neue eGroup-Saison starten.
+      Bis du dabei?
+    </p>
+    <p>
+      Stöbere doch einfach durch die unten gelisteten Gruppen und melde dich
+      direkt über das jeweilige Kontaktformular an. Nach der Anmeldung schickt
+      dir dein eGroup-Leiter eine E-Mail mit einer Bestätigung und der genauen
+      Adresse.
+    </p>
+    {% comment %}
+    <p>
+      Im Moment sind wir mitten in einer eGroups-Saison. Zu den unten stehenden
+      Gruppen kannst du aber gern jederzeit dazukommen. Kontaktiere einfach den
+      jeweiligen Leiter, um alle weiteren Infos zu bekommen. Wir freuen uns auf
+      dich!
+    </p>
+    {% endcomment %}
+    <p>Wir freuen uns auf dich.</p>
+  </section>
 
-	<section id="gdpr" style="background-color:#eaeae9; padding-top:3em; padding-bottom:3em;">
-		<div class="content">
-			<p class="text-center" style="margin: 1em auto">
-				Um unsere eGroups auf einer Karte anzuzeigen und damit du dich für Gruppen anmelden kannst, werden Cookies gespeichert und personenbezogene Daten (deine IP-Adresse) anonymisiert an Google weitergeleitet.
-			</p>
+  <section id="gdpr" style="background-color:#eaeae9; padding-top:3em; padding-bottom:3em;">
+    <div class="content">
+      <p class="text-center" style="margin: 1em auto">
+        Um unsere eGroups auf einer Karte anzuzeigen und damit du dich für Gruppen anmelden kannst, werden Cookies gespeichert und personenbezogene Daten (deine IP-Adresse) anonymisiert an Google weitergeleitet.
+      </p>
 
-			<button class="green button" style="width: 100%">
-				Ich bin einverstanden
-			</button>
-		</div>
-	</section>
+      <button class="green button" style="width: 100%">
+        Ich bin einverstanden
+      </button>
+    </div>
+  </section>
 
-	<section id="gmap-wrapper" style="display: none">
-		{% if page.egroups.size > 0 %}
-		<p style="text-align: center; margin: 2em 0 0.5em;">
-			<a href="#center-map" id="center-map" onclick="return false;"
-				>Karte zentrieren</a
-			>
-		</p>
-		<div id="gmap" style="width: 100%; height: 30em; margin-bottom: 1em;"></div>
-		{% endif %}
-	</section>
+  <section id="gmap-wrapper" style="display: none">
+    {% if page.egroups.size > 0 %}
+    <p style="text-align: center; margin: 2em 0 0.5em;">
+      <a href="#center-map" id="center-map" onclick="return false;"
+        >Karte zentrieren</a
+      >
+    </p>
+    <div id="gmap" style="width: 100%; height: 30em; margin-bottom: 1em;"></div>
+    {% endif %}
+  </section>
 
-	<section class="egroups padding-vertical">
-		<div class="content">
-			<div class="s-group-grid">
-				{% for group in page.egroups %}
-					{% if group.visible == false %}
-						{% continue %}
-					{% endif %}
+  <section class="egroups padding-vertical">
+    <div class="content">
+      <div class="s-group-grid">
+        {% for group in page.egroups %}
+          {% if group.visible == false %}
+            {% continue %}
+          {% endif %}
 
-				<div class="s-group">
-					<h4>{{ group.name }}</h4>
-					<p>
-						{{ group.date_text }}<br />Ort:
-						<a href="#gmap" id="location-{{ group.id }}-1"
-							>{{ group.location }}</a
-						>{% if group.full %}<br />Keine Plätze mehr!{% endif %}<br />Für {{
-						group.short_target }}
-					</p>
-					<button
-						class="button outline"
-						href="https://google.com"
-						onclick="toggleModal('{{ group.id }}', 'on'); return false;"
-						disabled
-					>
-						Melde dich an!
-					</button>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+        <div class="s-group">
+          <h4>{{ group.name }}</h4>
+          <p>
+            {{ group.date_text }}<br />Ort:
+            <a href="#gmap" id="location-{{ group.id }}-1"
+              >{{ group.location }}</a
+            >{% if group.full %}<br />Keine Plätze mehr!{% endif %}<br />Für {{
+            group.short_target }}
+          </p>
+          <button
+            class="button outline"
+            href="https://google.com"
+            onclick="toggleModal('{{ group.id }}', 'on'); return false;"
+            disabled
+          >
+            Melde dich an!
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 
-	<div id="modal-bg"></div>
+  <div id="modal-bg"></div>
 
-	{% for g in page.egroups %}
-	{% if g.visible == false %}
-		{% continue %}
-	{% endif %}
-	<div
-		class="modal"
-		id="group-modal-{{ g.id }}"
-		onclick="toggleModal('{{ g.id }}', 'off');"
-	>
-		<div class="modal-content">
-			<div class="modal-close" onclick="toggleModal('{{ g.id }}', 'off');">
-				X
-			</div>
-			<h5>{{ g.name }}</h5>
-			{% if g.img %}<img
-				src="{{ page.route }}/uploads/egroups/{{ g.img }}"
-				alt="Profile"
-			/>{% endif %} {% if g.img2 %}<img
-				src="{{ page.route }}/uploads/egroups/{{ g.img2 }}"
-				alt="Profile2"
-			/>{% endif %}
-			<p>
-				<strong>Beschreibung:</strong> {{ g.description }}<br />
-				<strong>Leiter:</strong> {{ g.leader }}<br />
-				<strong>Zielgruppe:</strong> {{ g.target }}<br />
-				<strong>Zeit:</strong> {{ g.date_text }}<br />
-				<strong>Ort:</strong>
-				<a href="#gmap" id="location-{{ g.id }}-2">{{ g.location }}</a><br />
-				{% if g.max %}<strong>Maximale Teilnehmerzahl:</strong> {{ g.max }} {%
-				endif %}
-			</p>
-			{% if g.full %}
-			<p>Keine Plätze mehr!</p>
-			{% endif %}
-			<form method="post" id="group-form-{{ g.id }}" action="/berlin/egroups">
-				<legend>Kontaktiere den Leiter:</legend>
-				<label>
-					Dein Name:
-					<input type="text" name="Name" />
-				</label>
-				<label>
-					Email-Adresse:
-					<input type="email" name="email" />
-				</label>
-				<label style="margin-bottom: 0;">
-					Nachricht:
-					<textarea name="Nachricht" rows="5"></textarea>
-				</label>
+  {% for g in page.egroups %}
+  {% if g.visible == false %}
+    {% continue %}
+  {% endif %}
+  <div
+    class="modal"
+    id="group-modal-{{ g.id }}"
+    onclick="toggleModal('{{ g.id }}', 'off');"
+  >
+    <div class="modal-content">
+      <div class="modal-close" onclick="toggleModal('{{ g.id }}', 'off');">
+        X
+      </div>
+      <h5>{{ g.name }}</h5>
+      {% if g.img %}<img
+        src="{{ page.route }}/uploads/egroups/{{ g.img }}"
+        alt="Profile"
+      />{% endif %} {% if g.img2 %}<img
+        src="{{ page.route }}/uploads/egroups/{{ g.img2 }}"
+        alt="Profile2"
+      />{% endif %}
+      <p>
+        <strong>Beschreibung:</strong> {{ g.description }}<br />
+        <strong>Leiter:</strong> {{ g.leader }}<br />
+        <strong>Zielgruppe:</strong> {{ g.target }}<br />
+        <strong>Zeit:</strong> {{ g.date_text }}<br />
+        <strong>Ort:</strong>
+        <a href="#gmap" id="location-{{ g.id }}-2">{{ g.location }}</a><br />
+        {% if g.max %}<strong>Maximale Teilnehmerzahl:</strong> {{ g.max }} {%
+        endif %}
+      </p>
+      {% if g.full %}
+      <p>Keine Plätze mehr!</p>
+      {% endif %}
+      <form method="post" id="group-form-{{ g.id }}" action="/berlin/egroups">
+        <legend>Kontaktiere den Leiter:</legend>
+        <label>
+          Dein Name:
+          <input type="text" name="Name" />
+        </label>
+        <label>
+          Email-Adresse:
+          <input type="email" name="email" />
+        </label>
+        <label style="margin-bottom: 0;">
+          Nachricht:
+          <textarea name="Nachricht" rows="5"></textarea>
+        </label>
 
-				<input type="hidden" name="Gewählte Gruppe" value="{{g.name}}" />
-				<input type="hidden" name="_cc" value="{{ page.email.admins }}" />
-				<input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
-				<input type="hidden" name="_subject" value="{{ page.email.subject }}" />
+        <input type="hidden" name="Gewählte Gruppe" value="{{g.name}}" />
+        <input type="hidden" name="_cc" value="{{ page.email.admins }}" />
+        <input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
+        <input type="hidden" name="_subject" value="{{ page.email.subject }}" />
 
-				<p>
-					Durch das Absenden dieses Formulars erkläre ich mich damit einverstanden, dass meine Daten zum Zweck der eGroup-Anmeldung verarbeitet werden, damit ich kontaktiert werden kann.
-					<br>
-					<i class="gray-color"></i>Diese personenbezogenen Daten werden nicht an Dritte weitergegeben und können auf Anfrage gelöscht werden.</i>
-				</p>
+        <p>
+          Durch das Absenden dieses Formulars erkläre ich mich damit einverstanden, dass meine Daten zum Zweck der eGroup-Anmeldung verarbeitet werden, damit ich kontaktiert werden kann.
+          <br>
+          <i class="gray-color"></i>Diese personenbezogenen Daten werden nicht an Dritte weitergegeben und können auf Anfrage gelöscht werden.</i>
+        </p>
 
-				<div class="captcha" id="html_element_{{ g.id }}"></div>
-				<input
-					class="btn"
-					type="button"
-					value="Abbrechen"
-					onclick="toggleModal('{{ g.id }}', 'off');"
-				/>
-				<input
-					id="group-modal-send-{{ g.id }}"
-					class="btn btn-blue"
-					type="submit"
-					value="Senden"
-				/>
-				<input type="text" name="_gotcha" style="display: none;" />
-			</form>
-		</div>
-	</div>
-	{% endfor %}
+        <div class="captcha" id="html_element_{{ g.id }}"></div>
+        <input
+          class="btn"
+          type="button"
+          value="Abbrechen"
+          onclick="toggleModal('{{ g.id }}', 'off');"
+        />
+        <input
+          id="group-modal-send-{{ g.id }}"
+          class="btn btn-blue"
+          type="submit"
+          value="Senden"
+        />
+        <input type="text" name="_gotcha" style="display: none;" />
+      </form>
+    </div>
+  </div>
+  {% endfor %}
 </article>
 
 <script>
-	const groups = [
-		{% for g in page.egroups %}
-			{% if g.visible == false %}
-				{% continue %}
-			{% endif %}
-			{% if g.lat %}
-				{
-						name: '{{ g.name }}',
-						leader: '{{ g.leader }}',
-						modalId: '{{ g.id }}',
-						locationId: 'location-{{ g.id }}',
-						pos: { lat: {{ g.lat }}, lng: {{ g.lng }} },
-				},
-			{% endif %}
-		{% endfor %}
-	];
+  const groups = [
+    {% for g in page.egroups %}
+      {% if g.visible == false %}
+        {% continue %}
+      {% endif %}
+      {% if g.lat %}
+        {
+            name: '{{ g.name }}',
+            leader: '{{ g.leader }}',
+            modalId: '{{ g.id }}',
+            locationId: 'location-{{ g.id }}',
+            pos: { lat: {{ g.lat }}, lng: {{ g.lng }} },
+        },
+      {% endif %}
+    {% endfor %}
+  ];
 </script>
 
 <script src="/js/egroups-bundle.js"></script>

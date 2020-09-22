@@ -2,20 +2,20 @@
 {% assign partialUrl = "" %}
 
 <ul class="breadcrumbs">
-	{% if page.path contains "_posts/" %}
-		{% assign parts = parts | pop | pop %}
-	{% endif %}
+  {% if page.path contains "_posts/" %}
+    {% assign parts = parts | pop | pop %}
+  {% endif %}
 
-	<li><a href="{{ site.url }}">Home</a></li>
+  <li><a href="{{ site.url }}">Home</a></li>
 
-	{% for part in parts %}
-		{% assign partialUrl = partialUrl | append: "/" | append: part %}
-		<li><a href="{{ site.url }}{{ partialUrl }}">{{ part | titlecase }}</a></li>
-	{% endfor %}
+  {% for part in parts %}
+    {% assign partialUrl = partialUrl | append: "/" | append: part %}
+    <li><a href="{{ site.url }}{{ partialUrl }}">{{ part | titlecase }}</a></li>
+  {% endfor %}
 
-	{% if page.url != "/" %}
-		<li><a href="{{ site.url }}{{ page.url }}">
-			{% if parts.size > 0 %}{{ page.title }}{% else %}{{ page.url | split: "/" | last | titlecase }}{% endif %}
-		</a></li>
-	{% endif %}
+  {% if page.url != "/" %}
+    <li><a href="{{ site.url }}{{ page.url }}">
+      {% if parts.size > 0 %}{{ page.title }}{% else %}{{ page.url | split: "/" | last | titlecase }}{% endif %}
+    </a></li>
+  {% endif %}
 </ul>

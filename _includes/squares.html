@@ -1,10 +1,10 @@
 <div class="squares dark">
-	{% for square in include.squares %}
-		<a href="{{ square.link }}">
-			<div class="icon">
-				<svg><use xlink:href="#icon-{{ square.svg_icon_id }}"></use></svg>
-			</div>
-			<div class="title">{{ square.title }}</div>
-		</a>
-	{% endfor %}
+  {% for square in include.squares %}
+    <a href="{{ square.link }}">
+      <div class="icon">
+        <svg><use xlink:href="#icon-{{ square.svg_icon_id }}"></use></svg>
+      </div>
+      <div class="title">{{ square.title }}</div>
+    </a>
+  {% endfor %}
 </div>

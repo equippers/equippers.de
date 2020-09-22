@@ -4,14 +4,14 @@ Equippers website for Germany. Built with Jekyll, hosted on [Cloudcannon](https:
 
 ## Install
 
- ```sh
+```sh
 gem install bundler # only if needed
 bundle install
 ```
 
- ## Develop
+## Develop
 
- ```sh
+```sh
 npm start
 ```
 
@@ -24,9 +24,9 @@ The following editor plugins are recommended:
 * [language-stylus](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
 * [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid)
 
- ## Build
+## Build
 
- ```sh
+```sh
 npm run build # or
 npm run build:prod # sets JEKYLL_ENV=production
 ```

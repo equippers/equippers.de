@@ -1,20 +1,20 @@
 <form action="{{ include.options.action }}" method="post">
-	{% for input in include.options.inputs %}
-		<label for="{{ input.name }}">{{ input.label }}:</label>
-		<input {% if input.required %}required{% endif %} type="{{ input.type }}" name="{{ input.name }}" id="{{ input.name }}" placeholder="{{ input.placeholder }}">
-	{% endfor %}
+  {% for input in include.options.inputs %}
+    <label for="{{ input.name }}">{{ input.label }}:</label>
+    <input {% if input.required %}required{% endif %} type="{{ input.type }}" name="{{ input.name }}" id="{{ input.name }}" placeholder="{{ input.placeholder }}">
+  {% endfor %}
 
-	{% for textarea in include.options.textareas %}
-		<label for="{{ textarea.name }}">{{ textarea.label }}:</label>
-		<textarea {% if textarea.required %}required{% endif %} name="{{ textarea.name }}" id="{{ textarea.name }}" placeholder="{{ textarea.placeholder }}" rows="7"></textarea>
-	{% endfor %}
+  {% for textarea in include.options.textareas %}
+    <label for="{{ textarea.name }}">{{ textarea.label }}:</label>
+    <textarea {% if textarea.required %}required{% endif %} name="{{ textarea.name }}" id="{{ textarea.name }}" placeholder="{{ textarea.placeholder }}" rows="7"></textarea>
+  {% endfor %}
 
-	<input type="hidden" name="_to" value="{{ include.options.email_goes_to }}" />
-	<input type="hidden" name="_subject" value="{{ include.options.email_subject }}" />
-	<input type="text" name="_gotcha" class="hidden" />
+  <input type="hidden" name="_to" value="{{ include.options.email_goes_to }}" />
+  <input type="hidden" name="_subject" value="{{ include.options.email_subject }}" />
+  <input type="text" name="_gotcha" class="hidden" />
 
-	<p class="hidden success message">🙌 Thanks for your message! We'll get back to you shortly.</p>
-	<p class="hidden error message">🙄 Oh no, an error occurred. Please try again later.</p>
+  <p class="hidden success message">🙌 Thanks for your message! We'll get back to you shortly.</p>
+  <p class="hidden error message">🙄 Oh no, an error occurred. Please try again later.</p>
 
-	<button type="submit" class="primary button">{{ include.options.submit_button_label }}</button>
+  <button type="submit" class="primary button">{{ include.options.submit_button_label }}</button>
 </form>

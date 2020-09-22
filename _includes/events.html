@@ -1,19 +1,19 @@
 {% for event in include.events %}
-	<h3 class="top-dash" data-date="{{ event.date | date: '%s' }}">
-		<span class="uppercase">{{ event.date | date: '%e.%m.' }}</span> | {{ event.title }}
-	</h3>
-	{% if event.description %}<p data-date="{{ event.date | date: '%s' }}">
-		{{ event.description }}
-	</p>{% endif %}
+  <h3 class="top-dash" data-date="{{ event.date | date: '%s' }}">
+    <span class="uppercase">{{ event.date | date: '%e.%m.' }}</span> | {{ event.title }}
+  </h3>
+  {% if event.description %}<p data-date="{{ event.date | date: '%s' }}">
+    {{ event.description }}
+  </p>{% endif %}
 {% endfor %}
 
 {% comment %} filter past events {% endcomment %}
 <script>
 if (Array.from) {
-	for (const eventItem of Array.from(document.querySelectorAll('[data-date]'))) {
-		if ((parseInt(eventItem.dataset.date) * 1000) < Date.now()) {
-			eventItem.remove();
-		}
-	}
+  for (const eventItem of Array.from(document.querySelectorAll('[data-date]'))) {
+    if ((parseInt(eventItem.dataset.date) * 1000) < Date.now()) {
+      eventItem.remove();
+    }
+  }
 }
 </script>

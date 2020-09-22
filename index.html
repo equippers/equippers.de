@@ -29,43 +29,43 @@ startups:
 ---
 
 <section class="landing-logo">
-	{% include logo.html %}
+  {% include logo.html %}
 </section>
 
 <section class="landing dark">
-	{% for location in page.locations %}
-		<a
-			{% if location.goes_to %}href="{{ location.goes_to }}"{% endif %}
-			class="text-center overlay"
-			style="
-				background-image: url('{{ location.background_image }}');
-				{% if location.background_image_position %}background-position: {{ location.background_image_position }}{% endif %}
-			"
-		>
-			<h1 class="uppercase no-margin">{{ location.title }}</h1>
-			{% if location.sub_title %}<p class="no-margin">{{ location.sub_title }}</p>{% endif %}
-		</a>
-	{% endfor %}
+  {% for location in page.locations %}
+    <a
+      {% if location.goes_to %}href="{{ location.goes_to }}"{% endif %}
+      class="text-center overlay"
+      style="
+        background-image: url('{{ location.background_image }}');
+        {% if location.background_image_position %}background-position: {{ location.background_image_position }}{% endif %}
+      "
+    >
+      <h1 class="uppercase no-margin">{{ location.title }}</h1>
+      {% if location.sub_title %}<p class="no-margin">{{ location.sub_title }}</p>{% endif %}
+    </a>
+  {% endfor %}
 
-	<div id="startups">
-		<div class="text-center"><h1 class="uppercase no-margin">Startups</h1></div>
+  <div id="startups">
+    <div class="text-center"><h1 class="uppercase no-margin">Startups</h1></div>
 
-		{% for location in page.startups %}
-			<a
-				{% if location.goes_to %}href="{{ location.goes_to }}"{% endif %}
-				class="text-center overlay"
-				style="
-					background-image: url('{{ location.background_image }}');
-					{% if location.background_image_position %}background-position: {{ location.background_image_position }}{% endif %}
-				"
-			>
-				<h4 class="uppercase no-margin">{{ location.title }}</h4>
-			</a>
-		{% endfor %}
-	</div>
+    {% for location in page.startups %}
+      <a
+        {% if location.goes_to %}href="{{ location.goes_to }}"{% endif %}
+        class="text-center overlay"
+        style="
+          background-image: url('{{ location.background_image }}');
+          {% if location.background_image_position %}background-position: {{ location.background_image_position }}{% endif %}
+        "
+      >
+        <h4 class="uppercase no-margin">{{ location.title }}</h4>
+      </a>
+    {% endfor %}
+  </div>
 </section>
 
 <script>
-	const startupsDiv = document.querySelector('#startups > div');
-	startupsDiv.addEventListener('click', () => startupsDiv.classList.add('clicked'));
+  const startupsDiv = document.querySelector('#startups > div');
+  startupsDiv.addEventListener('click', () => startupsDiv.classList.add('clicked'));
 </script>

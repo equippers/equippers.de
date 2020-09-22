@@ -1,40 +1,40 @@
 <footer class="padding-vertical">
-	<div class="content">
-		<p>&copy; {{ 'now' | date: '%Y' }} {{ include.data.name }} - Alle Rechte vorbehalten. {% if include.data.copyright_text %}{{ include.data.copyright_text }}{% endif %}</p>
+  <div class="content">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ include.data.name }} - Alle Rechte vorbehalten. {% if include.data.copyright_text %}{{ include.data.copyright_text }}{% endif %}</p>
 
-		<ul class="social-media">
-			{% for link in include.data.links %}
-				<li>
-					{% if link.icon_id %}<svg><use xlink:href="#icon-{{ link.icon_id }}"></use></svg>{% endif %}
-					<a target="_blank" href="{{ link.goes_to }}">{{ link.title }}</a>
-				</li>
-			{% endfor %}
-		</ul>
+    <ul class="social-media">
+      {% for link in include.data.links %}
+        <li>
+          {% if link.icon_id %}<svg><use xlink:href="#icon-{{ link.icon_id }}"></use></svg>{% endif %}
+          <a target="_blank" href="{{ link.goes_to }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
 
-		<ul class="links">
-			<li><a target="_blank" href="https://www.equipperschurch.com">Equippers Global</a></li>
-			<li><a target="_blank" href="https://equipperscollege.com">Equippers College</a></li>
-			<li><a target="_blank" href="https://www.equipperschurch.com/music">Equippers Music</a></li>
-		</ul>
+    <ul class="links">
+      <li><a target="_blank" href="https://www.equipperschurch.com">Equippers Global</a></li>
+      <li><a target="_blank" href="https://equipperscollege.com">Equippers College</a></li>
+      <li><a target="_blank" href="https://www.equipperschurch.com/music">Equippers Music</a></li>
+    </ul>
 
-		<!--sse-->
-		<h3 class="uppercase underline">Kontakt:</h3>
-		<p class="no-margin-top">
-			{{ include.data.address }}<br>
-			{% if include.data.office_address %}<strong>Büro:</strong> {{ include.data.office_address }}<br>{% endif %}
-			<a href="mailto:{{ include.data.email }}">{{ include.data.email }}</a><br>
-			<a href="tel:{{ include.data.phone }}">{{ include.data.phone_formatted }}</a>
-		</p>
+    <!--sse-->
+    <h3 class="uppercase underline">Kontakt:</h3>
+    <p class="no-margin-top">
+      {{ include.data.address }}<br>
+      {% if include.data.office_address %}<strong>Büro:</strong> {{ include.data.office_address }}<br>{% endif %}
+      <a href="mailto:{{ include.data.email }}">{{ include.data.email }}</a><br>
+      <a href="tel:{{ include.data.phone }}">{{ include.data.phone_formatted }}</a>
+    </p>
 
-		{% if include.data.bank_account.owner %}
-			<h3 class="uppercase underline">Bankverbindung:</h3>
-			<p class="no-margin-top">
-				<strong>Inhaber:</strong> {{ include.data.bank_account.owner }}<br>
-				<strong>IBAN:</strong> {{ include.data.bank_account.iban }}<br>
-				<strong>BIC:</strong> {{ include.data.bank_account.bic }}<br>
-				<strong>Bank:</strong> {{ include.data.bank_account.bank_name }}
-			</p>
-		{% endif %}
-		<!--/sse-->
-	</div>
+    {% if include.data.bank_account.owner %}
+      <h3 class="uppercase underline">Bankverbindung:</h3>
+      <p class="no-margin-top">
+        <strong>Inhaber:</strong> {{ include.data.bank_account.owner }}<br>
+        <strong>IBAN:</strong> {{ include.data.bank_account.iban }}<br>
+        <strong>BIC:</strong> {{ include.data.bank_account.bic }}<br>
+        <strong>Bank:</strong> {{ include.data.bank_account.bank_name }}
+      </p>
+    {% endif %}
+    <!--/sse-->
+  </div>
 </footer>

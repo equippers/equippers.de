@@ -1,19 +1,19 @@
 <header>
-	<a href="/" aria-label="logo">
-		{% include logo.html %}
-	</a>
+  <a href="/" aria-label="logo">
+    {% include logo.html %}
+  </a>
 
-	{% if include.nav %}
-	<button aria-label="toggle menu">
-		<span class="burger"></span>
-	</button>
+  {% if include.nav %}
+  <button aria-label="toggle menu">
+    <span class="burger"></span>
+  </button>
 
-		<nav>
-			{% for link in include.nav %}
-				<a href="{{ link.goes_to }}" class="{% if link.border %}border{% endif %} {% if link.hidden_on_tablet %}hidden-on-tablet{% endif %}">
-					{{ link.title }}
-				</a>
-			{% endfor %}
-		</nav>
-	{% endif %}
+    <nav>
+      {% for link in include.nav %}
+        <a href="{{ link.goes_to }}" class="{% if link.border %}border{% endif %} {% if link.hidden_on_tablet %}hidden-on-tablet{% endif %}">
+          {{ link.title }}
+        </a>
+      {% endfor %}
+    </nav>
+  {% endif %}
 </header>
