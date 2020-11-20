@@ -8,6 +8,8 @@ berlin:
     goes_to: /berlin/equip
   - title: eGroups
     goes_to: /berlin/egroups
+  - title: Hygge
+    goes_to: /berlin/sistas
   - title: Podcast
     goes_to: https://overcast.fm/itunes977023058/equippers-berlin
 muenchen:

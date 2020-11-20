@@ -19,7 +19,9 @@ export interface Group {
 declare const groups: Group[];
 
 (window as any).toggleModal = toggleModal;
-(window as any).initMap = initMap(groups);
+if (groups.length) {
+	(window as any).initMap = initMap(groups);
+}
 (window as any).renderRecaptchas = renderRecaptchas(groups);
 
 stopModalContentPropagation();
