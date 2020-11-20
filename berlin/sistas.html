@@ -5,28 +5,152 @@ aliases:
 hero:
   html: <h1>Sistas</h1>
   image: /uploads/sistas-hero.jpg
+email:
+  admins: jonotkd@gmail.com
+  subject: equippers.de - Neue Sistas-Workshop Anmeldung
+workshops:
+  -
+    id: one
+    name: Sternenform und Lichterglanz
+    leader: Evi
+    shortdesc: "Wir basteln wunderschöne Weihnachtssterne"
+    desc: "Wir basteln etwas Einfaches und doch sehr Dekoratives: Wunderschöne Weihnachtssterne aus Brottüten und Lichterglanz in Altgläsern.</br>
+    Was du dafür benötigst:</br>
+    - 7 Butterbrottüten (für einen Stern), Klebestift oder flüssigen Klebstoff, einen Stift, Schere, Garn zum Aufhängen, verschieden große Altgläser.</br>
+    - zum Verschönern der Altgläser: Teelichter, Bindfaden, Schleifenbänder, Spitze, Dekosteinen zum Befüllen, Ornamente zum Anbinden, Aufkleber, kleine Knöpfe und Perlen usw.; hilfreich wären: Heißklebepistole und Bastelkleber</br>"
+    img: sternenform.jpg
+  -
+    id: two
+    name: Weihnachtsnäherei
+    leader: Nicole
+    shortdesc: "Wir nähen Weihnachtsstiefelchen"
+    desc: 'Wir nähen Weihnachtsstiefelchen<br><br>
+Was du dafür benötigst:<br>
+- Nähmaschine, Schneiderscheere, Stecknadeln, evtl. Schneiderkreide, farblich passendes Garn, evtl. Bändchen, Spitze, Schleifen, Tüddelkram, und natürlich Stoff (nicht dehnbar)<br><br>
+Tipp: wenn Du keinen Stoff kaufen möchtest kannst Du auch beispielsweise Bettwäsche, Tischwäsche, Geschirrhandtücher oder sogar Jeans upcyclen<br><br>
+Was du vorbereiten musst:<br>
+Bitte drucke das Schnittmuster vorher aus. Achte bitte unbedingt darauf, bei den Druckereinstellungen die „Tatsächliche Größe“ einzustellen.<br>
+Wenn du keinen Drucker zuhause hast, kannst du dir am Sonntag (22.11.2020) am Welcome Desk ein Schnittmuster abholen.<br>
+Den Schnitt „Mini stockings by shabbyfabrics“ findest Du <a href="https://www.shabbyfabrics.com/Assets/Downloads/MiniStockings_forDownload.pdf">hier</a>.<br>'
+    img: weihnachtsnaeherei.png
+  -
+    id: three
+    name: Handlettering
+    leader: Mel
+    shortdesc: "die Grundlagen von Handlettering"
+    desc: 'In diesem Workshop lernst du die Grundlagen von Handlettering und bekommst wertvolle Tipps und Tricks.<br><br>
+Was du dafür benötigst:<br>
+Bitte kaufe im Vorfeld Handlettering-Stifte zB <a href="https://www.amazon.de/dp/B07GR37DGZ/ref=cm_sw_r_wa_api_fabc_MBLTFbFWS2320">hier</a>.<br><br>
+Was du vorbereiten musst:<br>
+Bitte drucke das PDF Übungsblatt aus, das vorab von Melissa versandt wird oder frage Sonntag (22.11.2020) am Welcome Desk danach.<br>'
+    img: handlettering.png
 ---
+
+<div id="modal-bg"></div>
+
+{% for g in page.workshops %}
+<div
+  class="modal"
+  id="group-modal-{{ g.id }}"
+  onclick="toggleModal('{{ g.id }}', 'off');"
+>
+  <div class="modal-content">
+    <div class="modal-close" onclick="toggleModal('{{ g.id }}', 'off');">
+      X
+    </div>
+    <h5>{{ g.name }}</h5>
+    {% if g.img %}<img
+      src="{{ page.route }}/uploads/sistas/{{ g.img }}"
+      alt="Profile"
+    />{% endif %} {% if g.img2 %}<img
+      src="{{ page.route }}/uploads/sistas/{{ g.img2 }}"
+      alt="Profile2"
+    />{% endif %}
+    <p>
+      <strong>Beschreibung:</strong> {{ g.desc }}<br />
+      <strong>Leiter:</strong> {{ g.leader }}<br />
+    </p>
+    <form method="post" id="group-form-{{ g.id }}" action="/berlin/sistas">
+      <legend>Kontaktiere den Leiter:</legend>
+      <label>
+        Dein Name:
+        <input type="text" name="Name" />
+      </label>
+      <label>
+        Email-Adresse:
+        <input type="email" name="email" />
+      </label>
+      <label style="margin-bottom: 0;">
+        Nachricht:
+        <textarea name="Nachricht" rows="5"></textarea>
+      </label>
+
+      <input type="hidden" name="Gewählte Gruppe" value="{{g.name}}" />
+      <input type="hidden" name="_cc" value="{{ page.email.admins }}" />
+      <input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
+      <input type="hidden" name="_subject" value="{{ page.email.subject }}" />
+
+      <p>
+        Durch das Absenden dieses Formulars erkläre ich mich damit einverstanden, dass meine Daten zum Zweck der Workshop-Anmeldung verarbeitet werden, damit ich kontaktiert werden kann.
+        <br>
+        <i class="gray-color"></i>Diese personenbezogenen Daten werden nicht an Dritte weitergegeben und können auf Anfrage gelöscht werden.</i>
+      </p>
+
+      <div class="captcha" id="html_element_{{ g.id }}"></div>
+      <input
+        class="btn"
+        type="button"
+        value="Abbrechen"
+        onclick="toggleModal('{{ g.id }}', 'off');"
+      />
+      <input
+        id="group-modal-send-{{ g.id }}"
+        class="btn btn-blue"
+        type="submit"
+        value="Senden"
+      />
+      <input type="text" name="_gotcha" style="display: none;" />
+    </form>
+  </div>
+</div>
+{% endfor %}
 
 {% include hero.html options=page.hero %}
 
 <article>
   <section class="editable content">
     <h1>SISTAS ADVENT HYGGE ONLINE</h1>
-    <p>Die Adventszeit sieht dieses Jahr anders aus als gewohnt. Doch der Grund für diese Zeit bleibt derselbe: Wir warten auf den Retter – Jesus – dessen demütige Geburt in diese Welt wir an Weihnachten feiern. Deshalb lassen wir uns von den Umständen nicht abhalten, es uns richtig gemütlich zu machen: Mit unserem Advent Hygge Online!</p>
-    <p>Willst du mit uns das Licht, das in die Welt kommt, diese Adventszeit höher halten, als alles was uns die Stimmung vermiesen könnte?<br>
+    <p>Die Adventszeit sieht dieses Jahr anders aus als gewohnt. Doch der Grund für diese Zeit bleibt derselbe: Wir warten auf den Retter – Jesus–, dessen demütige Geburt in diese Welt wir an Weihnachten feiern. Deshalb lassen wir uns von den Umständen nicht abhalten, es uns richtig gemütlich zu machen: Mit unserem Advent Hygge Online!</p>
+    <p>Willst du mit uns das Licht, das in die Welt kommt, diese Adventszeit höher halten als alles, was uns die Stimmung vermiesen könnte?<br>
     Dann melde dich jetzt zum Advents Hygge an! </p>
     <img src="/uploads/events/sistas-advent-hygge-11-2020.jpg" alt="Sistas Hygge"/>
     <h2>ADVENT CELEBRATION – 20 UHR</h2>
-    <p>Mach dich mit Kerzenschein, einem Tee (oder Glühwein/Punsch;)) und ein paar Keksen bereit und klick dich rein, wenn wir ab 20 Uhr die Adventszeit mit einer kurzen, knackigen Celebration einläuten. Mit Input, Musik, gegenseitiger Ermutigung und mehr wollen wir uns gemeinsam auf das Besinnen, was wirklich zählt: Jesu Licht und Liebe, die wir und die Welt so dringend brauchen!</p>
+    <p>Mach dich mit Kerzenschein, einem Tee (oder Glühwein/Punsch;)) und ein paar Keksen bereit und klick dich rein, wenn wir ab 20 Uhr die Adventszeit mit einer kurzen, knackigen Celebration einläuten. Mit Input, Musik, gegenseitiger Ermutigung und mehr wollen wir uns gemeinsam auf das besinnen, was wirklich zählt: Jesu Licht und Liebe, die wir und die Welt so dringend brauchen!</p>
     <h2>KREATIV ADVENT – 20:45 UHR</h2>
     <p>Was wäre der Advent ohne Basteleien und entspanntes Kreativsein? Es wäre nur halb so schön! Deshalb darfst du schon jetzt einen unserer Online-Workshops aussuchen, bei denen selbst über den Bildschirm hyggelige Weihnachtsstimmung aufkommt. Klicke auf einen Workshop, lies dir die Beschreibung durch und trag dich bei deinem Favoriten mit deinem Namen und deiner Emailadresse ein. Der Workshop-Leiter teilt dir dann per Email mit, was du vorbereiten bzw. einkaufen solltest.</p>
-    <p>Handlettering mit Melissa</p>
-    <p>Lebkuchenhaus gestalten</p>
-    <p>Weihnachtsgesteck basteln</p>
-    <p>Poetry Slam mit Theresa aus Gießen</p>
-    <p>Hier kannst du dich demnächst fur die Workshops anmelden.</p>
+    <p>Hier kannst du dich für die Workshops anmelden:</p>
+    <section class="egroups padding-vertical">
+      <div class="content">
+        <div class="s-group-grid">
+          {% for group in page.workshops %}
+
+          <div class="s-group">
+            <h4>{{ group.name }}</h4>
+            <p>Leader: {{ group.leader }}<p>
+            <p>{{ group.shortdesc }}</p>
+            <button
+              class="button outline"
+              onclick="toggleModal('{{ group.id }}', 'on'); return false;"
+            >
+              Melde dich an!
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
     <h2>GEMEINSAM STATT EINSAM</h2>
-    <p>Warum lädst du nicht eine Freundin zu dir nach Hause ein und ihr erlebt den SISTAS ADVENT HYGGE ONLINE gemeinsam? Zwei Haushalte dürfen sich bekanntlich treffen – also mach es dir mit einer Freundin zusammen gemütlich, denn so ist es doch am Hyggeligsten!</p>
+    <p>Warum lädst du nicht eine Freundin zu dir nach Hause ein und ihr erlebt den SISTAS ADVENT HYGGE ONLINE gemeinsam? Zwei Haushalte dürfen sich bekanntlich treffen – also mach es dir mit einer Freundin zusammen gemütlich, denn so ist es doch am hyggeligsten!</p>
 <!--
     <h1>Sistas</h1>
 
@@ -42,3 +166,16 @@ hero:
     <p>
   </section>
 </article>
+
+<script>
+  const groups = [
+    {% for g in page.workshops %}
+        {
+            modalId: '{{ g.id }}'
+        },
+    {% endfor %}
+  ];
+  localStorage.setItem('egroups-gdpr-accepted', 'true');
+</script>
+
+<script src="/js/egroups-bundle.js"></script>
