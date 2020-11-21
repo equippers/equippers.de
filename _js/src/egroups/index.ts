@@ -27,7 +27,9 @@ if (groups.length) {
 stopModalContentPropagation();
 setUpForms(groups);
 
-if (localStorage.getItem('egroups-gdpr-accepted')) {
+const eGroupsGDPRAccepted = localStorage.getItem('egroups-gdpr-accepted') && window.location.href.includes('egroups');
+const isSistasWebsite = window.location.href.includes('sistas');
+if (eGroupsGDPRAccepted || isSistasWebsite) {
 	loadScripts();
 } else {
 	document.querySelector('#gdpr button' as 'button')?.addEventListener('click', loadScripts);
