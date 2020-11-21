@@ -86,8 +86,7 @@ Bitte drucke das PDF Übungsblatt aus, das vorab von Melissa versandt wird oder 
       </label>
 
       <input type="hidden" name="Gewählte Gruppe" value="{{g.name}}" />
-      <input type="hidden" name="_cc" value="{{ page.email.admins }}" />
-      <input type="hidden" name="_to" value="{{ g.email|safe_email }}" />
+      <input type="hidden" name="_to" value="{{ page.email.admins }}" />
       <input type="hidden" name="_subject" value="{{ page.email.subject }}" />
 
       <p>
