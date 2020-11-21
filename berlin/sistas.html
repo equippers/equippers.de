@@ -13,12 +13,13 @@ workshops:
     id: one
     name: Sternenform und Lichterglanz
     leader: Evi
-    shortdesc: "Wir basteln wunderschöne Weihnachtssterne"
+    shortdesc: "Wir basteln Weihnachtssterne und gestalten Winterlichter"
     desc: "Wir basteln etwas Einfaches und doch sehr Dekoratives: Wunderschöne Weihnachtssterne aus Brottüten und Lichterglanz in Altgläsern.</br>
     Was du dafür benötigst:</br>
     - 7 Butterbrottüten (für einen Stern), Klebestift oder flüssigen Klebstoff, einen Stift, Schere, Garn zum Aufhängen, verschieden große Altgläser.</br>
-    - zum Verschönern der Altgläser: Teelichter, Bindfaden, Schleifenbänder, Spitze, Dekosteinen zum Befüllen, Ornamente zum Anbinden, Aufkleber, kleine Knöpfe und Perlen usw.; hilfreich wären: Heißklebepistole und Bastelkleber</br>"
+    - zum Verschönern der Altgläser: Teelichter, Bindfaden, Schleifenbänder, Spitze, Dekosteinen zum Befüllen, Ornamente zum Anbinden, Aufkleber, kleine Knöpfe und Perlen usw.; hilfreich wären: Heißklebepistole und Bastelkleber"
     img: sternenform.jpg
+    img2: teelicht.jpg
   -
     id: two
     name: Weihnachtsnäherei
@@ -26,13 +27,13 @@ workshops:
     shortdesc: "Wir nähen Weihnachtsstiefelchen"
     desc: 'Wir nähen Weihnachtsstiefelchen<br><br>
 Was du dafür benötigst:<br>
-- Nähmaschine, Schneiderscheere, Stecknadeln, evtl. Schneiderkreide, farblich passendes Garn, evtl. Bändchen, Spitze, Schleifen, Tüddelkram, und natürlich Stoff (nicht dehnbar)<br><br>
+- Nähmaschine, Schneiderscheere, Stecknadeln, evtl. Schneiderkreide, farblich passendes Garn, evtl. Bändchen, Spitze, Schleifen, Tüddelkram, Bügeleisen, und natürlich Stoff (nicht dehnbar)<br><br>
 Tipp: wenn Du keinen Stoff kaufen möchtest kannst Du auch beispielsweise Bettwäsche, Tischwäsche, Geschirrhandtücher oder sogar Jeans upcyclen<br><br>
 Was du vorbereiten musst:<br>
 Bitte drucke das Schnittmuster vorher aus. Achte bitte unbedingt darauf, bei den Druckereinstellungen die „Tatsächliche Größe“ einzustellen.<br>
 Wenn du keinen Drucker zuhause hast, kannst du dir am Sonntag (22.11.2020) am Welcome Desk ein Schnittmuster abholen.<br>
-Den Schnitt „Mini stockings by shabbyfabrics“ findest Du <a href="https://www.shabbyfabrics.com/Assets/Downloads/MiniStockings_forDownload.pdf">hier</a>.<br>'
-    img: weihnachtsnaeherei.png
+Den Schnitt „Mini stockings by shabbyfabrics“ findest Du <a href="https://www.shabbyfabrics.com/Assets/Downloads/MiniStockings_forDownload.pdf">hier</a>.'
+    img: weihnachtsnaeherei.jpg
   -
     id: three
     name: Handlettering
@@ -42,8 +43,26 @@ Den Schnitt „Mini stockings by shabbyfabrics“ findest Du <a href="https://ww
 Was du dafür benötigst:<br>
 Bitte kaufe im Vorfeld Handlettering-Stifte zB <a href="https://www.amazon.de/dp/B07GR37DGZ/ref=cm_sw_r_wa_api_fabc_MBLTFbFWS2320">hier</a>.<br><br>
 Was du vorbereiten musst:<br>
-Bitte drucke das PDF Übungsblatt aus, das vorab von Melissa versandt wird oder frage Sonntag (22.11.2020) am Welcome Desk danach.<br>'
+Bitte drucke das PDF Übungsblatt aus, das vorab von Melissa versandt wird oder frage Sonntag (22.11.2020) am Welcome Desk danach.'
     img: handlettering.png
+  -
+    id: four
+    name: Poetry Slam
+    leader: Theresa aus Gießen
+    desc: 'Was ist eigentlich ein Poetry Slam?<br>
+Was zeichnet ihn aus?<br>
+Du hast Lust, dich mit Worten zu beschäftigen und zu experimentieren oder dich an eigenen Poetry Slam heranzutasten? Oder einfach deine Erfahrungen vom Schreiben mit anderen teilen?<br>
+Wir werden uns in diesem Workshop mit dem Thema Slams beschäftigen und dabei eine spielerische Schreibwerkstatt schaffen, indem die eigene Kreativität und Freiheit nicht zu kurz kommen werden. Herzlich Willkommen!'
+  -
+    id: five
+    name: Plätzchenbäckerei
+    leader: Salome
+    desc: 'Wir backen zusammen Weihnachtsplätzchen! Mmmhhmm. Das wird lecker und garantiert viel Spaß! Wenn du Lust und Appetit hast, sei unbedingt dabei!<br><br>
+Was brauchen die Teilnehmerinnen?:<br>
+Plätzchenteig: 250g Mehl, 90g Zucker, 125g Butter, 1 Ei - am besten schon vorbereitet<br>
+Schüssel mit geknetetem Plätzchenteig, Nudelholz, Plätzchenausstechformen, Blech+ Backpapier, ev. Zuckerguss/ Streusel<br><br>
+Vorbereitungen: Plätzchenteigzutaten in eine Schüssel geben, verkneten'
+    img: platzchen.png
 ---
 
 <div id="modal-bg"></div>
@@ -67,8 +86,8 @@ Bitte drucke das PDF Übungsblatt aus, das vorab von Melissa versandt wird oder 
       alt="Profile2"
     />{% endif %}
     <p>
-      <strong>Beschreibung:</strong> {{ g.desc }}<br />
-      <strong>Leiter:</strong> {{ g.leader }}<br />
+      <strong>Beschreibung:</strong> {{ g.desc }}<br /><br/>
+      <strong>Leiterin:</strong> {{ g.leader }}<br />
     </p>
     <form method="post" id="group-form-{{ g.id }}" action="/berlin/sistas">
       <legend>Kontaktiere den Leiter:</legend>
@@ -135,7 +154,7 @@ Bitte drucke das PDF Übungsblatt aus, das vorab von Melissa versandt wird oder 
 
           <div class="s-group">
             <h4>{{ group.name }}</h4>
-            <p>Leader: {{ group.leader }}<p>
+            <p>Leiterin: {{ group.leader }}<p>
             <p>{{ group.shortdesc }}</p>
             <button
               class="button outline"
