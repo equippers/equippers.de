@@ -140,7 +140,7 @@ Bitte drucke das PDF Übungsblatt aus, das vorab von Melissa versandt wird oder 
             <p>{{ group.shortdesc }}</p>
             <button
               class="button outline"
-              onclick="location.href='mailto:mail@equippers.de?subject=Sistas Hygge Workshop Anmeldung'"
+              onclick="toggleModal('{{ group.id }}', 'on'); return false;"
             >
               Melde dich an!
             </button>
