@@ -22,15 +22,21 @@ declare const groups: Group[];
 if (groups.length) {
 	(window as any).initMap = initMap(groups);
 }
-(window as any).renderRecaptchas = renderRecaptchas(groups);
+const isSistasWebsite = window.location.href.includes('sistas');
+// BIG HACK... remove ASAP!
+if (!isSistasWebsite) {
+	(window as any).renderRecaptchas = renderRecaptchas(groups);
+}
 
 stopModalContentPropagation();
 setUpForms(groups);
 
 const eGroupsGDPRAccepted = localStorage.getItem('egroups-gdpr-accepted') && window.location.href.includes('egroups');
-const isSistasWebsite = window.location.href.includes('sistas');
 if (eGroupsGDPRAccepted || isSistasWebsite) {
-	loadScripts();
+	loadScripts(isSistasWebsite);
 } else {
-	document.querySelector('#gdpr button' as 'button')?.addEventListener('click', loadScripts);
+	document.querySelector('#gdpr button' as 'button')?.addEventListener('click', () => {
+		// Sistas website has no gdpr button as yet
+		loadScripts(false);
+	});
 }

@@ -15,12 +15,14 @@ const loadMapScripts = () => {
 	loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyBH1tkp47YpmWonbvUZiTBcUogkBuTjFgk&callback=initMap');
 };
 
-export const loadScripts = () => {
+export const loadScripts = (removeCaptcha?: boolean) => {
 	localStorage.setItem('egroups-gdpr-accepted', 'true');
 	if (document.querySelector('#gmap-wrapper' as 'div')) {
 		loadMapScripts();
 	}
 	document.querySelectorAll('.s-group button' as 'button').forEach(enableButton);
 
-	loadScript('https://www.google.com/recaptcha/api.js?onload=renderRecaptchas&render=explicit');
+	if (removeCaptcha === false || removeCaptcha === undefined) {
+		loadScript('https://www.google.com/recaptcha/api.js?onload=renderRecaptchas&render=explicit');
+	}
 };
