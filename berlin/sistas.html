@@ -5,186 +5,17 @@ aliases:
 hero:
   html: <h1>Sistas</h1>
   image: /uploads/sistas-hero.jpg
-email:
-  admins: katharina.stiefelhagen@equippers.de
-  subject: equippers.de - Neue Sistas-Workshop Anmeldung
-workshops:
-  -
-    id: one
-    name: Sternenform und Lichterglanz
-    leader: Evi
-    shortdesc: "Wir basteln Weihnachtssterne und gestalten Winterlichter"
-    desc: "Wir basteln etwas Einfaches und doch sehr Dekoratives: Wunderschöne Weihnachtssterne aus Brottüten und Lichterglanz in Altgläsern.</br>
-    Was du dafür benötigst:</br>
-    - 7 Butterbrottüten (für einen Stern), Klebestift oder flüssigen Klebstoff, einen Stift, Schere, Garn zum Aufhängen, verschieden große Altgläser.</br>
-    - zum Verschönern der Altgläser: Teelichter, Bindfaden, Schleifenbänder, Spitze, Dekosteinen zum Befüllen, Ornamente zum Anbinden, Aufkleber, kleine Knöpfe und Perlen usw.; hilfreich wären: Heißklebepistole und Bastelkleber"
-    img: sternenform.jpg
-    img2: teelicht.jpg
-  -
-    id: two
-    name: Weihnachtsnäherei
-    leader: Nicole
-    shortdesc: "Wir nähen Weihnachtsstiefelchen"
-    desc: 'Wir nähen Weihnachtsstiefelchen<br><br>
-Was du dafür benötigst:<br>
-- Nähmaschine, Schneiderscheere, Stecknadeln, evtl. Schneiderkreide, farblich passendes Garn, evtl. Bändchen, Spitze, Schleifen, Tüddelkram, Bügeleisen, und natürlich Stoff (nicht dehnbar)<br><br>
-Tipp: wenn Du keinen Stoff kaufen möchtest kannst Du auch beispielsweise Bettwäsche, Tischwäsche, Geschirrhandtücher oder sogar Jeans upcyclen<br><br>
-Was du vorbereiten musst:<br>
-Bitte drucke das Schnittmuster vorher aus. Achte bitte unbedingt darauf, bei den Druckereinstellungen die „Tatsächliche Größe“ einzustellen.<br>
-Wenn du keinen Drucker zuhause hast, kannst du dir am Sonntag (22.11.2020) am Welcome Desk ein Schnittmuster abholen.<br>
-Den Schnitt „Mini stockings by shabbyfabrics“ findest Du <a href="https://www.shabbyfabrics.com/Assets/Downloads/MiniStockings_forDownload.pdf">hier</a>.'
-    img: weihnachtsnaeherei.jpg
-  -
-    id: three
-    name: Handlettering
-    leader: Mel
-    shortdesc: "die Grundlagen von Handlettering"
-    desc: 'In diesem Workshop lernst du die Grundlagen von Handlettering und bekommst wertvolle Tipps und Tricks.<br><br>
-Was du dafür benötigst:<br>
-Bitte kaufe im Vorfeld Handlettering-Stifte zB <a href="https://www.amazon.de/dp/B07GR37DGZ/ref=cm_sw_r_wa_api_fabc_MBLTFbFWS2320">hier</a>.<br>
-Hilfreich ist, wenn du dir ein Übungsbuch bestellst. Ein Beispiel findest du hier: (Link: <a href="https://www.amazon.de/dp/164608151X/ref=cm_sw_r_cp_api_fabc_giNTFbYPQNN7S">hier</a>.)<br>
-Alternativ gibt es diese Woche bei Aldi ein Handlettering-Einsteigerset mit Übungskarten und Stiften. Der Handlettering-Stil ist hier zwar etwas anders, aber du kannst auch damit am Workshop teilnehmen.'
-    img: handlettering.png
-  -
-    id: four
-    name: Poetry Slam
-    leader: Theresa aus Gießen
-    desc: 'Was ist eigentlich ein Poetry Slam?<br>
-Was zeichnet ihn aus?<br>
-Du hast Lust, dich mit Worten zu beschäftigen und zu experimentieren oder dich an eigenen Poetry Slam heranzutasten? Oder einfach deine Erfahrungen vom Schreiben mit anderen teilen?<br>
-Wir werden uns in diesem Workshop mit dem Thema Slams beschäftigen und dabei eine spielerische Schreibwerkstatt schaffen, indem die eigene Kreativität und Freiheit nicht zu kurz kommen werden. Herzlich Willkommen!'
-    img: theresa.jpg
-  -
-    id: five
-    name: Plätzchenbäckerei
-    leader: Salome
-    desc: 'Wir backen zusammen Weihnachtsplätzchen! Mmmhhmm. Das wird lecker und garantiert viel Spaß! Wenn du Lust und Appetit hast, sei unbedingt dabei!<br><br>
-Was brauchen die Teilnehmerinnen?:<br>
-Plätzchenteig: 250g Mehl, 90g Zucker, 125g Butter, 1 Ei - am besten schon vorbereitet<br>
-Schüssel mit geknetetem Plätzchenteig, Nudelholz, Plätzchenausstechformen, Blech+ Backpapier, ev. Zuckerguss/ Streusel<br><br>
-Vorbereitungen: Plätzchenteigzutaten in eine Schüssel geben, verkneten'
-    img: platzchen.png
 ---
-
-<div id="modal-bg"></div>
-
-{% for g in page.workshops %}
-<div
-  class="modal"
-  id="group-modal-{{ g.id }}"
-  onclick="toggleModal('{{ g.id }}', 'off');"
->
-  <div class="modal-content">
-    <div class="modal-close" onclick="toggleModal('{{ g.id }}', 'off');">
-      X
-    </div>
-    <h5>{{ g.name }}</h5>
-    {% if g.img %}<img
-      src="{{ page.route }}/uploads/sistas/{{ g.img }}"
-      alt="Profile"
-    />{% endif %} {% if g.img2 %}<img
-      src="{{ page.route }}/uploads/sistas/{{ g.img2 }}"
-      alt="Profile2"
-    />{% endif %}
-    <p>
-      <strong>Beschreibung:</strong> {{ g.desc }}<br /><br/>
-      <strong>Leiterin:</strong> {{ g.leader }}<br />
-    </p>
-    <form method="post" id="group-form-{{ g.id }}" action="/berlin/sistas">
-      <legend>Kontaktiere den Leiter:</legend>
-      <label>
-        Dein Name:
-        <input type="text" name="Name" />
-      </label>
-      <label>
-        Email-Adresse:
-        <input type="email" name="email" />
-      </label>
-      <label style="margin-bottom: 0;">
-        Nachricht:
-        <textarea name="Nachricht" rows="5"></textarea>
-      </label>
-
-      <input type="hidden" name="Gewählte Gruppe" value="{{g.name}}" />
-      <input type="hidden" name="_to" value="{{ page.email.admins }}" />
-      <input type="hidden" name="_subject" value="{{ page.email.subject }}" />
-
-      <p>
-        Durch das Absenden dieses Formulars erkläre ich mich damit einverstanden, dass meine Daten zum Zweck der Workshop-Anmeldung verarbeitet werden, damit ich kontaktiert werden kann.
-        <br>
-        <i class="gray-color"></i>Diese personenbezogenen Daten werden nicht an Dritte weitergegeben und können auf Anfrage gelöscht werden.</i>
-      </p>
-
-      <div class="captcha" id="html_element_{{ g.id }}"></div>
-      <input
-        class="btn"
-        type="button"
-        value="Abbrechen"
-        onclick="toggleModal('{{ g.id }}', 'off');"
-      />
-      <input
-        id="group-modal-send-{{ g.id }}"
-        class="btn btn-blue"
-        type="submit"
-        value="Senden"
-      />
-      <input type="text" name="_gotcha" style="display: none;" />
-    </form>
-  </div>
-</div>
-{% endfor %}
 
 {% include hero.html options=page.hero %}
 
 <article>
   <section class="editable content">
-    <h1>SISTAS ADVENT HYGGE ONLINE</h1>
-    <p>Die Adventszeit sieht dieses Jahr anders aus als gewohnt. Doch der Grund für diese Zeit bleibt derselbe: Wir warten auf den Retter – Jesus–, dessen demütige Geburt in diese Welt wir an Weihnachten feiern. Deshalb lassen wir uns von den Umständen nicht abhalten, es uns richtig gemütlich zu machen: Mit unserem Advent Hygge Online!</p>
-    <p>Willst du mit uns das Licht, das in die Welt kommt, diese Adventszeit höher halten als alles, was uns die Stimmung vermiesen könnte?<br>
-    Dann melde dich jetzt zum Advents Hygge an! </p>
-    <img src="/uploads/events/sistas-advent-hygge-11-2020.jpg" alt="Sistas Hygge"/>
-    <h2>ADVENT CELEBRATION – 20 UHR</h2>
-    <p>Mach dich mit Kerzenschein, einem Tee (oder Glühwein/Punsch;)) und ein paar Keksen bereit und klick dich rein, wenn wir ab 20 Uhr die Adventszeit mit einer kurzen, knackigen Celebration einläuten. Mit Input, Musik, gegenseitiger Ermutigung und mehr wollen wir uns gemeinsam auf das besinnen, was wirklich zählt: Jesu Licht und Liebe, die wir und die Welt so dringend brauchen!</p>
-    <h2>KREATIV ADVENT – 20:45 UHR</h2>
-    <p>Was wäre der Advent ohne Basteleien und entspanntes Kreativsein? Es wäre nur halb so schön! Deshalb darfst du schon jetzt einen unserer Online-Workshops aussuchen, bei denen selbst über den Bildschirm hyggelige Weihnachtsstimmung aufkommt. Klicke auf einen Workshop, lies dir die Beschreibung durch und trag dich bei deinem Favoriten mit deinem Namen und deiner Emailadresse ein. Technische Hilfestellung für das Event findest du <a href="#help">hier.</a></p>
-    <section class="egroups padding-vertical">
-      <div class="content">
-        <div class="s-group-grid">
-          {% for group in page.workshops %}
-
-          <div class="s-group">
-            <h4>{{ group.name }}</h4>
-            <p>Leiterin: {{ group.leader }}<p>
-            <p>{{ group.shortdesc }}</p>
-            <button
-              class="button outline"
-              onclick="toggleModal('{{ group.id }}', 'on'); return false;"
-            >
-              Melde dich an!
-            </button>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-    <h2>GEMEINSAM STATT EINSAM</h2>
-    <p>Warum lädst du nicht eine Freundin zu dir nach Hause ein und ihr erlebt den SISTAS ADVENT HYGGE ONLINE gemeinsam? Zwei Haushalte dürfen sich bekanntlich treffen – also mach es dir mit einer Freundin zusammen gemütlich, denn so ist es doch am hyggeligsten!</p>
-    <h2 id="help">Technische Voraussetzungen für Hygge Online</h2>
-    <p>Du benötigst einen Computer, Laptop, Tablet oder Smartphone. Solltest du keins dieser Geräte haben, dann lade dich doch bei jemandem ein, der dies ggf hat.</p>
-    <p>Auf deinem Computer öffnest du den Browser und fügst dort einfach den Link zu Zoom ein, den du weiter unten findest, dann wirst du automatisch mit unserem Hygge Event verbunden. Dies funktioniert nur an dem Tag selbst. Du kannst es vorher gern einmal probieren aber du wirst dich nicht final einwählen können.</p>
-    <p>Wenn du bereits Erfahrung hast, dann kannst du einfach das Zoom Programm auf dem Computer,  o. ä. öffnen und die ZOOM ID einfügen.</p>
-    <p>Wenn du am Event auf dem Tablet oder Smartphone teilnehmen möchtest, dann lade dir bitte die ZOOM App herunter und dann kannst du dich ganz einfach einwählen.</p>
-    <p>ZOOM ID: 302 866 0616</p>
-    <p>ZOOM LINK: <a href="https://us02web.zoom.us/j/302866061">https://us02web.zoom.us/j/302866061</a></p>
-    <p>ZOOM Website: <a href="https://zoom.us">https://zoom.us</a></p>
-    <p>ZOOM APP: <a href="https://zoom.us/download/">https://zoom.us/download/</a></p>
-    <p>Wenn du Fragen hierzu hast, dann schreibe einfach eine Mail an <a href="mailto:sistas@equippers.de">sistas@equippers.de</a>.</p>
-<!--
     <h1>Sistas</h1>
 
     <p>Wir, die Equippers Sistas, sind Frauen von jung bis alt und in den verschiedensten Lebenslagen, die es lieben, gemeinsam zu feiern, zu lachen, zu essen und vor allem: Jesus besser kennenzulernen! Wir sind Freundinnen, die füreinander da sind, sich gegenseitig ermutigen und anspornen, ihm nachzujagen und seine Berufung für unser Leben mehr und mehr zu entdecken. Denn dann kommen wir in die Fülle, die Gott für uns hat und machen einen positiven Unterschied in unserer Umgebung.</p>
     <p>Regelmäßig treffen wir uns - mal zu spaßigen Unternehmungen im Rahmen der „Sistas Night Out“ und mal zu geistlicher Gemeinschaft und Input.</p>
--->
+
     <p class="padding-top">
       <strong>Bleib im Kontakt mit uns und erhalte alle aktuellen Infos:</strong>
       </br>
@@ -194,15 +25,3 @@ Vorbereitungen: Plätzchenteigzutaten in eine Schüssel geben, verkneten'
     <p>
   </section>
 </article>
-
-<script>
-  const groups = [
-    {% for g in page.workshops %}
-        {
-            modalId: '{{ g.id }}'
-        },
-    {% endfor %}
-  ];
-</script>
-
-<script src="/js/egroups-bundle.js"></script>
