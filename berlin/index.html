@@ -135,28 +135,36 @@ promos:
 
     <p>
       <span class="light-font" style="font-size: 2.5em;">{{ page.service_time_ }}</span><br />
-      {{ page.locations[page.location].name }}<br />
+      <span style="background: #fe4a49; padding: 1em; margin: 1em 0; display: block; color: #fffcfb; border-radius: 0.1875rem;">
+        Bis einschließlich 10. Januar werden wir nur Online-Gottesdienste haben!
+      </span>
+      <!-- {{ page.locations[page.location].name }}<br /> -->
     </p>
 
-    <p><i class="editable">Der Check-In für <strong>Equippers Kids</strong> öffnet 15 Minuten vor dem Gottesdienst.</i></p>
+    <!-- <p><i class="editable">Der Check-In für <strong>Equippers Kids</strong> öffnet 15 Minuten vor dem Gottesdienst.</i></p> -->
 
-    <p>
+    <!-- <p>
       <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
       <br />
       {% if page.locations[page.location].bvg_link %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
+    </p> -->
+
+    <!-- <h2 class="padding-top">Livestream:</h2> -->
+
+    <p>
+      Abonniere unseren <strong><a class="red-color" href="https://www.youtube.com/channel/UCsrmi9NdlmG_Vor6raljIBg">Youtube-Channel</a></strong>, um keinen Livestream mehr zu verpassen.
     </p>
 
-    <h2 class="padding-top">Livestream:</h2>
-    <p>
+    {% include youtube-video.html id="T1MM7tHQ9r8" %}
+
+    <!-- <p>
       <strong><a class="red-color" href="https://www.youtube.com/channel/UCsrmi9NdlmG_Vor6raljIBg">Youtube</a></strong> // <strong><a class="blue-color" href="https://www.facebook.com/equippersberlin/">Facebook</a></strong>
-    </p>
+    </p> -->
 
     {%- comment -%}<p class="light-font" style="max-width: 27em; margin-left: auto; margin-right: auto">
       Wir würden es lieben, mit dir in Kontakt zu treten, oder dein Gebetsanliegen zu hören. Füll dazu doch gerne unsere <a style="font-weight: 400;" href="https://forms.gle/GwMtcCmn8ZgEfpqo7">Online-Kontaktkarte</a> oder <a style="font-weight: 400;" href="https://forms.gle/UpVB5EwHdkBLS9736">Gebetskarte</a> aus.
       <!-- Wenn du praktische Hilfe brauchst oder anbieten möchtest, dann melde dich bei uns über unsere <a style="font-weight: 400;" href="http://www.equippers.de/berlin/hilfe">Corona Hilfe.</a> -->
     </p>
-
-    <!-- {% include youtube-video.html id="6V19m7JmigA" %} -->
     {%- endcomment -%}
 
   </div>
