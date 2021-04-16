@@ -9,5 +9,5 @@ berlin:
   - title: eGroups
     goes_to: /berlin/egroups
   - title: Podcast
-    goes_to: https://overcast.fm/itunes977023058/equippers-berlin
+    goes_to: https://podcasts.google.com/feed/aHR0cHM6Ly9wb2RjYXN0LmVxdWlwcGVycy5kZS8
 muenchen:
