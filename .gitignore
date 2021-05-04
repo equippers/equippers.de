@@ -1,4 +1,5 @@
 node_modules
+.bundle/gems
 _site
 .sass-cache
 .jekyll-metadata
