@@ -150,15 +150,27 @@ promos:
 			{{ page.locations[page.location].name }}<br />
 		</p>
 
-		<!-- <p><i class="editable">Der Check-In für <strong>Equippers Kids</strong> öffnet 15 Minuten vor dem Gottesdienst.</i></p> -->
-
 		<!-- <p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}" target="_blank">Anfahrt mit Google Maps</a>
-      <br />
-      {% if page.locations[page.location].bvg_link %}<a href="{{ page.locations[page.location].bvg_link }}" target="_blank">Anfahrt mit BVG</a>{% endif %}
-    </p> -->
+			<i class="editable">Der Check-In für <strong>Equippers Kids</strong> öffnet 15 Minuten vor dem Gottesdienst.</i>
+		</p> -->
 
-		<!-- <h2 class="padding-top">Livestream:</h2> -->
+		<p>
+			<a
+				href="https://www.google.com/maps/dir/?api=1&destination={{ page.locations[page.location].name | url_encode }}"
+				target="_blank"
+				>Anfahrt mit Google Maps</a
+			>
+			<br />
+			{% if page.locations[page.location].bvg_link %}<a
+				href="{{ page.locations[page.location].bvg_link }}"
+				target="_blank"
+				>Anfahrt mit BVG</a
+			>{% endif %}
+		</p>
+
+		<h2 class="padding-top">Livestream:</h2>
+
+		{% include youtube-video.html id="fLux_kT1cIM" %}
 
 		<p>
 			Abonniere unseren
@@ -168,8 +180,6 @@ promos:
 				></strong
 			>, um keinen Livestream mehr zu verpassen.
 		</p>
-
-		{% include youtube-video.html id="NUeKWvLZ1hc" %}
 
 		<!-- <p>
       <strong><a class="red-color" href="https://www.youtube.com/channel/UCsrmi9NdlmG_Vor6raljIBg">Youtube</a></strong> // <strong><a class="blue-color" href="https://www.facebook.com/equippersberlin/">Facebook</a></strong>
