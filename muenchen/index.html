@@ -8,6 +8,7 @@ hero:
 mailchimp_options:
   action: https://equippers.us17.list-manage.com/subscribe/post?u=53e3fada419ead2b99592a5b7&amp;id=d643cbbe24
   fake_input_name: b_53e3fada419ead2b99592a5b7_d643cbbe24
+map_iframe_url: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.2954953026574!2d11.525931315647156!3d48.08523997921928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddf2be420b51f%3A0xf8b16d864c3c6594!2sEquippers%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1600808039362!5m2!1sen!2sde
 ---
 
 {% include hero.html options=page.hero %}
@@ -36,7 +37,7 @@ mailchimp_options:
     </p>
   </div>
 
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2665.2954953026574!2d11.525931315647156!3d48.08523997921928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddf2be420b51f%3A0xf8b16d864c3c6594!2sEquippers%20M%C3%BCnchen!5e0!3m2!1sen!2sde!4v1600808039362!5m2!1sen!2sde" width="600" height="320" frameborder="0" style="display:block;border:0;width:100%;" allowfullscreen=""></iframe>
+  <iframe src="{{page.map_iframe_url}}" width="600" height="320" frameborder="0" style="display:block;border:0;width:100%;" allowfullscreen=""></iframe>
 </section>
 
 <section id="newsletter" class="light-gray padding-vertical">
